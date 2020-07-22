@@ -1,0 +1,74 @@
+@import '../../styles/variables';
+
+.signup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .role-select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1 {
+      font-family: $barlow;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 7.5rem;
+      line-height: 7.5rem;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 7rem;
+    }
+    .role-select-button {
+      width: 350px;
+      h2 {
+        color: $primary;
+        font-size: 4rem;
+        font-family: $barlow;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      p {
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        text-align: center;
+        letter-spacing: -0.1px;
+      }
+      &:first-of-type {
+        margin-bottom: 6rem;
+      }
+    }
+  }
+  .signup-form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 750px;
+    background: $grey-darker;
+    position: relative;
+    padding: 20px;
+    max-height: 80vh;
+    overflow: auto;
+    .text-slogan {
+      padding-right: 45px;
+    }
+    .back {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: $grey;
+      background: transparent;
+      cursor: pointer;
+    }
+    h1 {
+      font-family: $barlow;
+      font-weight: 400;
+      font-size: 4rem;
+      line-height: 4.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 20px 0;
+    }
+  }
+}

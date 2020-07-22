@@ -1,0 +1,18 @@
+.layout-wrapper {
+  display: grid;
+  grid-gap: 50px 10px;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+
+  header,
+  footer {
+    grid-column: col-start / span 12;
+  }
+
+  main {
+    grid-row: 2;
+    grid-column: col-start 3 / span 8;
+    max-width: 1200px;
+  }
+}

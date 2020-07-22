@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+
+footer {
+  min-height: 100px;
+  background-color: $grey-darker;
+  .wrapper {
+    width: 80%;
+    margin: 0 auto;
+    max-width: 1500px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}

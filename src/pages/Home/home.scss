@@ -1,0 +1,75 @@
+@import '../../styles/variables.scss';
+
+main.home-page {
+  section {
+    margin-bottom: 100px;
+  }
+  h2 {
+    font-family: $barlow;
+    font-weight: 600;
+    font-size: 6.4rem;
+    line-height: 7rem;
+    text-transform: uppercase;
+    text-align: center;
+    span {
+      display: block;
+    }
+  }
+  p {
+    color: #f6f6f6;
+  }
+  .intro-section {
+    max-width: 500px;
+    .text-slogan,
+    p {
+      margin-bottom: 15px;
+    }
+  }
+  .signup-section {
+    display: flex;
+    flex-wrap: wrap;
+    h2 {
+      margin-bottom: 30px;
+      flex-basis: 100%;
+    }
+    figure {
+      flex: 1 1 calc(50% - 10px);
+      text-align: center;
+      background-color: $grey-darker;
+      padding: 20px;
+      img {
+        height: 270px;
+        width: 100%;
+        object-fit: cover;
+      }
+      h3 {
+        font-family: $barlow;
+        font-weight: 600;
+        font-size: 4rem;
+        text-transform: uppercase;
+        margin: 10px 0;
+      }
+      p {
+        margin: 20px 0;
+      }
+      &:first-of-type {
+        margin-right: 20px;
+      }
+    }
+  }
+  .partner-section {
+    display: flex;
+    img {
+      object-fit: cover;
+    }
+    > div {
+      flex: 1 1 50%;
+    }
+    h2 {
+      text-align: left;
+    }
+    p {
+      margin: 20px 0;
+    }
+  }
+}

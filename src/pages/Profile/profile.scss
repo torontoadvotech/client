@@ -1,0 +1,56 @@
+@import '../../styles/variables.scss';
+
+main.profile-page {
+  background: $grey-darker;
+  padding: 40px;
+  .profile-summary {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  h2 {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+  }
+  .profile-summary--img-container {
+    flex: 0 1 145px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+  }
+  .profile-summary--details {
+    h1 {
+      text-transform: uppercase;
+      color: $primary;
+      font-weight: 600;
+      font-size: 3.6rem;
+      font-family: $barlow;
+      margin-bottom: 5px;
+    }
+    span {
+      display: block;
+      margin-bottom: 2rem;
+    }
+    button {
+      background: none;
+      text-transform: capitalize;
+      text-decoration: underline;
+      color: #fff;
+      padding: 0;
+    }
+  }
+  .application-container {
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    .application-container--heading {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    .application-container--no-sessions {
+      color: $grey-dark;
+      text-align: center;
+    }
+  }
+}
