@@ -1,53 +1,53 @@
-import React, { ReactElement } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import API from '../../lib/API';
-import { UserAuth } from '../../lib/types';
+import React, { ReactElement } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import API from "../../lib/API";
+import { UserAuth } from "../../lib/types";
 
 interface Props {
   goBack: () => void;
-  role: 'mentor' | 'mentee';
+  role: "mentor" | "mentee";
 }
 
-export default function SignupForm({ goBack, role }: Props): ReactElement {
+export default function SignUpForm({ goBack, role }: Props): ReactElement {
   // Initial form values
   const initialValues: UserAuth = {
-    fullName: '',
-    email: '',
-    password: '',
-    passwordConfirm: ''
+    name: "",
+    email: "",
+    password: "",
+    passwordConfirm: "",
   };
 
   // Validate user inputs before submission (will also be validated by the server)
   const validationSchema = Yup.object({
-    fullName: Yup.string().required('Required'),
+    fullName: Yup.string().required("Required"),
     email: Yup.string()
-      .email('Invalid email address')
-      .required('Required'),
+      .email("Invalid email address")
+      .required("Required"),
     password: Yup.string()
-      .min(8, 'Must be at least 8 characters long')
-      .required('Required'),
+      .min(8, "Must be at least 8 characters long")
+      .required("Required"),
     passwordConfirm: Yup.string()
       .test(
-        'Password confirm matches password',
-        'Password does not match',
+        "Password confirm matches password",
+        "Password does not match",
         function(value) {
           const { password } = this.parent;
           return password === value;
         }
       )
-      .required('Required')
+      .required("Required"),
   });
 
   // Send request to backend to sign up user
   const onSubmit = (values: UserAuth) => {
-    const { fullName, email, password, passwordConfirm } = values;
+    const { name, email, password, passwordConfirm } = values;
 
-    API.signup({ fullName, email, password, passwordConfirm, role });
+    API.signUp({ name, email, password, passwordConfirm, role });
   };
 
   return (
-    <div className="signup-form-container">
+    <div className="form-container form-container__signup">
       <button className="back" onClick={goBack}>
         Back
       </button>

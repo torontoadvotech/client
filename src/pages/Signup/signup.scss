@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .signup {
   display: flex;
@@ -39,36 +39,9 @@
       }
     }
   }
-  .signup-form-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 750px;
-    background: $grey-darker;
-    position: relative;
-    padding: 20px;
-    max-height: 80vh;
-    overflow: auto;
+  .form-container__signup {
     .text-slogan {
       padding-right: 45px;
-    }
-    .back {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      color: $grey;
-      background: transparent;
-      cursor: pointer;
-    }
-    h1 {
-      font-family: $barlow;
-      font-weight: 400;
-      font-size: 4rem;
-      line-height: 4.8rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-align: center;
-      margin: 20px 0;
     }
   }
 }

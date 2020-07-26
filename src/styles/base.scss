@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&family=Oxygen+Mono&display=swap');
-@import './reset.scss';
-@import './variables.scss';
-@import './layout.scss';
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&family=Oxygen+Mono&display=swap");
+@import "./reset.scss";
+@import "./variables.scss";
+@import "./layout.scss";
+@import "./forms.scss";
 
 html {
   box-sizing: border-box;
@@ -57,7 +58,7 @@ button {
   background: $grey-darker;
   &::after,
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: 100%;
@@ -162,50 +163,6 @@ button {
 
 .hide {
   visibility: hidden;
-}
-
-// Form Styles
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .field-container {
-    position: relative;
-    width: 75%;
-    margin-bottom: 1.5rem;
-  }
-  label,
-  input {
-    display: block;
-    width: 100%;
-  }
-  label {
-    font-family: $barlow;
-    font-weight: 400;
-    font-size: 2.4rem;
-    line-height: 4rem;
-    letter-spacing: 0.6px;
-    text-transform: uppercase;
-  }
-  input {
-    background: transparent;
-    border: 2px solid $grey;
-    color: $grey;
-    font-size: 1.6rem;
-    padding: 0.5rem 1rem;
-  }
-  .form-error {
-    position: absolute;
-    top: 1.5rem;
-    right: 0;
-    color: $primary;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-  }
-  button {
-    padding: 15px 40px;
-    margin: 20px 0;
-  }
 }
 
 // Slogan

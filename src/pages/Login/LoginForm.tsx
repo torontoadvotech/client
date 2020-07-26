@@ -1,9 +1,9 @@
-import React, { ReactElement, Dispatch, SetStateAction, useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { UserAuth } from '../../lib/types';
-import { User } from '../../containers/user.container';
-import * as Yup from 'yup';
-import API from '../../lib/API';
+import React, { ReactElement, Dispatch, SetStateAction, useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { UserAuth } from "../../lib/types";
+import { User } from "../../containers/user.container";
+import * as Yup from "yup";
+import API from "../../lib/API";
 
 interface Props {
   onLogIn: Dispatch<SetStateAction<boolean>>;
@@ -14,16 +14,16 @@ export default function LoginForm({ onLogIn }: Props): ReactElement {
   const [error, setError] = useState(false);
 
   const initialValues: UserAuth = {
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   };
 
   // Validate user inputs
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email('Invalid email address')
-      .required('Required'),
-    password: Yup.string().required('Required')
+      .email("Invalid email address")
+      .required("Required"),
+    password: Yup.string().required("Required"),
   });
 
   const onSubmit = async (values: UserAuth) => {
@@ -48,7 +48,7 @@ export default function LoginForm({ onLogIn }: Props): ReactElement {
   };
 
   return (
-    <div className="login-form-container">
+    <div className="form-container form-continer__login">
       <span className="text-slogan">
         The future<span>has female</span>
       </span>

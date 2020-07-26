@@ -1,27 +1,27 @@
 // Types for user model
 export interface UserType {
-  _id: string;
-  name: string;
-  email: string;
-  photo: string;
-  bio: string;
-  pronouns: string;
-  location: {
+  _id?: string;
+  name?: string;
+  email?: string;
+  photo?: string;
+  bio?: string;
+  pronouns?: string;
+  location?: {
     type: string;
     coordinates: [number];
     description: string;
   };
-  role: 'mentor' | 'mentee';
-  token: string;
+  role?: "mentor" | "mentee";
+  token?: string;
 }
 
 // Types for user authorization requests
 export interface UserAuth {
-  fullName?: string;
+  name?: string;
   email: string;
   password: string;
   passwordConfirm?: string;
-  role?: 'mentor' | 'mentee';
+  role?: "mentor" | "mentee";
 }
 
 // Types for session model

@@ -9,7 +9,7 @@ const Header = () => {
   const { user, setUser } = User.useContainer();
 
   // State for mobile menu open/close
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleLogout = async () => {
     try {

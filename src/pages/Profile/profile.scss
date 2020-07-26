@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 main.profile-page {
   background: $grey-darker;
@@ -51,6 +51,20 @@ main.profile-page {
     .application-container--no-sessions {
       color: $grey-dark;
       text-align: center;
+    }
+  }
+
+  // Edit profile form
+  .form-container__edit-profile {
+    position: relative;
+
+    .back {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      color: #f6f6f6;
+      background: transparent;
+      cursor: pointer;
     }
   }
 }

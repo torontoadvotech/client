@@ -1,30 +1,30 @@
-import React from 'react';
-import ApplicationStatus from './ApplicationStatus';
-import { User } from '../../containers/user.container';
-
-import './profile.scss';
+import React, { useState } from "react";
+import "./profile.scss";
+import ApplicationStatus from "./ApplicationStatus";
+import ProfileSummary from "./ProfileSummary";
+import EditProfile from "./EditProfile";
 
 const ProfilePage = () => {
-  const { user } = User.useContainer();
+  const [isEditing, setIsEditing] = useState<boolean>(false);
 
   return (
     <main className="profile-page">
-      <div className="profile-summary">
-        <h2>Your account</h2>
-        <div className="profile-summary--img-container">
-          <img
-            src="https://dummyimage.com/200x200/ffffff/0011ff"
-            alt={`${user?.name}'s profile image`}
-            className="profile-summary--img"
+      {!isEditing ? (
+        <>
+          <ProfileSummary
+            startEditProfile={() => {
+              setIsEditing(true);
+            }}
           />
-        </div>
-        <div className="profile-summary--details">
-          <h1 className="user-name">{user?.name}</h1>
-          <span className="user-email">{user?.email}</span>
-          <button className="edit-profile">Edit profile</button>
-        </div>
-      </div>
-      <ApplicationStatus />
+          <ApplicationStatus />
+        </>
+      ) : (
+        <EditProfile
+          endEditProfile={() => {
+            setIsEditing(false);
+          }}
+        />
+      )}
     </main>
   );
 };

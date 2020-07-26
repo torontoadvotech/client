@@ -22,6 +22,9 @@ const AppRouter = () => {
   const refreshUser = async () => {
     const res = await API.refreshToken();
 
+    console.log(res);
+    
+
     // Save token and user data into memory
     if (res.data) {
       setUser({ token: res.token, ...res.data.user });
@@ -30,6 +33,7 @@ const AppRouter = () => {
   };
 
   useEffect(() => {
+    refreshUser()
     // Attempt to refresh the user every time the app is reloaded
     // Set an interval to refresh the token every 14.5 minutes (30s before token expiry)
     const id = setInterval(async () => {

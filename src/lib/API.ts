@@ -1,48 +1,52 @@
-import { UserAuth } from './types';
+import { UserAuth, UserType } from "./types";
 
 class API {
-  prefix = 'http://localhost:8000';
-  apiVersion = '/api/v1';
+  prefix = "http://localhost:8000";
+  apiVersion = "/api/v1";
 
   // Signup
-  async signup({ fullName, email, password, passwordConfirm, role }: UserAuth) {
-    return this.request('post', '/users/signup', {
-      name: fullName,
+  async signUp({ name, email, password, passwordConfirm, role }: UserAuth) {
+    return this.request("post", "/users/signup", {
+      name,
       email,
       password,
       passwordConfirm,
-      role
+      role,
     });
   }
 
   // Login
   async login({ email, password }: UserAuth) {
-    return this.request('post', '/users/login', {
+    return this.request("post", "/users/login", {
       email,
-      password
+      password,
     });
   }
 
   // Logout current user
   async logout() {
-    return this.request('get', '/users/logout');
+    return this.request("get", "/users/logout");
   }
 
   // Refresh token POST request
   // This request uses the refresh token stored as an http-only cookie to request a new authorization token
   // The authorization token is only ever stored in memory and is used to authenticate the user is able to access a protected route. (eg. update user details)
   async refreshToken() {
-    return this.request('post', '/users/refreshToken');
+    return this.request("post", "/users/refreshToken");
   }
 
   // Get current user's user data
   async getMe() {
-    return this.request('get', '/users/getMe');
+    return this.request("get", "/users/getMe");
   }
 
   // Get current user's session data
   async getMySessions(JWT: string) {
-    return this.request('get', '/sessions/mySessions', undefined, JWT);
+    return this.request("get", "/sessions/mySessions", undefined, JWT);
+  }
+
+  async editMyProfile(body: UserType, JWT: string) {
+    return this.request("patch", "/users/updateMe", body, JWT);
   }
 
   // async getSessions(role: string, id: string, JWT: string) {
@@ -51,15 +55,15 @@ class API {
 
   // API function used to make requests
   private async request(
-    type: 'get' | 'post' | 'patch',
+    type: "get" | "post" | "patch",
     url: string,
     data?: object,
     JWT?: string
   ) {
     // Request headers
     const headers = {
-      'Content-Type': 'application/json',
-      authorization: `Bearer ${JWT}`
+      "Content-Type": "application/json",
+      authorization: `Bearer ${JWT}`,
     };
 
     const raw = JSON.stringify(data);
@@ -67,31 +71,31 @@ class API {
     try {
       let res: any;
       // GET REQUEST
-      if (type === 'get') {
+      if (type === "get") {
         res = await fetch(`${this.prefix}${this.apiVersion}${url}`, {
-          method: 'GET',
-          credentials: 'include',
-          headers
+          method: "GET",
+          credentials: "include",
+          headers,
         });
       }
 
       // POST REQUEST
-      if (type === 'post') {
+      if (type === "post") {
         res = await fetch(`${this.prefix}${this.apiVersion}${url}`, {
-          method: 'POST',
+          method: "POST",
           body: raw,
-          credentials: 'include',
-          headers
+          credentials: "include",
+          headers,
         });
       }
 
       // PATCH REQUEST
-      if (type === 'patch') {
+      if (type === "patch") {
         res = await fetch(`${this.prefix}${this.apiVersion}${url}`, {
-          method: 'PATCH',
+          method: "PATCH",
           body: raw,
-          credentials: 'include',
-          headers
+          credentials: "include",
+          headers,
         });
       }
       const data = await res.json();

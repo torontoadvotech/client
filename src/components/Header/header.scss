@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 header {
   transition: all 300ms ease-in-out;
@@ -6,15 +6,28 @@ header {
   z-index: 1000;
   position: sticky;
   top: 0;
+  background-color: #000;
   .wrapper {
     width: 80%;
     margin: 0 auto;
     max-width: 1500px;
+    padding: 20px 0;
   }
   nav {
     display: flex;
     justify-content: space-between;
     z-index: 1000;
+  }
+}
+
+.logout {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  transition: 0.25s;
+
+  &:hover {
+    color: #e9002d;
   }
 }
 
@@ -95,7 +108,7 @@ header {
   // Top and bottom hamburger bars
   .bars::before,
   .bars::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 30px;
     height: 2px;
