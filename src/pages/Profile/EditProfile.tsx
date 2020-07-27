@@ -35,16 +35,22 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
   // Send request to update user
   const onSubmit = async (values: UserType) => {
     // Update user in the database and save the returned updated version to update the user stored in memory
-    const res = await API.editMyProfile(values, user!.token);
+    const formData = new FormData();
 
-    if (res.data) {
-      // Update user saved in memory & end editing
-      setUser(res.data.data);
-      endEditProfile();
-    } else {
-      // TODO: Add UX for error handling
-      console.log("Update failed");
+    for (const field in values) {
+      formData.append(field, values[field]);
     }
+
+    const res = await API.editMyProfile(formData, user!.token);
+
+    // if (res.data) {
+    //   // Update user saved in memory & end editing
+    //   // setUser(res.data.data);
+    //   endEditProfile();
+    // } else {
+    //   // TODO: Add UX for error handling
+    //   console.log("Update failed");
+    // }
   };
 
   return (
@@ -74,6 +80,7 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
                   id="photo"
                   name="photo"
                   type="file"
+                  accept="image/*"
                   onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                     if (event.currentTarget.files) {
                       setFieldValue("photo", event.currentTarget.files[0]);

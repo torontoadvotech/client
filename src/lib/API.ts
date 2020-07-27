@@ -46,9 +46,25 @@ class API {
   }
 
   async editMyProfile(body: UserType, JWT: string) {
-    console.log(body);
+    const headers = {
+      authorization: `Bearer ${JWT}`,
+    };
+    try {
+      const res = await fetch(
+        `${this.prefix}${this.apiVersion}/users/updateMe`,
+        {
+          method: "PATCH",
+          body,
+          credentials: "include",
+          headers,
+        }
+      );
 
-    return this.request("patch", "/users/updateMe", body, JWT);
+      const data = await res.json();
+      return data;
+    } catch (err) {
+      return null;
+    }
   }
 
   // async getSessions(role: string, id: string, JWT: string) {
