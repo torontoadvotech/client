@@ -46,6 +46,8 @@ class API {
   }
 
   async editMyProfile(body: UserType, JWT: string) {
+    console.log(body);
+
     return this.request("patch", "/users/updateMe", body, JWT);
   }
 

@@ -66,5 +66,12 @@ main.profile-page {
       background: transparent;
       cursor: pointer;
     }
+
+    .profile-image {
+      img {
+        height: 200px;
+        width: 200px;
+      }
+    }
   }
 }
