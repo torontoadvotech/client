@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import API from "../../lib/API";
-import { UserType, UserProfileForm } from "../../lib/types";
+import { UserProfileForm } from "../../lib/types";
 import { User } from "../../containers/user.container";
 
 interface Props {
@@ -38,8 +38,9 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
 
     const formData = new FormData();
     // for (const field in values) {
-    //   if (!values[field]) return;
-    //   formData.append(field, values[field as keyof UserProfileForm]);
+    //   if (values[field]) {;
+    //    formData.append(field, values[field as keyof UserProfileForm]);
+    //   }
     // }
     if (values.name) {
       formData.append("name", values.name);

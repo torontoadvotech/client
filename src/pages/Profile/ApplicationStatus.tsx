@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { User } from "../../containers/user.container";
 import API from "../../lib/API";
 import { Session } from "../../lib/types";
@@ -16,8 +17,6 @@ const ApplicationStatus = () => {
       if (user) {
         res = await API.getMySessions(user.token);
       }
-
-      console.log(res.data.sessions);
 
       setSessions(res.data.sessions);
     } catch (error) {
@@ -52,7 +51,7 @@ const ApplicationStatus = () => {
       <div className="application-container application-container--accepted">
         {acceptedSessions && acceptedSessions.length > 0 ? (
           acceptedSessions.map((session) => (
-            <SessionCard session={session} role={user!.role} />
+            <SessionCard key={uuidv4()} session={session} role={user!.role} />
           ))
         ) : (
           <p className="application-container--no-sessions">
@@ -64,7 +63,7 @@ const ApplicationStatus = () => {
       <div className="application-container application-container--pending">
         {pendingSesssions && pendingSesssions.length > 0 ? (
           pendingSesssions.map((session) => (
-            <SessionCard session={session} role={user!.role} />
+            <SessionCard key={uuidv4()} session={session} role={user!.role} />
           ))
         ) : (
           <p className="application-container--no-sessions">
@@ -76,7 +75,7 @@ const ApplicationStatus = () => {
       <div className="application-container application-container--rejected">
         {rejectedSessions && rejectedSessions.length > 0 ? (
           rejectedSessions.map((session) => (
-            <SessionCard session={session} role={user!.role} />
+            <SessionCard key={uuidv4()} session={session} role={user!.role} />
           ))
         ) : (
           <p className="application-container--no-sessions">
