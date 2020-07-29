@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { User } from '../../containers/user.container';
-import API from '../../lib/API';
-import { Session } from '../../lib/types';
-import SessionCard from '../../components/SessionCard/SessionCard';
+import React, { useEffect, useState } from "react";
+import { User } from "../../containers/user.container";
+import API from "../../lib/API";
+import { Session } from "../../lib/types";
+import SessionCard from "../../components/SessionCard/SessionCard";
 
 const ApplicationStatus = () => {
   const { user } = User.useContainer();
@@ -36,7 +36,7 @@ const ApplicationStatus = () => {
   const sortApplicationsByStatus = (rejected: boolean, confirmed: boolean) => {
     if (sessions) {
       return sessions.filter(
-        session =>
+        (session) =>
           session.rejected === rejected && session.confirmed === confirmed
       );
     }
@@ -51,7 +51,7 @@ const ApplicationStatus = () => {
       <h3 className="application-container--heading">Accepted Applications</h3>
       <div className="application-container application-container--accepted">
         {acceptedSessions && acceptedSessions.length > 0 ? (
-          acceptedSessions.map(session => (
+          acceptedSessions.map((session) => (
             <SessionCard session={session} role={user!.role} />
           ))
         ) : (
@@ -63,7 +63,7 @@ const ApplicationStatus = () => {
       <h3 className="application-container--heading">Pending Applications</h3>
       <div className="application-container application-container--pending">
         {pendingSesssions && pendingSesssions.length > 0 ? (
-          pendingSesssions.map(session => (
+          pendingSesssions.map((session) => (
             <SessionCard session={session} role={user!.role} />
           ))
         ) : (
@@ -75,7 +75,7 @@ const ApplicationStatus = () => {
       <h3 className="application-container--heading">Rejected Applications</h3>
       <div className="application-container application-container--rejected">
         {rejectedSessions && rejectedSessions.length > 0 ? (
-          rejectedSessions.map(session => (
+          rejectedSessions.map((session) => (
             <SessionCard session={session} role={user!.role} />
           ))
         ) : (
