@@ -43,14 +43,14 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
 
     const res = await API.editMyProfile(formData, user!.token);
 
-    // if (res.data) {
-    //   // Update user saved in memory & end editing
-    //   // setUser(res.data.data);
-    //   endEditProfile();
-    // } else {
-    //   // TODO: Add UX for error handling
-    //   console.log("Update failed");
-    // }
+    if (res.data) {
+      // Update user saved in memory & end editing
+      setUser({ token: user!.token, ...res.data.data });
+      endEditProfile();
+    } else {
+      // TODO: Add UX for error handling
+      console.log("Update failed");
+    }
   };
 
   return (
@@ -72,7 +72,7 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
               <div className="field-container profile-image">
                 <label htmlFor="photo">File upload</label>
                 <img
-                  src="https://dummyimage.com/200x200/ffffff/0011ff"
+                  src={user?.photo}
                   alt={`${user?.name}'s profile image`}
                   className="profile-summary--img"
                 />

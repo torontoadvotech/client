@@ -13,7 +13,7 @@ const ProfileSummary = ({ startEditProfile }: Props) => {
       <h2>Your account</h2>
       <div className="profile-summary--img-container">
         <img
-          src="https://dummyimage.com/200x200/ffffff/0011ff"
+          src={user?.photo}
           alt={`${user?.name}'s profile image`}
           className="profile-summary--img"
         />
