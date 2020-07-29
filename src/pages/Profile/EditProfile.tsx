@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import API from "../../lib/API";
-import { UserType } from "../../lib/types";
+import { UserProfileForm } from "../../lib/types";
 import { User } from "../../containers/user.container";
 
 interface Props {
@@ -12,13 +12,13 @@ interface Props {
 export default function EditProfile({ endEditProfile }: Props): ReactElement {
   const { user, setUser } = User.useContainer();
   // Initial form values
-  const initialValues: UserType = {
+  const initialValues: Partial<UserProfileForm> = {
     name: user!.name,
-    photo: undefined,
+    photo: user!.photo,
     email: user!.email,
     bio: user!.bio,
     pronouns: user!.pronouns,
-    location: user!.location,
+    location: user!.location.description,
   };
 
   // Validate user inputs before submission (will also be validated by the server)
@@ -33,24 +33,41 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
   });
 
   // Send request to update user
-  const onSubmit = async (values: UserType) => {
+  const onSubmit = async (values: Partial<UserProfileForm>) => {
     // Update user in the database and save the returned updated version to update the user stored in memory
-    const formData = new FormData();
 
-    for (const field in values) {
-      formData.append(field, values[field]);
+    const formData = new FormData();
+    // for (const field in values) {
+    //   if (values[field]) {;
+    //    formData.append(field, values[field as keyof UserProfileForm]);
+    //   }
+    // }
+    if (values.name) {
+      formData.append("name", values.name);
+    }
+    if (values.photo) {
+      formData.append("photo", values.photo);
+    }
+    if (values.email) {
+      formData.append("email", values.email);
+    }
+    if (values.bio) {
+      formData.append("bio", values.bio);
+    }
+    if (values.pronouns) {
+      formData.append("pronouns", values.pronouns);
     }
 
     const res = await API.editMyProfile(formData, user!.token);
 
-    // if (res.data) {
-    //   // Update user saved in memory & end editing
-    //   // setUser(res.data.data);
-    //   endEditProfile();
-    // } else {
-    //   // TODO: Add UX for error handling
-    //   console.log("Update failed");
-    // }
+    if (res.data) {
+      // Update user saved in memory & end editing
+      setUser({ token: user!.token, ...res.data.data });
+      endEditProfile();
+    } else {
+      // TODO: Add UX for error handling
+      console.log("Update failed");
+    }
   };
 
   return (
@@ -72,7 +89,7 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
               <div className="field-container profile-image">
                 <label htmlFor="photo">File upload</label>
                 <img
-                  src="https://dummyimage.com/200x200/ffffff/0011ff"
+                  src={user?.photo}
                   alt={`${user?.name}'s profile image`}
                   className="profile-summary--img"
                 />

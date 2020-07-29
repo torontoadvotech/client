@@ -1,11 +1,17 @@
-import { UserAuth, UserType } from "./types";
+import { UserType } from "./types";
 
 class API {
   prefix = "http://localhost:8000";
   apiVersion = "/api/v1";
 
   // Signup
-  async signUp({ name, email, password, passwordConfirm, role }: UserAuth) {
+  async signUp({
+    name,
+    email,
+    password,
+    passwordConfirm,
+    role,
+  }: Partial<UserType>) {
     return this.request("post", "/users/signup", {
       name,
       email,
@@ -16,7 +22,7 @@ class API {
   }
 
   // Login
-  async login({ email, password }: UserAuth) {
+  async login({ email, password }: Partial<UserType>) {
     return this.request("post", "/users/login", {
       email,
       password,
@@ -45,7 +51,7 @@ class API {
     return this.request("get", "/sessions/mySessions", undefined, JWT);
   }
 
-  async editMyProfile(body: UserType, JWT: string) {
+  async editMyProfile(body: FormData, JWT: string) {
     const headers = {
       authorization: `Bearer ${JWT}`,
     };

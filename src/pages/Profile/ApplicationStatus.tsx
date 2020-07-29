@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { User } from '../../containers/user.container';
-import API from '../../lib/API';
-import { Session } from '../../lib/types';
-import SessionCard from '../../components/SessionCard/SessionCard';
+import React, { useEffect, useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { User } from "../../containers/user.container";
+import API from "../../lib/API";
+import { Session } from "../../lib/types";
+import SessionCard from "../../components/SessionCard/SessionCard";
 
 const ApplicationStatus = () => {
   const { user } = User.useContainer();
@@ -16,8 +17,6 @@ const ApplicationStatus = () => {
       if (user) {
         res = await API.getMySessions(user.token);
       }
-
-      console.log(res.data.sessions);
 
       setSessions(res.data.sessions);
     } catch (error) {
@@ -36,7 +35,7 @@ const ApplicationStatus = () => {
   const sortApplicationsByStatus = (rejected: boolean, confirmed: boolean) => {
     if (sessions) {
       return sessions.filter(
-        session =>
+        (session) =>
           session.rejected === rejected && session.confirmed === confirmed
       );
     }
@@ -51,8 +50,8 @@ const ApplicationStatus = () => {
       <h3 className="application-container--heading">Accepted Applications</h3>
       <div className="application-container application-container--accepted">
         {acceptedSessions && acceptedSessions.length > 0 ? (
-          acceptedSessions.map(session => (
-            <SessionCard session={session} role={user!.role} />
+          acceptedSessions.map((session) => (
+            <SessionCard key={uuidv4()} session={session} role={user!.role} />
           ))
         ) : (
           <p className="application-container--no-sessions">
@@ -63,8 +62,8 @@ const ApplicationStatus = () => {
       <h3 className="application-container--heading">Pending Applications</h3>
       <div className="application-container application-container--pending">
         {pendingSesssions && pendingSesssions.length > 0 ? (
-          pendingSesssions.map(session => (
-            <SessionCard session={session} role={user!.role} />
+          pendingSesssions.map((session) => (
+            <SessionCard key={uuidv4()} session={session} role={user!.role} />
           ))
         ) : (
           <p className="application-container--no-sessions">
@@ -75,8 +74,8 @@ const ApplicationStatus = () => {
       <h3 className="application-container--heading">Rejected Applications</h3>
       <div className="application-container application-container--rejected">
         {rejectedSessions && rejectedSessions.length > 0 ? (
-          rejectedSessions.map(session => (
-            <SessionCard session={session} role={user!.role} />
+          rejectedSessions.map((session) => (
+            <SessionCard key={uuidv4()} session={session} role={user!.role} />
           ))
         ) : (
           <p className="application-container--no-sessions">
