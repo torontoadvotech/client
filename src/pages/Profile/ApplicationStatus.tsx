@@ -39,10 +39,12 @@ const ApplicationStatus = () => {
           session.rejected === rejected && session.confirmed === confirmed
       );
     }
+
+    return null;
   };
 
   const acceptedSessions = sortApplicationsByStatus(false, true);
-  const pendingSesssions = sortApplicationsByStatus(false, false);
+  const pendingSessions = sortApplicationsByStatus(false, false);
   const rejectedSessions = sortApplicationsByStatus(true, false);
 
   return (
@@ -61,8 +63,8 @@ const ApplicationStatus = () => {
       </div>
       <h3 className="application-container--heading">Pending Applications</h3>
       <div className="application-container application-container--pending">
-        {pendingSesssions && pendingSesssions.length > 0 ? (
-          pendingSesssions.map((session) => (
+        {pendingSessions && pendingSessions.length > 0 ? (
+          pendingSessions.map((session) => (
             <SessionCard key={uuidv4()} session={session} role={user!.role} />
           ))
         ) : (
