@@ -39,7 +39,7 @@ const Modal : React.FunctionComponent<Props> = (props) => {
             {/* <IconClose /> */}
           </div>
         </header>
-        <div className="content">{props.children}</div>
+        <div className="modal-content">{props.children}</div>
       </>,
         el
     );

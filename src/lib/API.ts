@@ -51,6 +51,16 @@ class API {
     return this.request("get", "/sessions/mySessions", undefined, JWT);
   }
 
+  // Get one Session's data
+  // async getSessionInfo(sessionId: string) {
+  //   return this.request("get", )
+  // }
+
+  async approveSession(body: Boolean, sessionId: string, JWT: string) {
+    return this.request("patch", `/api/v1/sessions/sessionResponse/:${sessionId}`, body, JWT);
+  }
+
+  // Edit profile
   async editMyProfile(body: FormData, JWT: string) {
     const headers = {
       authorization: `Bearer ${JWT}`,
@@ -73,9 +83,6 @@ class API {
     }
   }
 
-  // async getSessions(role: string, id: string, JWT: string) {
-  //   return this.request('get', `/${role}s/${id}/sessions`, undefined, JWT);
-  // }
 
   // API function used to make requests
   private async request(
