@@ -4,10 +4,13 @@ import { User } from "../../containers/user.container";
 import API from "../../lib/API";
 import { Session } from "../../lib/types";
 import SessionCard from "../../components/SessionCard/SessionCard";
+import ViewSessionInfoModal from "../../modals/viewSessionInfo/viewSessionInfo.modal";
 
 const ApplicationStatus = () => {
   const { user } = User.useContainer();
   const [sessions, setSessions] = useState<Session[]>();
+  const [activeSession, setActiveSession] = useState<Session | null>(null);
+  const [showSessionModal, setShowSessionModal] = useState<boolean>(false);
 
   const loadSessions = async () => {
     let res;
@@ -49,11 +52,23 @@ const ApplicationStatus = () => {
 
   return (
     <div className="application-container">
+      {showSessionModal && activeSession && (
+        <ViewSessionInfoModal
+          onClose={() => setShowSessionModal(false)}
+          session={activeSession}
+          role={user!.role}
+        />
+      )}
       <h3 className="application-container--heading">Accepted Applications</h3>
       <div className="application-container application-container--accepted">
         {acceptedSessions && acceptedSessions.length > 0 ? (
           acceptedSessions.map((session) => (
-            <SessionCard key={uuidv4()} session={session} role={user!.role} />
+            <SessionCard
+              key={uuidv4()}
+              session={session}
+              role={user!.role}
+              onClick={() => setActiveSession({ ...session })}
+            />
           ))
         ) : (
           <p className="application-container--no-sessions">
@@ -65,7 +80,15 @@ const ApplicationStatus = () => {
       <div className="application-container application-container--pending">
         {pendingSessions && pendingSessions.length > 0 ? (
           pendingSessions.map((session) => (
-            <SessionCard key={uuidv4()} session={session} role={user!.role} />
+            <SessionCard
+              key={uuidv4()}
+              session={session}
+              role={user!.role}
+              onClick={() => {
+                setShowSessionModal(true);
+                setActiveSession({ ...session });
+              }}
+            />
           ))
         ) : (
           <p className="application-container--no-sessions">
@@ -77,7 +100,12 @@ const ApplicationStatus = () => {
       <div className="application-container application-container--rejected">
         {rejectedSessions && rejectedSessions.length > 0 ? (
           rejectedSessions.map((session) => (
-            <SessionCard key={uuidv4()} session={session} role={user!.role} />
+            <SessionCard
+              key={uuidv4()}
+              session={session}
+              role={user!.role}
+              onClick={() => setActiveSession({ ...session })}
+            />
           ))
         ) : (
           <p className="application-container--no-sessions">

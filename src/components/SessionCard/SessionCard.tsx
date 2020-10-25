@@ -1,29 +1,30 @@
-import React from 'react';
-import { Session } from '../../lib/types';
+import React from "react";
+import { Session } from "../../lib/types";
 
-import './sessionCard.scss';
+import "./sessionCard.scss";
 
 interface Props {
   session: Session;
-  role: 'mentor' | 'mentee';
+  role: "mentor" | "mentee";
+  onClick?: () => void;
 }
 
-const SessionCard = ({ session, role }: Props) => {
+const SessionCard = ({ session, role, onClick }: Props) => {
   // Each session has data for the mentor and mentee
   // Get user data for the complementary role
-  const oppositeRole = role === 'mentor' ? 'mentee' : 'mentor';
+  const oppositeRole = role === "mentor" ? "mentee" : "mentor";
   const otherUser = session[oppositeRole];
 
   // format dates as eg. Sunday February 24, 2020
-  const formattedDate = new Date(session.date).toLocaleDateString('en-US', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  const formattedDate = new Date(session.date).toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 
   return (
-    <div className="session-card">
+    <div className="session-card" onClick={onClick}>
       <div className="session-card--img-container">
         <img
           src="https://dummyimage.com/100x100/ffffff/0011ff"

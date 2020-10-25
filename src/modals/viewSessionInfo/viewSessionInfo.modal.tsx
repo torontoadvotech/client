@@ -1,28 +1,27 @@
 import "./viewSessionInfo.modal.scss";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Modal from "../../components/Modal/Modal";
-import API from "../../lib/API";
-import { Session, UserType } from "../../lib/types";
+import { Session } from "../../lib/types";
+import SessionCard from "../../components/SessionCard/SessionCard";
 
 interface viewSessionInfoModalProps {
   onClose(): void;
   session: Session;
-  otherUser: UserType;
+  role: "mentor" | "mentee";
 }
 
-export const viewSessionInfoModal: React.FC<viewSessionInfoModalProps> = ({
+const ViewSessionInfoModal: React.FC<viewSessionInfoModalProps> = ({
   session,
-  otherUser,
+  role,
   onClose,
 }) => {
-  const formattedDate = new Date(session.date).toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  const [sessionData, setSessionData] = useState<Session | null>(null);
+
+  useEffect(() => {
+    setSessionData({ ...session });
+  }, [session]);
 
   return (
     <Modal
@@ -30,21 +29,15 @@ export const viewSessionInfoModal: React.FC<viewSessionInfoModalProps> = ({
       title="Session Information"
       className="session-view-modal"
     >
-      <div className="session-modal--img-container">
-        <img
-          src="https://dummyimage.com/100x100/ffffff/0011ff"
-          alt={`${otherUser.name}'s profile image`}
-          className="session-modal--profile-image"
-        />
-      </div>
-      <div className="session-modal--details">
-        <h4>{otherUser.name}</h4>
-        <span className="session-modal--date">{formattedDate}</span>
-      </div>
-      <div className="session-modal--response">
-        <button className="session-modal--response__approve">Accept</button>
-        <div className="session-modal--response__reject">Reject</div>
-      </div>
+      <>
+        {sessionData && <SessionCard session={sessionData} role={role} />}
+        <div className="session-modal--response">
+          <button className="session-modal--response__approve">Accept</button>
+          <button className="session-modal--response__reject">Reject</button>
+        </div>
+      </>
     </Modal>
   );
 };
+
+export default ViewSessionInfoModal;
