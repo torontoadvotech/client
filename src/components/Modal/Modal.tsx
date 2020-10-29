@@ -13,8 +13,6 @@ interface Props {
 const Modal: React.FunctionComponent<Props> = (props) => {
   const modalRoot = document.getElementById("modal")!;
 
-  const el: HTMLElement = document.createElement("aside");
-
   useEffect(() => {
     modalRoot.classList.add("open");
 
