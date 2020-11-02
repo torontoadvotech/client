@@ -28,6 +28,9 @@ main.home-page {
   .signup-section {
     display: flex;
     flex-wrap: wrap;
+    @include maxScreen($tablet) {
+      flex-direction: column;
+    }
     h2 {
       margin-bottom: 30px;
       flex-basis: 100%;
@@ -54,6 +57,10 @@ main.home-page {
       }
       &:first-of-type {
         margin-right: 20px;
+        @include maxScreen($tablet) {
+          margin-right: 0px;
+          margin-bottom: 20px;
+        }
       }
     }
   }
@@ -70,6 +77,19 @@ main.home-page {
     }
     p {
       margin: 20px 0;
+    }
+
+    @include maxScreen($mobile) {
+      img {
+        display: none;
+      }
+      > div {
+        flex: auto;
+        text-align: center;
+      }
+      h2 {
+        text-align: center;
+      }
     }
   }
 }
