@@ -11,6 +11,9 @@ main.home-page {
     line-height: 7rem;
     text-transform: uppercase;
     text-align: center;
+    @include maxScreen($mobile) {
+        font-size: 6rem;
+    }
     span {
       display: block;
     }
