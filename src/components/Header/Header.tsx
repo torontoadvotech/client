@@ -31,13 +31,13 @@ const Header = () => {
     const header = document.querySelector('header');
     const logo = document.querySelector('.logo a');
 
-    scrollDistance > 25 ? (
+    if (scrollDistance > 25) {
       header.classList.add('scrolled-header');
       logo?.innerHTML = `<span class="red">to/</span>a`;
-    ) : (
-      header.classList.remove('scrolled-header');
+    } else {
+      header.classList.remove('scrolled-header')
       logo?.innerHTML = `<span class="red">toronto/</span>advocacy`;
-    )}
+    }
   };
 
   // add scroll event listener on window, on load only
