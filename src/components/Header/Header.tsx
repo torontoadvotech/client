@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './header.scss';
 import HeaderMenu from './HeaderMenu';
 import { User } from '../../containers/user.container';
@@ -24,6 +24,26 @@ const Header = () => {
       console.log(error);
     }
   };
+
+  // header animation on scroll
+  const shrinkNavOnScroll = () => {
+    const scrollDistance = document.documentElement.scrollTop;
+    const header = document.querySelector('header');
+    const logo = document.querySelector('.logo a');
+
+    scrollDistance > 25 ? (
+      header.classList.add('scrolled-header');
+      logo?.innerHTML = `<span class="red">to/</span>a`;
+    ) : (
+      header.classList.remove('scrolled-header');
+      logo?.innerHTML = `<span class="red">toronto/</span>advocacy`;
+    )}
+  };
+
+  // add scroll event listener on window, on load only
+  useEffect(() => {
+    window.addEventListener('scroll', () => shrinkNavOnScroll());
+  }, [])
 
   return (
     <header>
