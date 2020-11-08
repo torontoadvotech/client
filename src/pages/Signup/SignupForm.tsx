@@ -20,7 +20,7 @@ export default function SignUpForm({ goBack, role }: Props): ReactElement {
 
   // Validate user inputs before submission (will also be validated by the server)
   const validationSchema = Yup.object({
-    fullName: Yup.string().required("Required"),
+    name: Yup.string().required("Required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Required"),
@@ -62,13 +62,9 @@ export default function SignUpForm({ goBack, role }: Props): ReactElement {
       >
         <Form>
           <div className="field-container">
-            <label htmlFor="fullName">Full Name</label>
-            <ErrorMessage
-              component="span"
-              className="form-error"
-              name="fullName"
-            />
-            <Field name="fullName" type="text" />
+            <label htmlFor="name">Full Name</label>
+            <ErrorMessage component="span" className="form-error" name="name" />
+            <Field name="name" type="text" />
           </div>
           <div className="field-container">
             <label htmlFor="email">Email</label>
