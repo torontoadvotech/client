@@ -39,22 +39,40 @@ const ViewSessionInfoModal: React.FC<viewSessionInfoModalProps> = ({
       <>
         {sessionData && <SessionCard session={sessionData} role={role} />}
         <div className="session-modal--response">
-          <button
-            className="session-modal--response__approve button-primary"
-            onClick={() => {
-              setSessionResponse(true);
-            }}
-          >
-            Accept
-          </button>
-          <button
-            className="session-modal--response__reject button-secondary"
-            onClick={() => {
-              setSessionResponse(false);
-            }}
-          >
-            Reject
-          </button>
+          {/* Only show approve/reject buttons for mentors and when the session is pending */
+          user!.role === "mentor" &&
+            session.confirmed === false &&
+            session.rejected === false && (
+              <>
+                <button
+                  className="session-modal--response__approve button-primary"
+                  onClick={() => {
+                    setSessionResponse(true);
+                  }}
+                >
+                  Accept
+                </button>
+                <button
+                  className="session-modal--response__reject button-secondary"
+                  onClick={() => {
+                    setSessionResponse(false);
+                  }}
+                >
+                  Reject
+                </button>
+              </>
+            )}
+          {// Show cancel button for mentors and mentees when session is approved
+          session.confirmed === true && (
+            <button
+              className="session-modal--response__reject button-secondary"
+              onClick={() => {
+                //TODO: Add cancel functionality
+              }}
+            >
+              Cancel
+            </button>
+          )}
         </div>
       </>
     </Modal>

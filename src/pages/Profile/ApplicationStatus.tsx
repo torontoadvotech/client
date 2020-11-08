@@ -21,6 +21,8 @@ const ApplicationStatus = () => {
         res = await API.getMySessions(user.token);
       }
 
+      console.log(res.data.sessions);
+
       setSessions(res.data.sessions);
     } catch (error) {
       console.error(error);
@@ -67,7 +69,10 @@ const ApplicationStatus = () => {
               key={uuidv4()}
               session={session}
               role={user!.role}
-              onClick={() => setActiveSession({ ...session })}
+              onClick={() => {
+                setShowSessionModal(true);
+                setActiveSession({ ...session });
+              }}
             />
           ))
         ) : (
@@ -104,7 +109,10 @@ const ApplicationStatus = () => {
               key={uuidv4()}
               session={session}
               role={user!.role}
-              onClick={() => setActiveSession({ ...session })}
+              onClick={() => {
+                setShowSessionModal(true);
+                setActiveSession({ ...session });
+              }}
             />
           ))
         ) : (
