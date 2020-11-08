@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import './header.scss';
-import HeaderMenu from './HeaderMenu';
-import { User } from '../../containers/user.container';
-import { Link } from 'react-router-dom';
-import API from '../../lib/API';
+import React, { useState } from "react";
+import "./header.scss";
+import HeaderMenu from "./HeaderMenu";
+import { User } from "../../containers/user.container";
+import { Link } from "react-router-dom";
+import API from "../../lib/API";
 
 const Header = () => {
   const { user, setUser } = User.useContainer();
@@ -17,7 +17,7 @@ const Header = () => {
       const res = await API.logout();
 
       // remove user data from state
-      if (res.status === 'success') {
+      if (res.status === "success") {
         setUser(null);
       }
     } catch (error) {
@@ -26,7 +26,7 @@ const Header = () => {
   };
 
   return (
-    <header>
+    <header className="page-header">
       <div className="wrapper">
         <nav>
           <div className="nav-left">

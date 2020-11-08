@@ -30,15 +30,9 @@ export interface UserProfileForm {
   passwordConfirm: string;
 }
 
-export interface UserAuth {
-  name?: string;
-  email: string;
-  password: string;
-  passwordConfirm?: string;
-}
-
 // Types for session model
 export interface Session {
+  _id: string;
   date: Date;
   mentee: UserType;
   mentor: UserType;

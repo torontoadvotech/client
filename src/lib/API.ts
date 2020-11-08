@@ -56,8 +56,8 @@ class API {
   //   return this.request("get", )
   // }
 
-  async approveSession(body: Boolean, sessionId: string, JWT: string) {
-    return this.request("patch", `/api/v1/sessions/sessionResponse/:${sessionId}`, body, JWT);
+  async approveSession(accepted: boolean, sessionId: string, JWT: string) {
+    return this.request("patch", `/sessions/sessionResponse/:${sessionId}`, {accepted}, JWT);
   }
 
   // Edit profile

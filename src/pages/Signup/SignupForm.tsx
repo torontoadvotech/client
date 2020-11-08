@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import API from "../../lib/API";
-import { UserAuth } from "../../lib/types";
+import { UserType } from "../../lib/types";
 
 interface Props {
   goBack: () => void;
@@ -11,7 +11,7 @@ interface Props {
 
 export default function SignUpForm({ goBack, role }: Props): ReactElement {
   // Initial form values
-  const initialValues: UserAuth = {
+  const initialValues: Partial<UserType> = {
     name: "",
     email: "",
     password: "",
@@ -40,7 +40,7 @@ export default function SignUpForm({ goBack, role }: Props): ReactElement {
   });
 
   // Send request to backend to sign up user
-  const onSubmit = (values: UserAuth) => {
+  const onSubmit = (values: Partial<UserType>) => {
     const { name, email, password, passwordConfirm } = values;
 
     API.signUp({ name, email, password, passwordConfirm, role });
