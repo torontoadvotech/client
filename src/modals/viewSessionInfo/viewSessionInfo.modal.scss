@@ -1,0 +1,15 @@
+.session-view-modal {
+  .session-card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .session-card--img-container {
+      margin-bottom: 20px;
+      img {
+        margin: 0;
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+}

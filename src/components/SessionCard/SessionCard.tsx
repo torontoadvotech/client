@@ -27,7 +27,7 @@ const SessionCard = ({ session, role, onClick }: Props) => {
     <div className="session-card" onClick={onClick}>
       <div className="session-card--img-container">
         <img
-          src="https://dummyimage.com/100x100/ffffff/0011ff"
+          src="https://dummyimage.com/200x200/ffffff/0011ff"
           alt={`${otherUser.name}'s profile image`}
           className="session-card--profile-image"
         />
