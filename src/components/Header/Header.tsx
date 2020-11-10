@@ -32,11 +32,11 @@ const Header = () => {
     const logo = document.querySelector('.logo a');
 
     if (scrollDistance > 25) {
-      header.classList.add('scrolled-header');
-      logo?.innerHTML = `<span class="red">to/</span>a`;
+      header!.classList.add('scrolled-header');
+      logo!.innerHTML = `<span class="red">to/</span>a`;
     } else {
-      header.classList.remove('scrolled-header')
-      logo?.innerHTML = `<span class="red">toronto/</span>advocacy`;
+      header!.classList.remove('scrolled-header')
+      logo!.innerHTML = `<span class="red">toronto/</span>advocacy`;
     }
   };
 
