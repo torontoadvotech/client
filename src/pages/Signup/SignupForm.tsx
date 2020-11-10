@@ -2,7 +2,7 @@ import React, { ReactElement } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import API from "../../lib/API";
-import { UserAuth } from "../../lib/types";
+import { UserType } from "../../lib/types";
 
 interface Props {
   goBack: () => void;
@@ -11,7 +11,7 @@ interface Props {
 
 export default function SignUpForm({ goBack, role }: Props): ReactElement {
   // Initial form values
-  const initialValues: UserAuth = {
+  const initialValues: Partial<UserType> = {
     name: "",
     email: "",
     password: "",
@@ -20,7 +20,7 @@ export default function SignUpForm({ goBack, role }: Props): ReactElement {
 
   // Validate user inputs before submission (will also be validated by the server)
   const validationSchema = Yup.object({
-    fullName: Yup.string().required("Required"),
+    name: Yup.string().required("Required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Required"),
@@ -40,7 +40,7 @@ export default function SignUpForm({ goBack, role }: Props): ReactElement {
   });
 
   // Send request to backend to sign up user
-  const onSubmit = (values: UserAuth) => {
+  const onSubmit = (values: Partial<UserType>) => {
     const { name, email, password, passwordConfirm } = values;
 
     API.signUp({ name, email, password, passwordConfirm, role });
@@ -62,13 +62,9 @@ export default function SignUpForm({ goBack, role }: Props): ReactElement {
       >
         <Form>
           <div className="field-container">
-            <label htmlFor="fullName">Full Name</label>
-            <ErrorMessage
-              component="span"
-              className="form-error"
-              name="fullName"
-            />
-            <Field name="fullName" type="text" />
+            <label htmlFor="name">Full Name</label>
+            <ErrorMessage component="span" className="form-error" name="name" />
+            <Field name="name" type="text" />
           </div>
           <div className="field-container">
             <label htmlFor="email">Email</label>

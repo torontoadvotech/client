@@ -32,6 +32,7 @@ export interface UserProfileForm {
 
 // Types for session model
 export interface Session {
+  _id: string;
   date: Date;
   mentee: UserType;
   mentor: UserType;
