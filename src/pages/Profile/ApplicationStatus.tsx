@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { User } from "../../containers/user.container";
-import API from "../../lib/API";
-import { Session } from "../../lib/types";
-import SessionCard from "../../components/SessionCard/SessionCard";
-import ViewSessionInfoModal from "../../modals/viewSessionInfo/viewSessionInfo.modal";
+import React, { useEffect, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { User } from '../../containers/user.container';
+import API from '../../lib/API';
+import { Session } from '../../lib/types';
+import SessionCard from '../../components/SessionCard/SessionCard';
+import ViewSessionInfoModal from '../../modals/viewSessionInfo/viewSessionInfo.modal';
 
 const ApplicationStatus = () => {
   const { user } = User.useContainer();
@@ -35,13 +35,19 @@ const ApplicationStatus = () => {
     }
   }, [user]);
 
-  // Each application has a flag for 'rejected' and 'confirmed'
+  // Each application has a flag for 'rejected' and 'confirmed' or 'cancelled'
   // By filtering using these flags we can separate the applications out into "pending", "accepted", and "confirmed"
-  const sortApplicationsByStatus = (rejected: boolean, confirmed: boolean) => {
+  const sortApplicationsByStatus = (
+    rejected: boolean,
+    confirmed: boolean,
+    cancelled = false
+  ) => {
     if (sessions) {
       return sessions.filter(
         (session) =>
-          session.rejected === rejected && session.confirmed === confirmed
+          session.rejected === rejected &&
+          session.confirmed === confirmed &&
+          session.cancelled === cancelled
       );
     }
 
@@ -53,7 +59,7 @@ const ApplicationStatus = () => {
   const rejectedSessions = sortApplicationsByStatus(true, false);
 
   return (
-    <div className="application-container">
+    <div className='application-container'>
       {showSessionModal && activeSession && (
         <ViewSessionInfoModal
           onClose={() => setShowSessionModal(false)}
@@ -61,8 +67,9 @@ const ApplicationStatus = () => {
           role={user!.role}
         />
       )}
-      <h3 className="application-container--heading">Accepted Applications</h3>
-      <div className="application-container application-container--accepted">
+      {/* Accepted Applications Section */}
+      <h3 className='application-container--heading'>Accepted Applications</h3>
+      <div className='application-container application-container--accepted'>
         {acceptedSessions && acceptedSessions.length > 0 ? (
           acceptedSessions.map((session) => (
             <SessionCard
@@ -76,13 +83,14 @@ const ApplicationStatus = () => {
             />
           ))
         ) : (
-          <p className="application-container--no-sessions">
+          <p className='application-container--no-sessions'>
             No accepted sessions
           </p>
         )}
       </div>
-      <h3 className="application-container--heading">Pending Applications</h3>
-      <div className="application-container application-container--pending">
+      {/* Pending Applications Section */}
+      <h3 className='application-container--heading'>Pending Applications</h3>
+      <div className='application-container application-container--pending'>
         {pendingSessions && pendingSessions.length > 0 ? (
           pendingSessions.map((session) => (
             <SessionCard
@@ -96,13 +104,14 @@ const ApplicationStatus = () => {
             />
           ))
         ) : (
-          <p className="application-container--no-sessions">
+          <p className='application-container--no-sessions'>
             No pending applications
           </p>
         )}
       </div>
-      <h3 className="application-container--heading">Rejected Applications</h3>
-      <div className="application-container application-container--rejected">
+      {/* Rejected Applications Section */}
+      <h3 className='application-container--heading'>Rejected Applications</h3>
+      <div className='application-container application-container--rejected'>
         {rejectedSessions && rejectedSessions.length > 0 ? (
           rejectedSessions.map((session) => (
             <SessionCard
@@ -116,7 +125,7 @@ const ApplicationStatus = () => {
             />
           ))
         ) : (
-          <p className="application-container--no-sessions">
+          <p className='application-container--no-sessions'>
             No rejected sessions
           </p>
         )}
