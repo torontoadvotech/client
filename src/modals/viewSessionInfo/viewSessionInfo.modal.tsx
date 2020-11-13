@@ -12,12 +12,14 @@ interface viewSessionInfoModalProps {
   onClose(): void;
   session: Session;
   role: 'mentor' | 'mentee';
+  updateActiveSession: (updatedSession: Session) => void;
 }
 
 const ViewSessionInfoModal: React.FC<viewSessionInfoModalProps> = ({
   session,
   role,
   onClose,
+  updateActiveSession,
 }) => {
   const { user } = User.useContainer();
   const [sessionData, setSessionData] = useState<Session | null>(null);
@@ -26,12 +28,24 @@ const ViewSessionInfoModal: React.FC<viewSessionInfoModalProps> = ({
     setSessionData({ ...session });
   }, [session]);
 
-  const setSessionResponse = (response: boolean) => {
-    API.approveSession(response, sessionData!._id, user!.token);
+  const setSessionResponse = async (response: boolean) => {
+    const res = await API.approveSession(
+      response,
+      sessionData!._id,
+      user!.token
+    );
+
+    console.log(res);
+
+    updateActiveSession(res.session);
   };
 
-  const cancelSession = () => {
-    API.cancelSession(sessionData!._id, user!.token);
+  const cancelSession = async () => {
+    const updatedSession = await API.cancelSession(
+      sessionData!._id,
+      user!.token
+    );
+    updateActiveSession(updatedSession);
   };
 
   return (

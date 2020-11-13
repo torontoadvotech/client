@@ -33,7 +33,7 @@ const ApplicationStatus = () => {
     if (user) {
       loadSessions();
     }
-  }, [user]);
+  }, [user, activeSession]);
 
   // Each application has a flag for 'rejected' and 'confirmed' or 'cancelled'
   // By filtering using these flags we can separate the applications out into "pending", "accepted", and "confirmed"
@@ -65,6 +65,9 @@ const ApplicationStatus = () => {
           onClose={() => setShowSessionModal(false)}
           session={activeSession}
           role={user!.role}
+          updateActiveSession={(session: Session) => {
+            setActiveSession(session);
+          }}
         />
       )}
       {/* Accepted Applications Section */}
