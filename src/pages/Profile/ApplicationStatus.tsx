@@ -21,8 +21,6 @@ const ApplicationStatus = () => {
         res = await API.getMySessions(user.token);
       }
 
-      console.log(res.data.sessions);
-
       setSessions(res.data.sessions);
     } catch (error) {
       console.error(error);
