@@ -65,7 +65,7 @@ const ApplicationStatus = () => {
           onClose={() => setShowSessionModal(false)}
           session={activeSession}
           role={user!.role}
-          updateActiveSession={(session: Session) => {
+          updateActiveSession={(session: Session | null) => {
             setActiveSession(session);
           }}
         />
