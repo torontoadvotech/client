@@ -3,9 +3,15 @@ import "./profile.scss";
 import ApplicationStatus from "./ApplicationStatus";
 import ProfileSummary from "./ProfileSummary";
 import EditProfile from "./EditProfile";
+import { User } from "../../containers/user.container";
+import { Redirect } from "react-router";
 
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
+
+  const {user} = User.useContainer();
+
+  if (!user) return <Redirect to="/" />;
 
   return (
     <main className="profile-page">
