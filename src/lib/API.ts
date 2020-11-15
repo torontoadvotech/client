@@ -1,8 +1,8 @@
-import { UserType } from "./types";
+import { UserType } from './types';
 
 class API {
-  prefix = "http://localhost:8000";
-  apiVersion = "/api/v1";
+  prefix = 'http://localhost:8000';
+  apiVersion = '/api/v1';
 
   // Signup
   async signUp({
@@ -12,7 +12,7 @@ class API {
     passwordConfirm,
     role,
   }: Partial<UserType>) {
-    return this.request("post", "/users/signup", {
+    return this.request('post', '/users/signup', {
       name,
       email,
       password,
@@ -23,7 +23,7 @@ class API {
 
   // Login
   async login({ email, password }: Partial<UserType>) {
-    return this.request("post", "/users/login", {
+    return this.request('post', '/users/login', {
       email,
       password,
     });
@@ -31,24 +31,24 @@ class API {
 
   // Logout current user
   async logout() {
-    return this.request("get", "/users/logout");
+    return this.request('get', '/users/logout');
   }
 
   // Refresh token POST request
   // This request uses the refresh token stored as an http-only cookie to request a new authorization token
   // The authorization token is only ever stored in memory and is used to authenticate the user is able to access a protected route. (eg. update user details)
   async refreshToken() {
-    return this.request("post", "/users/refreshToken");
+    return this.request('post', '/users/refreshToken');
   }
 
   // Get current user's user data
   async getMe() {
-    return this.request("get", "/users/getMe");
+    return this.request('get', '/users/getMe');
   }
 
   // Get current user's session data
   async getMySessions(JWT: string) {
-    return this.request("get", "/sessions/mySessions", undefined, JWT);
+    return this.request('get', '/sessions/mySessions', undefined, JWT);
   }
 
   // Get one Session's data
@@ -57,7 +57,21 @@ class API {
   // }
 
   async approveSession(accepted: boolean, sessionId: string, JWT: string) {
-    return this.request("patch", `/sessions/sessionResponse/${sessionId}`, {accepted}, JWT);
+    return this.request(
+      'patch',
+      `/sessions/sessionResponse/${sessionId}`,
+      { accepted },
+      JWT
+    );
+  }
+
+  async cancelSession(sessionId: string, JWT: string) {
+    return this.request(
+      'patch',
+      `/sessions/cancelSession/${sessionId}`,
+      undefined,
+      JWT
+    );
   }
 
   // Edit profile
@@ -69,9 +83,9 @@ class API {
       const res = await fetch(
         `${this.prefix}${this.apiVersion}/users/updateMe`,
         {
-          method: "PATCH",
+          method: 'PATCH',
           body,
-          credentials: "include",
+          credentials: 'include',
           headers,
         }
       );
@@ -83,17 +97,16 @@ class API {
     }
   }
 
-
   // API function used to make requests
   private async request(
-    type: "get" | "post" | "patch",
+    type: 'get' | 'post' | 'patch',
     url: string,
     data?: object,
     JWT?: string
   ) {
     // Request headers
     const headers = {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
       authorization: `Bearer ${JWT}`,
     };
 
@@ -102,30 +115,30 @@ class API {
     try {
       let res: any;
       // GET REQUEST
-      if (type === "get") {
+      if (type === 'get') {
         res = await fetch(`${this.prefix}${this.apiVersion}${url}`, {
-          method: "GET",
-          credentials: "include",
+          method: 'GET',
+          credentials: 'include',
           headers,
         });
       }
 
       // POST REQUEST
-      if (type === "post") {
+      if (type === 'post') {
         res = await fetch(`${this.prefix}${this.apiVersion}${url}`, {
-          method: "POST",
+          method: 'POST',
           body: raw,
-          credentials: "include",
+          credentials: 'include',
           headers,
         });
       }
 
       // PATCH REQUEST
-      if (type === "patch") {
+      if (type === 'patch') {
         res = await fetch(`${this.prefix}${this.apiVersion}${url}`, {
-          method: "PATCH",
+          method: 'PATCH',
           body: raw,
-          credentials: "include",
+          credentials: 'include',
           headers,
         });
       }
