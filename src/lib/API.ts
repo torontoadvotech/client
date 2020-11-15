@@ -38,7 +38,7 @@ class API {
   // This request uses the refresh token stored as an http-only cookie to request a new authorization token
   // The authorization token is only ever stored in memory and is used to authenticate the user is able to access a protected route. (eg. update user details)
   async refreshToken() {
-    return this.request('post', '/users/refreshToken');
+    return this.request('get', '/users/refreshToken');
   }
 
   // Get current user's user data
@@ -76,25 +76,12 @@ class API {
 
   // Edit profile
   async editMyProfile(body: FormData, JWT: string) {
-    const headers = {
-      authorization: `Bearer ${JWT}`,
-    };
-    try {
-      const res = await fetch(
-        `${this.prefix}${this.apiVersion}/users/updateMe`,
-        {
-          method: 'PATCH',
-          body,
-          credentials: 'include',
-          headers,
-        }
-      );
+    return this.request('patch', '/users/updateMe', body, JWT);
+  }
 
-      const data = await res.json();
-      return data;
-    } catch (err) {
-      return null;
-    }
+  // Get all mentors
+  async getAllMentors() {
+    return this.request('get', '/mentors');
   }
 
   // API function used to make requests
@@ -105,12 +92,19 @@ class API {
     JWT?: string
   ) {
     // Request headers
-    const headers = {
-      'Content-Type': 'application/json',
+    const headers: HeadersInit = {
       authorization: `Bearer ${JWT}`,
     };
 
-    const raw = JSON.stringify(data);
+    // Handle when a FormData object is passed as the body or when a raw object is passed
+    let body;
+
+    if (data && data instanceof FormData) {
+      body = data;
+    } else if (data) {
+      body = JSON.stringify(data);
+      headers['Content-Type'] = 'application/json';
+    }
 
     try {
       let res: any;
@@ -127,7 +121,7 @@ class API {
       if (type === 'post') {
         res = await fetch(`${this.prefix}${this.apiVersion}${url}`, {
           method: 'POST',
-          body: raw,
+          body,
           credentials: 'include',
           headers,
         });
@@ -137,14 +131,14 @@ class API {
       if (type === 'patch') {
         res = await fetch(`${this.prefix}${this.apiVersion}${url}`, {
           method: 'PATCH',
-          body: raw,
+          body,
           credentials: 'include',
           headers,
         });
       }
-      const data = await res.json();
+      const json = await res.json();
 
-      return data;
+      return json;
     } catch (error) {
       return null;
     }

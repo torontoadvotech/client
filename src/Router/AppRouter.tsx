@@ -12,6 +12,7 @@ import ProfilePage from '../pages/Profile/Profile.page';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import MentorSelection from '../pages/MentorSelection/MentorSelection.page';
 
 const AppRouter = () => {
   const { setUser } = User.useContainer();
@@ -23,7 +24,6 @@ const AppRouter = () => {
     const res = await API.refreshToken();
 
     console.log(res);
-    
 
     // Save token and user data into memory
     if (res.data) {
@@ -33,7 +33,7 @@ const AppRouter = () => {
   };
 
   useEffect(() => {
-    refreshUser()
+    refreshUser();
     // Attempt to refresh the user every time the app is reloaded
     // Set an interval to refresh the token every 14.5 minutes (30s before token expiry)
     const id = setInterval(async () => {
@@ -46,13 +46,14 @@ const AppRouter = () => {
 
   return (
     <Router history={history}>
-      <div className="layout-wrapper">
+      <div className='layout-wrapper'>
         <Header />
         <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/signup" exact component={SignupPage} />
-          <Route path="/login" exact component={LoginPage} />
-          <Route path="/profile" exact component={ProfilePage} />
+          <Route path='/' exact component={HomePage} />
+          <Route path='/signup' exact component={SignupPage} />
+          <Route path='/login' exact component={LoginPage} />
+          <Route path='/profile' exact component={ProfilePage} />
+          <Route path='/mentors' exact component={MentorSelection} />
         </Switch>
         <Footer />
       </div>
