@@ -1,0 +1,24 @@
+.session-view-modal {
+  min-width: 280px;
+  .session-card {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .session-card--img-container {
+      margin-bottom: 20px;
+      img {
+        margin: 0;
+        width: 200px;
+        height: 200px;
+      }
+    }
+    .session-card--details {
+      padding: 0;
+      margin-bottom: 20px;
+    }
+  }
+  .session-modal--response {
+    display: flex;
+    justify-content: space-between;
+  }
+}

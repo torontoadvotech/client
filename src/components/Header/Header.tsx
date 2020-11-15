@@ -5,6 +5,18 @@ import { User } from '../../containers/user.container';
 import { Link } from 'react-router-dom';
 import API from '../../lib/API';
 
+// header animation on scroll
+const shrinkNavOnScroll = () => {
+  const scrollDistance = document.documentElement.scrollTop;
+  const header = document.querySelector('header');
+
+  if (scrollDistance > 25) {
+    header!.classList.add('scrolled-header');
+  } else {
+    header!.classList.remove('scrolled-header');
+  }
+};
+
 const Header = () => {
   const { user, setUser } = User.useContainer();
 
@@ -17,26 +29,11 @@ const Header = () => {
       const res = await API.logout();
 
       // remove user data from state
-      if (res.status === 'success') {
+      if (res.status === "success") {
         setUser(null);
       }
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  // header animation on scroll
-  const shrinkNavOnScroll = () => {
-    const scrollDistance = document.documentElement.scrollTop;
-    const header = document.querySelector('header');
-    const logo = document.querySelector('.logo a');
-
-    if (scrollDistance > 25) {
-      header!.classList.add('scrolled-header');
-      logo!.innerHTML = `<span class="red">to/</span>a`;
-    } else {
-      header!.classList.remove('scrolled-header')
-      logo!.innerHTML = `<span class="red">toronto/</span>advocacy`;
     }
   };
 
@@ -46,13 +43,18 @@ const Header = () => {
   }, [])
 
   return (
-    <header>
+    <header className="page-header">
       <div className="wrapper">
         <nav>
           <div className="nav-left">
             <div className="logo">
               <Link to="/">
-                <span className="red">toronto/</span>advocacy
+                <span className="desktop-logo">
+                  <span className="red">toronto/</span>advocacy
+                </span>
+                <span className="mobile-logo">
+                  <span className="red">to/</span>a
+                </span>
               </Link>
             </div>
           </div>
