@@ -1,2 +1,7 @@
 .mentor-selection-page {
+  .mentor-container {
+    display: grid;
+    grid-template-columns: repeat(4, [col-start] 1fr);
+    grid-gap: 85px 42px;
+  }
 }

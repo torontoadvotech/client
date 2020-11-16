@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import MentorCard from '../../components/MentorCard/MentorCard';
+import { v4 as uuidv4 } from 'uuid';
 import API from '../../lib/API';
 import { UserType } from '../../lib/types';
 
@@ -16,7 +18,14 @@ const MentorSelection = () => {
   useEffect(() => {
     getAllMentors();
   }, []);
-  return <main className='mentor-selection-page'></main>;
+  return (
+    <main className='mentor-selection-page'>
+      <div className='mentor-container'>
+        {mentors &&
+          mentors.map((mentor) => <MentorCard key={uuidv4()} user={mentor} />)}
+      </div>
+    </main>
+  );
 };
 
 export default MentorSelection;
