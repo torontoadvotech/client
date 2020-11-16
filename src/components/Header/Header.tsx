@@ -5,23 +5,14 @@ import { User } from '../../containers/user.container';
 import { Link } from 'react-router-dom';
 import API from '../../lib/API';
 
-// header animation on scroll
-const shrinkNavOnScroll = () => {
-  const scrollDistance = document.documentElement.scrollTop;
-  const header = document.querySelector('header');
-
-  if (scrollDistance > 25) {
-    header!.classList.add('scrolled-header');
-  } else {
-    header!.classList.remove('scrolled-header');
-  }
-};
-
 const Header = () => {
   const { user, setUser } = User.useContainer();
 
   // State for mobile menu open/close
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  // State for header animation on scroll
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   const handleLogout = async () => {
     try {
@@ -37,13 +28,24 @@ const Header = () => {
     }
   };
 
+    // header animation on scroll
+  const shrinkNavOnScroll = () => {
+    const scrollDistance = document.documentElement.scrollTop;
+
+    if (scrollDistance > 25) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
   // add scroll event listener on window, on load only
   useEffect(() => {
     window.addEventListener('scroll', () => shrinkNavOnScroll());
   }, [])
 
   return (
-    <header className="page-header">
+    <header className=`page-header ${isScrolled ? 'scrolled-header' : ''}`>
       <div className="wrapper">
         <nav>
           <div className="nav-left">
