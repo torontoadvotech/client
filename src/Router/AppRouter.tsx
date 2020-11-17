@@ -44,8 +44,6 @@ const AppRouter = () => {
     }, 14.5 * 60 * 1000);
   }, []);
 
-  // Put routes that require active user sessions within the ternary request for user
-  // a.k.a. under ProfilePage router
   return (
     <Router history={history}>
       <div className="layout-wrapper">
@@ -54,10 +52,10 @@ const AppRouter = () => {
           <Route path="/" exact component={HomePage} />
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
-          
-          { !user ? <Redirect to="/" /> : 
-            <Route path="/profile" exact component={ProfilePage} />
-          }
+
+          {/* NOTE: only put routes requiring a user below, else put above this check */}
+          { !user && <Redirect to="/" /> }
+          <Route path="/profile" exact component={ProfilePage} />
           
         </Switch>
         <Footer />
