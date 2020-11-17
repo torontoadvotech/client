@@ -9,10 +9,6 @@ import { Redirect } from "react-router";
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
-  const {user} = User.useContainer();
-
-  if (!user) return <Redirect to="/" />;
-
   return (
     <main className="profile-page">
       {!isEditing ? (
