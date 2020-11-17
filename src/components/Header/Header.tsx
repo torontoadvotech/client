@@ -45,7 +45,7 @@ const Header = () => {
   }, [])
 
   return (
-    <header className=`page-header ${isScrolled ? 'scrolled-header' : ''}`>
+    <header className={`page-header ${isScrolled ? 'scrolled-header' : ''}`}>
       <div className="wrapper">
         <nav>
           <div className="nav-left">
