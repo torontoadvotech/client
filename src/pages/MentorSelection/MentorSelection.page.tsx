@@ -16,7 +16,8 @@ const MentorSelection = () => {
 
     setMentors([...mentors, ...res.data.data]);
 
-    // Calculate and store last page
+    // Calculate and store last page so load more button can be hidden
+    // if there are no more mentors to fetch
     setLastPage(Math.ceil(res.count / limit));
   };
 
@@ -35,7 +36,7 @@ const MentorSelection = () => {
           className='button-primary load-more'
           onClick={() => setPage(page + 1)}
         >
-          See More
+          Load More Mentors
         </button>
       )}
     </main>

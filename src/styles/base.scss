@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&family=Oxygen+Mono&display=swap");
-@import "./reset.scss";
-@import "./variables.scss";
-@import "./layout.scss";
-@import "./forms.scss";
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&family=Oxygen+Mono&display=swap');
+@import './reset.scss';
+@import './variables.scss';
+@import './layout.scss';
+@import './forms.scss';
 
 html {
   box-sizing: border-box;
@@ -58,7 +58,7 @@ button {
   background: $grey-darker;
   &::after,
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 100%;
     height: 100%;

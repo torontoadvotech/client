@@ -1,10 +1,24 @@
+@import '../../styles/variables.scss';
+
 .mentor-selection-page {
   padding-bottom: 140px;
   position: relative;
   .mentor-container {
     display: grid;
-    grid-template-columns: repeat(4, [col-start] 1fr);
-    grid-gap: 85px 42px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
+    grid-gap: 85px 35px;
+    // max-width: px;
+    margin: 0 auto;
+    @include maxScreen($desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include maxScreen($tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include maxScreen($mobile) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   }
 
   .load-more {

@@ -15,7 +15,7 @@ const MentorCard: React.FC<Props> = ({ user }) => {
     <div className='mentor-card'>
       <div className='mentor-card--img-container'>
         <img
-          src='https://dummyimage.com/200x200/ffffff/0011ff'
+          src='https://dummyimage.com/500x500/ffffff/0011ff'
           alt={`${user.name}'s profile image`}
           className='mentor-card--profile-image'
         />
