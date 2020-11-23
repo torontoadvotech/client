@@ -11,7 +11,7 @@ export interface UserType {
     coordinates: [number];
     description: string;
   };
-  role: "mentor" | "mentee";
+  role: 'mentor' | 'mentee';
   password: string;
   passwordConfirm: string;
   token: string;
@@ -25,18 +25,20 @@ export interface UserProfileForm {
   bio: string;
   pronouns: string;
   location: string;
-  role: "mentor" | "mentee";
+  role: 'mentor' | 'mentee';
   password: string;
   passwordConfirm: string;
 }
 
 // Types for session model
 export interface Session {
+  _id: string;
   date: Date;
   mentee: UserType;
   mentor: UserType;
   requestedAt: Date;
   confirmed: boolean;
   rejected: boolean;
+  cancelled: boolean;
   confirmedAt: Date;
 }

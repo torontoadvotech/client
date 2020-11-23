@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Router, Switch } from 'react-router-dom';
+import { Redirect, Route, Router, Switch } from 'react-router-dom';
 import history from './history';
 
 import { User } from '../containers/user.container';
@@ -14,7 +14,7 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 const AppRouter = () => {
-  const { setUser } = User.useContainer();
+  const { user, setUser } = User.useContainer();
 
   // For security purposes authorization tokens are only ever saved to memory and expire after 15 minutes
   // In order to keep the user logged in a less secure refresh token is stored as a http-only cookie
@@ -52,7 +52,11 @@ const AppRouter = () => {
           <Route path="/" exact component={HomePage} />
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
+
+          {/* NOTE: only put routes requiring a user below, else put above this check */}
+          { !user && <Redirect to="/" /> }
           <Route path="/profile" exact component={ProfilePage} />
+          
         </Switch>
         <Footer />
       </div>

@@ -1,4 +1,4 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 main.profile-page {
   background: $grey-darker;
@@ -44,6 +44,9 @@ main.profile-page {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
+    .session-card {
+      cursor: pointer;
+    }
     .application-container--heading {
       font-size: 2rem;
       font-weight: 600;
