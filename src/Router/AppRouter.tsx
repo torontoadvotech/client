@@ -37,10 +37,14 @@ const AppRouter = () => {
     // Attempt to refresh the user every time the app is reloaded
     // Set an interval to refresh the token every 14.5 minutes (30s before token expiry)
     const id = setInterval(async () => {
-      const res = await refreshUser();
+      try {
+        const res = await refreshUser();
 
-      // If refresh fails end attempts to refresh
-      if (!res.token) clearInterval(id);
+        // If refresh fails end attempts to refresh
+        if (!res.token) clearInterval(id);
+      } catch {
+        clearInterval(id);
+      }
     }, 14.5 * 60 * 1000);
   }, []);
 

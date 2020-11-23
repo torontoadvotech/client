@@ -1,7 +1,16 @@
 .mentor-selection-page {
+  padding-bottom: 140px;
+  position: relative;
   .mentor-container {
     display: grid;
     grid-template-columns: repeat(4, [col-start] 1fr);
     grid-gap: 85px 42px;
+  }
+
+  .load-more {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

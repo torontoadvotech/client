@@ -80,8 +80,8 @@ class API {
   }
 
   // Get all mentors
-  async getAllMentors() {
-    return this.request('get', '/mentors');
+  async getAllMentors(page: number, limit: number) {
+    return this.request('get', `/mentors?page=${page}&limit=${limit}`);
   }
 
   // API function used to make requests
