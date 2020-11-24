@@ -19,7 +19,13 @@ const useWindowSize = () => {
       });
     };
 
+    window.addEventListener('resize', handleWindowSize);
+
     handleWindowSize();
+
+    return () => {
+      window.removeEventListener('resize', handleWindowSize);
+    };
   }, []);
 
   return windowSize;

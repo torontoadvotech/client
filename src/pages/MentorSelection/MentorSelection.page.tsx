@@ -11,7 +11,6 @@ const MentorSelection = () => {
   const [mentors, setMentors] = useState<UserType[]>([]);
   const [page, setPage] = useState<number>(1);
   const [lastPage, setLastPage] = useState<number>();
-  const windowSize = useWindowSize();
 
   const getMentors = async (page: number, limit: number) => {
     const res = await API.getAllMentors(page, limit);
@@ -24,17 +23,16 @@ const MentorSelection = () => {
   };
 
   useEffect(() => {
-    if (windowSize.width === undefined) return;
-
     let limit = 8;
-    if (windowSize.width < 520) {
+
+    if (window.innerWidth < 520) {
       limit = 4;
-    } else if (windowSize.width < 1150) {
+    } else if (window.innerWidth < 1150) {
       limit = 6;
     }
 
     getMentors(page, limit);
-  }, [page, windowSize.width]);
+  }, [page]);
 
   return (
     <main className='mentor-selection-page'>
