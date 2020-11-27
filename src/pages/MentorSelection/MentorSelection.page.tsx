@@ -5,7 +5,10 @@ import API from '../../lib/API';
 import { UserType } from '../../lib/types';
 
 import './mentorSelection.scss';
+
 import useWindowSize from '../../hooks/useWindowWidth';
+
+// TODO: Figure out how to use the hook above to set the limit
 
 const MentorSelection = () => {
   const [mentors, setMentors] = useState<UserType[]>([]);
