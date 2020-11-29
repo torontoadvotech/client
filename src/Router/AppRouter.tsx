@@ -9,6 +9,7 @@ import HomePage from '../pages/Home/Home.page';
 import SignupPage from '../pages/Signup/Signup.page';
 import LoginPage from '../pages/Login/Login.page';
 import ProfilePage from '../pages/Profile/Profile.page';
+import MentorshipPage from '../pages/Mentorship/Mentorship.page';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
@@ -23,7 +24,6 @@ const AppRouter = () => {
     const res = await API.refreshToken();
 
     console.log(res);
-    
 
     // Save token and user data into memory
     if (res.data) {
@@ -33,7 +33,7 @@ const AppRouter = () => {
   };
 
   useEffect(() => {
-    refreshUser()
+    refreshUser();
     // Attempt to refresh the user every time the app is reloaded
     // Set an interval to refresh the token every 14.5 minutes (30s before token expiry)
     const id = setInterval(async () => {
@@ -53,6 +53,7 @@ const AppRouter = () => {
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
           <Route path="/profile" exact component={ProfilePage} />
+          <Route path="/mentorship" exact component={MentorshipPage} />
         </Switch>
         <Footer />
       </div>
