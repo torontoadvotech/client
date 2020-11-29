@@ -12,6 +12,7 @@ import ProfilePage from '../pages/Profile/Profile.page';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import EventsPage from '../pages/Events/Events.page';
 
 const AppRouter = () => {
   const { user, setUser } = User.useContainer();
@@ -52,6 +53,7 @@ const AppRouter = () => {
           <Route path="/" exact component={HomePage} />
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
+          <Route path="/events" exact component={EventsPage} />
 
           {/* NOTE: only put routes requiring a user below, else put above this check */}
           { !user && <Redirect to="/" /> }

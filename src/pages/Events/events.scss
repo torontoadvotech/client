@@ -1,0 +1,64 @@
+@import "../../styles/variables.scss";
+
+.events-page {
+  grid-column: col-start 3 / span 10;
+
+  .events-hero-section {
+    display: flex;
+    flex-direction: column;
+    height: 465px;
+    padding: 5rem 0;
+    > * {
+      max-width: 60%;
+    }
+    .hero-title {
+      font-family: $barlow;
+      font-size: 9rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      span {
+        color: $primary;
+      }
+    }
+    .hero-description {
+      margin-top: 2.4rem;
+    }
+  }
+  .cta-section {
+    height: 470px;
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    .cta-container {
+      font-family: $barlow;
+      font-size: 6.4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      width: 50%;
+      max-width: 50%;
+      span {
+        display: block;
+        color: $primary;
+      }
+      .cta-button {
+        background-color: transparent;
+        border: 1px solid white;
+        padding: 15px 30px;
+        text-transform: uppercase;
+      }
+    }
+    .cta-date {
+      position: absolute;
+      right: 0;
+      bottom: 27px;
+      font-size: 2rem;
+      background-color: black;
+      color: white;
+      padding-left: 30px;
+      padding-right: 70px;
+      span {
+        font-size: 2.2rem;
+      }
+    }
+  }
+}
