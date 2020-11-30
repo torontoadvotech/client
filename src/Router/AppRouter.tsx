@@ -9,6 +9,7 @@ import HomePage from '../pages/Home/Home.page';
 import SignupPage from '../pages/Signup/Signup.page';
 import LoginPage from '../pages/Login/Login.page';
 import ProfilePage from '../pages/Profile/Profile.page';
+import PartnersPage from '../pages/Partners/Partners.page';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
@@ -52,6 +53,7 @@ const AppRouter = () => {
           <Route path="/" exact component={HomePage} />
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
+          <Route path="/partners" exact component={PartnersPage} />
 
           {/* NOTE: only put routes requiring a user below, else put above this check */}
           { !user && <Redirect to="/" /> }
