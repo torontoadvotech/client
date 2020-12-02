@@ -2,10 +2,11 @@ import React from 'react';
 import menteeImage from '../../assets/images/apply-mentee.jpg';
 import mentorImage from '../../assets/images/apply-mentor.jpg';
 import { Link } from 'react-router-dom';
+import './mentorshipCards.scss';
 
 const MentorshipCards = () => {
   return (
-    <div>
+    <div className="mentorship-cards">
       <figure>
         <img src={menteeImage} alt="" />
         <figcaption>

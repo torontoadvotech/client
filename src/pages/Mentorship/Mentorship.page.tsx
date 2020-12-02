@@ -20,13 +20,13 @@ const MentorshipPage = () => {
           <div className="intro__text--buttons">
             <Link
               to={{ pathname: '/signup', state: { role: 'mentee' } }}
-              className={'button-secondary'}
+              className={'button button-secondary'}
             >
               Apply as a Mentee
             </Link>
             <Link
               to={{ pathname: '/signup', state: { role: 'mentor' } }}
-              className={'button-primary'}
+              className={'button button-primary'}
             >
               Apply as a Mentor
             </Link>
