@@ -20,19 +20,20 @@ const AppRouter = () => {
   // For security purposes authorization tokens are only ever saved to memory and expire after 15 minutes
   // In order to keep the user logged in a less secure refresh token is stored as a http-only cookie
   // This token can be sent to the server in order to receive a new authorization token but cannot be used to access protected routes
-  const refreshUser = async () => {
-    const res = await API.refreshToken();
-
-    console.log(res);
-
-    // Save token and user data into memory
-    if (res.data) {
-      setUser({ token: res.token, ...res.data.user });
-      return res;
-    }
-  };
 
   useEffect(() => {
+    const refreshUser = async () => {
+      const res = await API.refreshToken();
+
+      console.log(res);
+
+      // Save token and user data into memory
+      if (res.data) {
+        setUser({ token: res.token, ...res.data.user });
+        return res;
+      }
+    };
+
     refreshUser();
     // Attempt to refresh the user every time the app is reloaded
     // Set an interval to refresh the token every 14.5 minutes (30s before token expiry)
