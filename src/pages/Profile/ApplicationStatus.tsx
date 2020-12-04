@@ -12,22 +12,22 @@ const ApplicationStatus = () => {
   const [activeSession, setActiveSession] = useState<Session | null>(null);
   const [showSessionModal, setShowSessionModal] = useState<boolean>(false);
 
-  const loadSessions = async () => {
-    let res;
-
-    // Get sessions for the current user
-    try {
-      if (user) {
-        res = await API.getMySessions(user.token);
-      }
-
-      setSessions(res.data.sessions);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
+    const loadSessions = async () => {
+      let res;
+
+      // Get sessions for the current user
+      try {
+        if (user) {
+          res = await API.getMySessions(user.token);
+        }
+
+        setSessions(res.data.sessions);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     if (user) {
       loadSessions();
     }
