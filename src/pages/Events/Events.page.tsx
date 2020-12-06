@@ -1,12 +1,15 @@
 import React from 'react';
+import EventCard from '../../components/EventsCard/EventCard';
+
+import events from './events.json';
 
 require('./events.scss')
 
 const EventsPage = () => {
 	return (
-		<main className="events-page">
+		<main className="events-page layout-wrapper">
 			<section className="events-hero-section">
-				<h1 className="hero-title">Upcoming <span>Events</span></h1>
+				<h1 className="hero-title">Upcoming <span className="text-is-red">Events</span></h1>
 				<p className="hero-description">
 					Stay in the know of all our upcoming events. Are you passionate
 					about changing social paradigms? Apply to be an official partner
@@ -17,20 +20,32 @@ const EventsPage = () => {
 				<div className="cta-container">
 					<div className="cta-text">
 						SOCIAL
-						<span>LEARN T.O</span>
+						<span className="text-is-red">LEARN T.O</span>
 					</div>
-					<button className="cta-button">
+					<a className="cta-button">
 						Learn More
-					</button>
+					</a>
 				</div>
 				<div className="cta-date">Dec <span>22</span></div>
 			</section>
 			<section className="event-cards-section">
-				<div className="events-scroller"><span> &lt; </span><span> &gt; </span></div>
-				<div className="events-cards">
-					{/*  Cards component here */}
-				</div>
-				<button className="events-all">View All Events</button>
+				<div className="event-scroller"><span> &lt; </span><span> &gt; </span></div>
+				<ul className="event-cards-container">
+					{Object.values(events).map((v, i) => {
+						return (
+							<li className="event-card" key={i}>
+								<EventCard
+									title={v.title}
+									image={v.image}
+									dateTime={v.dateTime}
+									location={v.location}
+									address={v.address}
+									admission={v.admission}
+								/>
+							</li>)
+					})}
+				</ul>
+				<a className="events-all">View All Events</a>
 			</section>
 			<section className="form-section">
 				<div className="form-section-header">
