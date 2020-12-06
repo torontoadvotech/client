@@ -2,7 +2,7 @@ import React from 'react';
 
 require('./eventCard.scss')
 
-// import saveIcon from '../../assets/images/card-save-icon.png';
+import saveIcon from '../../assets/images/card-save-icon.png';
 
 // const saveIcon = require('../../assets/images/card-save-icon.png')
 export interface EventCardProps {
@@ -28,7 +28,7 @@ const EventCard: React.FunctionComponent<EventCardProps> = (props) => {
         <div className="date-time text-is-red">{props.dateTime}</div>
         <div className="location">{props.location} <span>{props.address}</span></div>
         <div className="admission">{props.admission}</div>
-        <button className="save-icon"><img src={require('../../assets/images/card-save-icon.png')} alt="Card Save Icon" /></button>
+        <button className="save-icon"><img src={saveIcon} alt="Card Save Icon" /></button>
       </div>
     </article>
   )

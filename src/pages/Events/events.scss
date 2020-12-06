@@ -66,17 +66,7 @@ main.events-page {
       }
     }
   }
-  .event-cards-section {
-    .event-cards-container {
-      display: flex;
-      .event-card {
-        &:not(:first-child) {
-          margin-left: 30px;
-        }
-        width: calc((100% / 3) - 20px);
-      }
-    }
-  }
+
   .form-section {
     .form-section-header {
       display: flex;

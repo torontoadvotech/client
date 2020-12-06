@@ -3,7 +3,14 @@
   .image-wrapper {
     height: 205px;
     max-height: 205px;
-    .image {
+    overflow: hidden;
+    position: relative;
+    img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: auto;
     }
   }
   .card-description {

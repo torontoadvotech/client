@@ -1,7 +1,5 @@
 import React from 'react';
-import EventCard from '../../components/EventsCard/EventCard';
-
-import events from './events.json';
+import EventsCardCarousel from '../../components/EventsCard/EventsCardCarousel';
 
 require('./events.scss')
 
@@ -28,25 +26,9 @@ const EventsPage = () => {
 				</div>
 				<div className="cta-date">Dec <span>22</span></div>
 			</section>
-			<section className="event-cards-section">
-				<div className="event-scroller"><span> &lt; </span><span> &gt; </span></div>
-				<ul className="event-cards-container">
-					{Object.values(events).map((v, i) => {
-						return (
-							<li className="event-card" key={i}>
-								<EventCard
-									title={v.title}
-									image={v.image}
-									dateTime={v.dateTime}
-									location={v.location}
-									address={v.address}
-									admission={v.admission}
-								/>
-							</li>)
-					})}
-				</ul>
-				<a className="events-all">View All Events</a>
-			</section>
+
+			<EventsCardCarousel />
+
 			<section className="form-section">
 				<div className="form-section-header">
 					<h3 className="form-section-header-title">
