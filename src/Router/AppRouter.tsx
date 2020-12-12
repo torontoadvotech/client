@@ -9,6 +9,7 @@ import HomePage from '../pages/Home/Home.page';
 import SignupPage from '../pages/Signup/Signup.page';
 import LoginPage from '../pages/Login/Login.page';
 import ProfilePage from '../pages/Profile/Profile.page';
+import MentorshipPage from '../pages/Mentorship/Mentorship.page';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
@@ -20,6 +21,7 @@ const AppRouter = () => {
   // For security purposes authorization tokens are only ever saved to memory and expire after 15 minutes
   // In order to keep the user logged in a less secure refresh token is stored as a http-only cookie
   // This token can be sent to the server in order to receive a new authorization token but cannot be used to access protected routes
+
 
   useEffect(() => {
     const refreshUser = async () => {
@@ -54,14 +56,17 @@ const AppRouter = () => {
       <div className='layout-wrapper'>
         <Header />
         <Switch>
-          <Route path='/' exact component={HomePage} />
-          <Route path='/signup' exact component={SignupPage} />
-          <Route path='/login' exact component={LoginPage} />
+
+          <Route path="/" exact component={HomePage} />
+          <Route path="/signup" exact component={SignupPage} />
+          <Route path="/login" exact component={LoginPage} />
+          <Route path="/mentorship" exact component={MentorshipPage} />
           <Route path='/mentors' exact component={MentorSelection} />
 
           {/* NOTE: only put routes requiring a user below, else put above this check */}
-          {!user && <Redirect to='/' />}
-          <Route path='/profile' exact component={ProfilePage} />
+          {!user && <Redirect to="/" />}
+          <Route path="/profile" exact component={ProfilePage} />
+
         </Switch>
         <Footer />
       </div>

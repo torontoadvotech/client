@@ -1,0 +1,129 @@
+@import '../../styles/variables.scss';
+
+main.mentorship-page {
+  section {
+    margin-bottom: 80px;
+  }
+  h1,
+  h2 {
+    font-family: $barlow;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .intro {
+    display: flex;
+
+    &__text {
+      width: 50%;
+
+      h2 {
+        color: $primary;
+        font-size: 2.4rem;
+      }
+      h1 {
+        font-size: 6.4rem;
+        line-height: 7rem;
+        margin-top: 10px;
+        @include maxScreen($mobile) {
+          line-height: 6rem;
+          font-size: 6rem;
+        }
+      }
+      p {
+        line-height: 2.4rem;
+        margin: 35px 0;
+        margin-right: 10px;
+      }
+
+      &--buttons .button {
+        margin-right: 20px;
+      }
+    }
+
+    &__image {
+      width: 50%;
+    }
+
+    @include maxScreen($tablet) {
+      flex-direction: column;
+      &__text,
+      &__image {
+        width: 100%;
+      }
+      &__image {
+        margin-top: 40px;
+      }
+
+      .button {
+        width: calc((100% / 2) - 20px);
+        text-align: center;
+      }
+    }
+  }
+
+  .highlights {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__text {
+      width: calc((100% / 3) - 15px);
+      margin-right: 15px;
+      margin-bottom: 30px;
+
+      h2 {
+        font-size: 2.4rem;
+        line-height: 4rem;
+        @include maxScreen($mobile) {
+          line-height: 2.6rem;
+        }
+      }
+      p {
+        line-height: 2rem;
+      }
+
+      @include maxScreen($tablet) {
+        width: calc((100% / 2) - 15px);
+        &:nth-child(even) {
+          margin-right: 0;
+          width: calc(100% / 2);
+        }
+      }
+    }
+  }
+
+  .program {
+    margin: 100px 0;
+    h2 {
+      font-size: 4rem;
+      line-height: 4.8rem;
+      text-align: center;
+      margin: 40px 0;
+      span {
+        display: block;
+        color: $primary;
+      }
+    }
+  }
+
+  .slack {
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: 150px;
+    h2 {
+      font-size: 4rem;
+      line-height: 4.8rem;
+      margin-bottom: 30px;
+      margin-top: 10px;
+      @include maxScreen($mobile) {
+        font-size: 2rem;
+      }
+    }
+    img {
+      width: 134.69px;
+      height: 71.34px;
+      object-fit: cover;
+      margin: 0 auto;
+    }
+  }
+}

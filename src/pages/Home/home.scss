@@ -12,7 +12,7 @@ main.home-page {
     text-transform: uppercase;
     text-align: center;
     @include maxScreen($mobile) {
-        font-size: 6rem;
+      font-size: 6rem;
     }
     span {
       display: block;
@@ -29,42 +29,9 @@ main.home-page {
     }
   }
   .signup-section {
-    display: flex;
-    flex-wrap: wrap;
-    @include maxScreen($tablet) {
-      flex-direction: column;
-    }
     h2 {
       margin-bottom: 30px;
       flex-basis: 100%;
-    }
-    figure {
-      flex: 1 1 calc(50% - 10px);
-      text-align: center;
-      background-color: $grey-darker;
-      padding: 20px;
-      img {
-        height: 270px;
-        width: 100%;
-        object-fit: cover;
-      }
-      h3 {
-        font-family: $barlow;
-        font-weight: 600;
-        font-size: 4rem;
-        text-transform: uppercase;
-        margin: 10px 0;
-      }
-      p {
-        margin: 20px 0;
-      }
-      &:first-of-type {
-        margin-right: 20px;
-        @include maxScreen($tablet) {
-          margin-right: 0px;
-          margin-bottom: 20px;
-        }
-      }
     }
   }
   .partner-section {
