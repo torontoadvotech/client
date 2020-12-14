@@ -8,8 +8,8 @@ import API from '../lib/API';
 import HomePage from '../pages/Home/Home.page';
 import SignupPage from '../pages/Signup/Signup.page';
 import LoginPage from '../pages/Login/Login.page';
-import ProfilePage from '../pages/Profile/Profile.page';
 import PartnersPage from '../pages/Partners/Partners.page';
+import ProfilePage from '../pages/UserProfile/UserProfile.page';
 import MentorshipPage from '../pages/Mentorship/Mentorship.page';
 import ValidateEmailPage from '../pages/ValidateEmail/ValidateEmail.page';
 
@@ -18,6 +18,8 @@ import Footer from '../components/Footer/Footer';
 import EventsPage from '../pages/Events/Events.page';
 import SinglePageEvent from '../components/Events/EventSinglePage/EventSinglePage';
 import MentorSelection from '../pages/MentorSelection/MentorSelection.page';
+import MentorSelectionPage from '../pages/MentorSelection/MentorSelection.page';
+import MentorProfilePage from '../pages/MentorProfile/MentorProfile.page';
 
 const AppRouter = () => {
   const { user, setUser } = User.useContainer();
@@ -59,10 +61,10 @@ const AppRouter = () => {
       <div className='layout-wrapper'>
         <Header />
         <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/signup" exact component={SignupPage} />
-          <Route path="/login" exact component={LoginPage} />
-          <Route path="/partners" exact component={PartnersPage} />
+          <Route path='/' exact component={HomePage} />
+          <Route path='/signup' exact component={SignupPage} />
+          <Route path='/login' exact component={LoginPage} />
+          <Route path='/partners' exact component={PartnersPage} />
           {/* <Route path="/events" exact component={EventsPage} /> */}
           <Route
             path='/events'
@@ -83,6 +85,16 @@ const AppRouter = () => {
             path='/validateEmail/:id'
             exact
             component={ValidateEmailPage}
+          />
+          <Route path='/' exact component={HomePage} />
+          <Route path='/signup' exact component={SignupPage} />
+          <Route path='/login' exact component={LoginPage} />
+          <Route path='/mentorship' exact component={MentorshipPage} />
+          <Route path='/mentors' exact component={MentorSelectionPage} />
+          <Route
+            path='/mentors/:mentorId'
+            exact
+            component={MentorProfilePage}
           />
 
           {/* NOTE: only put routes requiring a user below, else put above this check */}
