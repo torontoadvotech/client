@@ -11,6 +11,13 @@
       transform: translateX(-50%);
       height: 100%;
       width: auto;
+      &.img-full-width {
+        width: 100%;
+        height: auto;
+        left: 0;
+        transform: translateY(-50%);
+        top: 50%;
+      }
     }
   }
   .card-description {
