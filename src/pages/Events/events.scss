@@ -1,15 +1,25 @@
 @import "../../styles/variables.scss";
 
 main.events-page {
-  grid-column: 1 / -1;
+  display: grid;
+  grid-gap: 50px 10px;
+  grid-template-columns: repeat(12, [col-start] 1fr);
+  grid-template-rows: auto 1fr auto;
+  max-width: unset;
+  grid-column: 1 /-1;
   > section {
     grid-column: col-start 2 / span 10;
   }
   .text-is-red {
     color: $primary;
   }
+  .grid-span-8 {
+    grid-column: col-start 3 / span 8;
+    max-width: 1200px;
+  }
   .events-hero-section {
     display: flex;
+    min-height: unset;
     flex-direction: column;
     height: 415px;
     padding: 5rem 0;
@@ -21,6 +31,9 @@ main.events-page {
       font-size: 9rem;
       font-weight: bold;
       text-transform: uppercase;
+      span {
+        display: block;
+      }
     }
     .hero-description {
       margin-top: 2.4rem;
@@ -33,6 +46,8 @@ main.events-page {
     height: 470px;
     position: relative;
     background-image: url("../../assets/images/event-cta-section-background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     .cta-container {
       font-family: $barlow;
       font-size: 6.4rem;

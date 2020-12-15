@@ -93,7 +93,7 @@ const EventsCardCarousel = () => {
   };
 
   return (
-    <section className="event-cards-section">
+    <section className="event-cards-section grid-span-8">
       <div className="event-scroller">
         <button className="left-arrow" onClick={() => carouselSlide('l')}>
           <img src={leftArrow} alt="Left Arrow Glyphicon" />
