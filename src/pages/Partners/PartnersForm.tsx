@@ -1,13 +1,23 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { UserType } from "../../lib/types";
 import * as Yup from "yup";
 
+interface PartnersType {
+  companyName: string;
+  industry: string;
+  summaryOfRequest: string;
+  phoneNumber: string;
+  email: string;
+}
+
 const PartnersForm = () => {
-  const initialValues: Partial<UserType> = {
-    email: "",
-    password: "",
-  };
+  const initialValues: PartnersType = {
+    companyName: '',
+    industry: '',
+    summaryOfRequest: '',
+    phoneNumber: '',
+    email: '',
+  }
 
   const onSubmit = () => {
 
@@ -19,7 +29,7 @@ const PartnersForm = () => {
     email: Yup.string()
       .email("Invalid email address")
       .required("Required"),
-    phoneNumber: Yup.number().required('Required'),
+    phoneNumber: Yup.string().required('Required'),
     industry: Yup.string().required("Required"),
     summaryOfRequest: Yup.string().required("Required"),
   });
