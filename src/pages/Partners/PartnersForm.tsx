@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from '../../components/Modal/Modal';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -12,6 +12,8 @@ interface PartnersType {
 }
 
 const PartnersForm = () => {
+  const [formSubmit, setFormSubmit] = useState(false);
+
   const initialValues: PartnersType = {
     companyName: '',
     industry: '',
@@ -20,11 +22,16 @@ const PartnersForm = () => {
     email: '',
   }
 
-  const onSubmit = (values: PartnersType) => {
+  const onSubmit = (values: PartnersType, { resetForm }) => {
     const { companyName } = values;
-    alert(`hi ${companyName}`);
-    // <Modal title={'hi'} children={'children'} onClose={() => {}} />
+    // alert(`hi ${companyName}`);
+    setFormSubmit(true);
+    resetForm({ values: '' });
   }
+
+  const closeModal = () => {
+    setFormSubmit(false);
+  };
 
   // Validate user inputs
   const validationSchema = Yup.object({
@@ -38,6 +45,7 @@ const PartnersForm = () => {
   });
 
   return ( 
+    <>
     <div className="form-container form-container__partners">
       <p>Join the Team</p>
       <p>All submissions will be reviewed by our team, and a response will be sent back within 2-3 business days.</p>
@@ -109,6 +117,8 @@ const PartnersForm = () => {
         </Form>
       </Formik>
     </div>
+    {formSubmit && <Modal title={'hi'} children={'children'} onClose={closeModal} />}
+    </>
   );
 };
 
