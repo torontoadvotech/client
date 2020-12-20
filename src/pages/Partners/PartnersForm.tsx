@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from '../../components/Modal/Modal';
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -19,8 +20,10 @@ const PartnersForm = () => {
     email: '',
   }
 
-  const onSubmit = () => {
-
+  const onSubmit = (values: PartnersType) => {
+    const { companyName } = values;
+    alert(`hi ${companyName}`);
+    // <Modal title={'hi'} children={'children'} onClose={() => {}} />
   }
 
   // Validate user inputs
@@ -49,11 +52,10 @@ const PartnersForm = () => {
             <ErrorMessage 
               component="span" 
               className="form-error" 
-              name="company-name" 
+              name="companyName" 
             />
             <Field 
-              name="company-name" 
-              type="companyName" 
+              name="companyName" 
             />
           </div>
           <div className="field-container">
@@ -65,7 +67,6 @@ const PartnersForm = () => {
             />
             <Field 
               name="email"
-              type="email"
             />
           </div>
           <div className="field-container">
@@ -73,11 +74,10 @@ const PartnersForm = () => {
             <ErrorMessage 
               component="span" 
               className="form-error" 
-              name="phone-number" 
+              name="phoneNumber" 
             />
             <Field 
-              name="phone-number"
-              type="phoneNumber"
+              name="phoneNumber"
             />
           </div>
           <div className="field-container">
@@ -89,7 +89,6 @@ const PartnersForm = () => {
             />
             <Field 
               name="industry"
-              type="industry"
             />
           </div>
           <div className="field-container">
@@ -97,11 +96,11 @@ const PartnersForm = () => {
             <ErrorMessage 
               component="span" 
               className="form-error" 
-              name="summary-of-request" 
+              name="summaryOfRequest" 
             />
             <Field 
-              name="summary-of-request"
-              type="summaryOfRequest"
+              name="summaryOfRequest"
+              component="textarea"
             />
           </div>
           <button type="submit" className="button-primary">

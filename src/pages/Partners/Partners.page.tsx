@@ -1,4 +1,5 @@
 import React from "react";
+import PartnersForm from "./PartnersForm";
 import currentPartnersImage from '../../assets/images/current-partners.png';
 
 const PartnersPage = () => {
@@ -21,6 +22,9 @@ const PartnersPage = () => {
         </p>
         <p>Current Partners</p>
         <p>Our current Team of Partners is dedicated to breaking boundaries and  creating a STEM that is accepting to all. Together, we can all contribute to creating  a healthier work environment. Our current Team of Partners is dedicated to breaking boundaries and  creating a STEM that is accepting to all. Together, we can all contribute to creating  a healthier work environment.</p>
+      </section>
+      <section className="partners-form">
+        <PartnersForm />
       </section>
     </main>
   );

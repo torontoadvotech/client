@@ -61,12 +61,9 @@ const AppRouter = () => {
           <Route path="/" exact component={HomePage} />
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
-<<<<<<< HEAD
           <Route path="/partners" exact component={PartnersPage} />
-=======
           <Route path="/mentorship" exact component={MentorshipPage} />
           <Route path='/mentors' exact component={MentorSelection} />
->>>>>>> b933ff6bdfb46282dcc2951896082aed700068eb
 
           {/* NOTE: only put routes requiring a user below, else put above this check */}
           {!user && <Redirect to="/" />}
