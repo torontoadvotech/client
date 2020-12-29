@@ -8,8 +8,23 @@ main.events-page {
   max-width: unset;
   grid-column: 1 /-1;
 
-  > section {
+  .hero-section,
+  .cta-section,
+  .cards-section,
+  .form-section {
     grid-column: col-start 2 / span 10;
+  }
+  .hero-section,
+  .cards-section,
+  .form-section {
+    max-width: 1200px;
+
+    @media screen and (max-width: 1300px) {
+      grid-column: col-start 2 / span 10 !important;
+    }
+    @media screen and (min-width: 1301px) {
+      grid-column: col-start 3 / span 8 !important;
+    }
   }
 
   .grid-justify-center {
@@ -20,34 +35,39 @@ main.events-page {
   .text-is-red {
     color: $primary;
   }
-  .grid-span-8 {
-    grid-column: col-start 3 / span 8;
-    max-width: 1200px;
-  }
+
   .grid-full-width {
     grid-column: 1 / -1;
   }
-  .events-hero-section {
+  .hero-section {
     display: flex;
     min-height: unset;
     flex-direction: column;
     height: 415px;
     padding: 5rem 0;
-
+    grid-column: col-start 3 / span 8;
+    max-width: 1200px;
     > * {
       max-width: 60%;
+      @media screen and (max-width: $tablet) {
+        max-width: 100%;
+      }
     }
     .hero-title {
       font-family: $barlow;
       font-size: 9rem;
       font-weight: bold;
       text-transform: uppercase;
+      @media screen and (max-width: $tablet) {
+        font-size: 6rem;
+      }
       span {
         display: block;
       }
     }
     .hero-description {
       margin-top: 2.4rem;
+      line-height: 1.5;
     }
   }
   .cta-section {
@@ -58,6 +78,9 @@ main.events-page {
     // background-image: url("../../assets/images/event-cta-section-background.png");
     background-repeat: no-repeat;
     background-size: cover;
+    @media screen and (max-width: $tablet) {
+      flex-direction: row;
+    }
     .cta-container {
       font-family: $barlow;
       font-size: 6.4rem;
@@ -66,6 +89,17 @@ main.events-page {
       width: 50%;
       max-width: 50%;
       padding-top: 100px;
+      @media screen and (max-width: $tablet) {
+        font-size: 4rem;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-left: 32px;
+      }
+      .cta-text {
+        @media screen and (max-width: $tablet) {
+          margin-bottom: 20px;
+        }
+      }
       span {
         display: block;
       }
@@ -75,6 +109,9 @@ main.events-page {
         border: 1px solid white;
         padding: 15px 30px;
         text-transform: uppercase;
+        @media screen and (max-width: $tablet) {
+          font-size: 1.6rem;
+        }
       }
     }
     .cta-date {
@@ -82,10 +119,12 @@ main.events-page {
       right: 0;
       bottom: 27px;
       font-size: 2rem;
+      line-height: 2;
       background-color: black;
       color: white;
       padding-left: 30px;
       padding-right: 70px;
+
       span {
         font-size: 2.2rem;
       }

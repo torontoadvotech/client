@@ -1,25 +1,22 @@
-section.event-cards-section {
+@import "../../../styles/variables.scss";
+
+section.cards-section {
   position: relative;
   padding: 3rem 0 8rem;
-  max-width: 1200px;
 
-  @media screen and (max-width: 1300px) {
-    grid-column: col-start 2 / span 10 !important;
-  }
-  @media screen and (min-width: 1301px) {
-    grid-column: col-start 3 / span 8 !important;
-  }
-  .event-cards-container {
+  .cards-container {
     display: flex;
     overflow: hidden;
     .event-card {
       flex: 0 0 auto;
-      width: calc(100% - 20px);
-      @media screen and (min-width: 1000px) {
+      @media screen and (min-width: 1001px) {
         width: calc((100% / 3) - 20px);
       }
-      @media screen and (min-width: 700px) and (max-width: 999px) {
+      @media screen and (min-width: 700px) and (max-width: 1000px) {
         width: calc((100% / 2) - 20px);
+      }
+      @media screen and (max-width: $mobile) {
+        width: 100%;
       }
 
       &:not(:first-child) {

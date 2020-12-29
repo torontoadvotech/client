@@ -92,7 +92,7 @@ const EventsCardCarousel = () => {
   };
 
   return (
-    <section className="event-cards-section grid-justify-center">
+    <section className="cards-section grid-justify-center">
       <div className="event-scroller">
         <button className="left-arrow" onClick={() => carouselSlide('l')}>
           <img src={leftArrow} alt="Left Arrow Glyphicon" />
@@ -101,7 +101,7 @@ const EventsCardCarousel = () => {
           <img src={rightArrow} alt="Right Arrow Glyphicon" />
         </button>
       </div>
-      <div className="cards-carousel"><ul className="event-cards-container" ref={cardsContainerRef}>
+      <div className="cards-carousel"><ul className="cards-container" ref={cardsContainerRef}>
         {eventExport.map((v, i) => {
           return (
             <li className="event-card" key={i}>

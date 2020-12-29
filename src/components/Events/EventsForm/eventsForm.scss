@@ -1,6 +1,6 @@
 @import "../../../styles/variables";
 
-.form-section {
+section.form-section {
   .form-section-header {
     display: flex;
     flex-direction: column;
@@ -17,6 +17,9 @@
     .form-section-description {
       width: 50%;
       margin-top: 3rem;
+      @media screen and (max-width: $tablet) {
+        width: 100%;
+      }
     }
   }
   .form-submit-error {
@@ -24,21 +27,35 @@
     margin: 40px 0;
   }
   .form-wrapper {
-    display: grid;
-    grid-gap: 20px 60px;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
     margin-top: 5.5rem;
     // max-width: 1010px;
+    @media screen and (min-width: 1001px) {
+      display: grid;
+      grid-gap: 20px 60px;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 1000px) {
+      display: flex;
+      flex-direction: column;
+    }
     .field-container {
       width: 100%;
       margin-bottom: 0;
+      @media screen and (max-width: 1000px) {
+        margin-bottom: 20px;
+        label {
+          margin-bottom: 10px;
+        }
+      }
     }
     .form-name,
     .form-email,
     .form-phone {
-      grid-column-start: 1;
-      align-self: start;
+      @media screen and (min-width: 1001px) {
+        grid-column-start: 1;
+        align-self: start;
+      }
       input {
         height: 50px;
         &::placeholder {
@@ -55,9 +72,11 @@
     }
 
     .form-request {
-      grid-column: 2 / span 1;
-      grid-row: 1 / span 3;
-      align-self: start;
+      @media screen and (min-width: 1001px) {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 3;
+        align-self: start;
+      }
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -65,10 +84,6 @@
         height: 100%;
         font-size: 2rem;
         padding: 15px 20px;
-
-        // &::placeholder {
-        //   font-size: 1.6rem;
-        // }
       }
     }
     .form-submit-button {

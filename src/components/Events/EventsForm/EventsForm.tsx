@@ -68,7 +68,7 @@ const EventForm: React.FC<EventFormProps> = ({
   }
   return (
 
-    <section className="form-section grid-span-8 grid-justify-center">
+    <section className="form-section grid-justify-center">
       <div className="form-section-header">
         <h3 className="form-section-header-title">
           Host an event

@@ -21,7 +21,7 @@ const EventsPage = () => {
 			{formSuccessModal &&
 				<EventsFormSuccess onClose={() => setFormSuccessModal(false)} />}
 			<main className="events-page">
-				<section className="events-hero-section grid-span-8 grid-justify-center">
+				<section className="hero-section grid-justify-center">
 					<h1 className="hero-title">Upcoming <span className="text-is-red">Events</span></h1>
 					<p className="hero-description">
 						Stay in the know of all our upcoming events. Are you passionate
