@@ -42,3 +42,10 @@ export interface Session {
   cancelled: boolean;
   confirmedAt: Date;
 }
+
+export interface EventsFormTypes {
+  name: string;
+  email: string;
+  phoneNumber: string;
+  request: string;
+}

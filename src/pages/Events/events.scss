@@ -7,8 +7,15 @@ main.events-page {
   grid-template-rows: auto 1fr auto;
   max-width: unset;
   grid-column: 1 /-1;
+
   > section {
     grid-column: col-start 2 / span 10;
+  }
+
+  .grid-justify-center {
+    @media screen and (min-width: 1805px) {
+      justify-self: center;
+    }
   }
   .text-is-red {
     color: $primary;
@@ -17,12 +24,16 @@ main.events-page {
     grid-column: col-start 3 / span 8;
     max-width: 1200px;
   }
+  .grid-full-width {
+    grid-column: 1 / -1;
+  }
   .events-hero-section {
     display: flex;
     min-height: unset;
     flex-direction: column;
     height: 415px;
     padding: 5rem 0;
+
     > * {
       max-width: 60%;
     }
@@ -42,10 +53,9 @@ main.events-page {
   .cta-section {
     display: flex;
     flex-direction: row-reverse;
-    grid-column: 1 / -1;
     height: 470px;
     position: relative;
-    background-image: url("../../assets/images/event-cta-section-background.png");
+    // background-image: url("../../assets/images/event-cta-section-background.png");
     background-repeat: no-repeat;
     background-size: cover;
     .cta-container {
@@ -78,50 +88,6 @@ main.events-page {
       padding-right: 70px;
       span {
         font-size: 2.2rem;
-      }
-    }
-  }
-
-  .form-section {
-    .form-section-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .form-section-header-title {
-        font-family: $barlow;
-        font-weight: 600;
-        font-size: 4rem;
-        text-transform: uppercase;
-        text-align: center;
-        padding: 10px 0;
-        border-bottom: 2px solid white;
-      }
-      .form-section-description {
-        width: 50%;
-        margin-top: 3rem;
-      }
-    }
-    .events-form {
-      display: grid;
-      grid-gap: 20px 60px;
-      grid-template-rows: 1fr;
-      margin-top: 5.5rem;
-      .form-name,
-      .form-email,
-      .form-phone {
-        grid-column-start: 1;
-        align-self: start;
-      }
-      .form-request {
-        grid-column: 2 / span 1;
-        grid-row: 1 / span 3;
-        align-self: start;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        textarea {
-          height: 100%;
-        }
       }
     }
   }

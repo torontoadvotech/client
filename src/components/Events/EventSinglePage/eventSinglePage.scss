@@ -1,0 +1,76 @@
+@import "../../../styles/variables.scss";
+
+.event-page-single {
+  .event-header-section {
+    h1 {
+      font-size: 9rem;
+      line-height: 1;
+      font-family: $barlow;
+      font-weight: 700;
+      margin-bottom: 20px;
+      > span {
+        display: block;
+      }
+    }
+    .event-description {
+      max-width: 626px;
+      line-height: 1.5;
+    }
+  }
+  .event-image-section {
+    max-height: 467px;
+    overflow: hidden;
+    img {
+      height: auto;
+    }
+  }
+  .event-detail-section {
+    font-size: 2.4rem;
+
+    .date-time,
+    .location,
+    .admission {
+      position: relative;
+      margin-left: 30px;
+      line-height: 2rem;
+      margin-bottom: 35px;
+      text-transform: uppercase;
+      &:before {
+        content: "";
+        display: block;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+      }
+    }
+    .date-time {
+      &:before {
+        background-image: url("../../../assets/images/calendar-icon.svg");
+        width: 20px;
+        height: 20px;
+        left: -35px;
+      }
+      margin-top: 25px;
+    }
+    .location {
+      line-height: 1.2;
+      &:before {
+        background-image: url("../../../assets/images/location-icon.svg");
+        width: 18px;
+        height: 25px;
+        left: -36px;
+      }
+      span {
+        display: block;
+      }
+    }
+    .admission {
+      &:before {
+        background-image: url("../../../assets/images/ticket-icon.svg");
+        width: 25px;
+        height: 25px;
+        left: -36px;
+      }
+    }
+  }
+}

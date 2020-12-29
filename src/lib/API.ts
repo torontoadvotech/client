@@ -1,4 +1,4 @@
-import { UserType } from './types';
+import { EventsFormTypes, UserType } from './types';
 
 class API {
   prefix = 'http://localhost:8000';
@@ -95,6 +95,12 @@ class API {
     } catch (err) {
       return null;
     }
+  }
+
+  // Events Form 
+  async EventsFormSubmit(body: EventsFormTypes) {
+
+    return true;
   }
 
   // API function used to make requests

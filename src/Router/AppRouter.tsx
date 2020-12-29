@@ -13,6 +13,7 @@ import ProfilePage from '../pages/Profile/Profile.page';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import EventsPage from '../pages/Events/Events.page';
+import SinglePageEvent from '../components/Events/EventSinglePage/EventSinglePage';
 
 const AppRouter = () => {
   const { user, setUser } = User.useContainer();
@@ -24,7 +25,7 @@ const AppRouter = () => {
     const res = await API.refreshToken();
 
     console.log(res);
-    
+
 
     // Save token and user data into memory
     if (res.data) {
@@ -53,12 +54,20 @@ const AppRouter = () => {
           <Route path="/" exact component={HomePage} />
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
-          <Route path="/events" exact component={EventsPage} />
-
+          {/* <Route path="/events" exact component={EventsPage} /> */}
+          <Route
+            path="/events"
+            render={({ match: { url } }) => (
+              <>
+                <Route path={`${url}/`} component={EventsPage} exact />
+                <Route path={`${url}/:eventId`} component={SinglePageEvent} exact />
+              </>
+            )}
+          />
           {/* NOTE: only put routes requiring a user below, else put above this check */}
-          { !user && <Redirect to="/" /> }
+          {!user && <Redirect to="/" />}
           <Route path="/profile" exact component={ProfilePage} />
-          
+
         </Switch>
         <Footer />
       </div>

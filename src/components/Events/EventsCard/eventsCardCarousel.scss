@@ -1,11 +1,16 @@
-.event-cards-section {
+section.event-cards-section {
   position: relative;
   padding: 3rem 0 8rem;
+  max-width: 1200px;
+
+  @media screen and (max-width: 1300px) {
+    grid-column: col-start 2 / span 10 !important;
+  }
+  @media screen and (min-width: 1301px) {
+    grid-column: col-start 3 / span 8 !important;
+  }
   .event-cards-container {
     display: flex;
-    // grid-gap: 30px;
-    // grid-template-columns: repeat(4, calc((100% / 3) - 20px));
-    // overflow: auto;
     overflow: hidden;
     .event-card {
       flex: 0 0 auto;

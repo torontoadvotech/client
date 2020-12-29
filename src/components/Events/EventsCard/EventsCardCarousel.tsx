@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import events from '../../lib/events';
+import { eventExport } from '../../../lib/events';
+
 import EventCard from './EventCard';
 
-import leftArrow from '../../assets/images/left-arrow-glyph.png';
-import rightArrow from '../../assets/images/right-arrow-glyph.png';
+import leftArrow from '../../../assets/images/left-arrow-glyph.png';
+import rightArrow from '../../../assets/images/right-arrow-glyph.png';
 
 require('./eventsCardCarousel.scss');
 
@@ -48,9 +49,7 @@ const EventsCardCarousel = () => {
     }
   }, []);
 
-  const eventsObject: object = events();
-
-
+  // const eventsObject: object = eventExport;
 
   const carouselSlide = (direction: string) => {
 
@@ -93,7 +92,7 @@ const EventsCardCarousel = () => {
   };
 
   return (
-    <section className="event-cards-section grid-span-8">
+    <section className="event-cards-section grid-justify-center">
       <div className="event-scroller">
         <button className="left-arrow" onClick={() => carouselSlide('l')}>
           <img src={leftArrow} alt="Left Arrow Glyphicon" />
@@ -103,7 +102,7 @@ const EventsCardCarousel = () => {
         </button>
       </div>
       <div className="cards-carousel"><ul className="event-cards-container" ref={cardsContainerRef}>
-        {Object.values(eventsObject).map((v, i) => {
+        {eventExport.map((v, i) => {
           return (
             <li className="event-card" key={i}>
               <EventCard
@@ -117,7 +116,7 @@ const EventsCardCarousel = () => {
             </li>)
         })}
       </ul></div>
-      <a className="events-all">View All Events</a>
+      <button className="events-all button-primary">View All Events</button>
     </section>
   )
 }

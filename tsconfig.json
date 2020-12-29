@@ -26,6 +26,13 @@
     "noFallthroughCasesInSwitch": true,
     "declaration": true
   },
-  "include": ["./src/**/*.ts", "./src/**/*.tsx"],
-  "exclude": ["node_modules", "./tests"]
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "src/lib/events.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "./tests"
+  ]
 }

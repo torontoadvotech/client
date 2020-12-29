@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 require('./eventCard.scss')
 
-import saveIcon from '../../assets/images/card-save-icon.png';
+import saveIcon from '../../../assets/images/card-save-icon.png';
 
 // const saveIcon = require('../../assets/images/card-save-icon.png')
 export interface EventCardProps {
