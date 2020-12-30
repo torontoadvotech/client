@@ -47,6 +47,10 @@ const SinglePageEvent = () => {
           <div className="admission">
             Admission Available At Door
           </div>
+          <div className="button-container">
+            <button className="learn-more">Learn More</button>
+            <button className="rsvp button-primary">RSVP</button>
+          </div>
         </section>
       </main>
     </>
