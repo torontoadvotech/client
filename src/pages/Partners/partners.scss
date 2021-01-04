@@ -1,0 +1,103 @@
+@import "./../../styles/variables.scss";
+
+main.partners-page {
+  p {
+    letter-spacing: -0.1px;
+    line-height: 1.5;
+  }
+
+  section.intro-section {
+    max-width: 500px;
+    margin-bottom: 100px;
+  }
+
+  section.current-partners {
+    display: flex;
+    justify-content: space-between;
+
+    figure {
+      width: 46%;
+    }
+
+    .current-partners-text-content {
+      width: calc(100% - 46%);
+      background: $grey-darker;
+      padding: 34px 46px;
+      .text-slogan {
+        text-align: right;
+        font-size: 6.4rem;
+        font-size: 5.3rem;
+        span {
+          display: inline-block;
+        }
+      }
+      p {
+        margin-top: 18px;
+      }
+    }
+  }
+  section.partners-form {
+    margin-top: 75px;
+    padding: 70px 36px;
+    background: $grey-darker;
+    .form-container__partners {
+      max-width: none;
+
+      h3 {
+        font-family: $barlow;
+        font-weight: 600;
+        font-size: 4rem;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: underline;
+        -webkit-text-underline-position: under;
+        -ms-text-underline-position: below;
+        text-underline-position: under;
+      }
+
+      p {
+        max-width: 500px;
+        text-align: center;
+        margin: 40px auto 57px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .text-inputs,
+        .textarea {
+          width: 48%;
+
+          .field-container {
+            width: 100%;
+
+            input,
+            textarea {
+              &::placeholder {
+                font-family: $oxygen;
+                font-weight: 400;
+              }
+            }
+          }
+        }
+
+        .textarea {
+          text-align: right;
+          .field-container {
+            text-align: left;
+          }
+          textarea {
+            resize: none;
+          }
+        }
+
+        button {
+          width: 168px;
+          height: 48px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
