@@ -1,6 +1,9 @@
 @import "./../../styles/variables.scss";
 
 main.partners-page {
+  @include maxScreen($desktop) {
+    max-width: 100%;
+  }
   p {
     letter-spacing: -0.1px;
     line-height: 1.5;
@@ -12,15 +15,21 @@ main.partners-page {
   }
 
   section.current-partners {
-    display: flex;
-    justify-content: space-between;
+    @include minScreen($desktop) {
+      display: flex;
+      justify-content: space-between;
+    }
 
     figure {
-      width: 46%;
+      @include minScreen($desktop) {
+        width: 46%;
+      }
     }
 
     .current-partners-text-content {
-      width: calc(100% - 46%);
+      @include minScreen($desktop) {
+        width: calc(100% - 46%);
+      }
       background: $grey-darker;
       padding: 34px 46px;
       .text-slogan {
@@ -62,25 +71,32 @@ main.partners-page {
       }
 
       form {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        .text-inputs,
-        .textarea {
-          width: 48%;
+        @include minScreen($desktop) {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .text-inputs,
+          .textarea {
+            width: 48%;
+          }
+        }
+
+        .text-inputs, .textarea {
+          @include maxScreen(1149px) {
+            width: 100%;
+          }
 
           .field-container {
             width: 100%;
-
+  
             input,
             textarea {
-              &::placeholder {
-                font-family: $oxygen;
-                font-weight: 400;
-              }
+              font-family: $oxygen;
+              font-weight: 400;
             }
           }
         }
+
 
         .textarea {
           text-align: right;

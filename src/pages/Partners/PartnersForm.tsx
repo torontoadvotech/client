@@ -123,6 +123,7 @@ const PartnersForm = () => {
           children={
             "Your request has been sent and is under review by our team. You should receive a response within the next 48 hours!"
           }
+          className="partners-form"
           onClose={closeModal}
         />
       )}
