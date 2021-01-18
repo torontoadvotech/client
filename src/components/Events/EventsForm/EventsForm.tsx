@@ -46,7 +46,7 @@ const EventForm: React.FC<EventFormProps> = ({
     request: Yup.string().required("Required"),
   });
 
-  const onSubmit = (values: EventsFormTypes) => {
+  const onSubmit = (values: EventsFormTypes, { resetForm }) => {
     const { name, email, phoneNumber, request } = values;
     try {
       const res = API.EventsFormSubmit({ name, email, phoneNumber, request });
@@ -58,10 +58,10 @@ const EventForm: React.FC<EventFormProps> = ({
       }
 
       formModal();
+      resetForm({ values: '' });
 
     } catch (err) {
       return console.log(err);
-
     }
 
 
