@@ -120,12 +120,17 @@ const PartnersForm = () => {
       {formSubmit && (
         <Modal
           title={"Congrats!"}
-          children={
-            "Your request has been sent and is under review by our team. You should receive a response within the next 48 hours!"
-          }
-          className="partners-form"
+          className='partners-form'
           onClose={closeModal}
-        />
+        >
+          <>
+            <p>
+              Your request has been sent and is under review by our team. You
+              should receive a response within the next 48 hours!
+            </p>
+            <button className="button-primary" onClick={closeModal}>Okay</button>
+          </>
+        </Modal>
       )}
     </>
   );
