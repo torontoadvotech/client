@@ -17,6 +17,7 @@ section.form-section {
     .form-section-description {
       width: 50%;
       margin-top: 3rem;
+      text-align: center;
       @media screen and (max-width: $tablet) {
         width: 100%;
       }
