@@ -1,0 +1,73 @@
+.card-link {
+  // width: calc((100% / 3) + 30px);
+  .image-wrapper {
+    height: 205px;
+    max-height: 205px;
+    overflow: hidden;
+    position: relative;
+    img {
+      object-fit: cover;
+    }
+  }
+  .card-description {
+    position: relative;
+    background-color: #161616;
+    padding: 15px 28px 45px;
+    .title {
+      font-size: 2.1rem;
+      line-height: 4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .date-time,
+    .location,
+    .admission {
+      position: relative;
+      margin-left: 25px;
+      font-size: 1.5rem;
+      line-height: 2rem;
+      margin-bottom: 10px;
+      &:before {
+        content: "";
+        display: block;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+      }
+    }
+    .date-time {
+      &:before {
+        background-image: url("../../../assets/images/calendar-icon.svg");
+        width: 18px;
+        height: 18px;
+        left: -30px;
+      }
+      margin-top: 25px;
+    }
+    .location {
+      &:before {
+        background-image: url("../../../assets/images/location-icon.svg");
+        width: 16px;
+        height: 16px;
+        left: -28px;
+      }
+      span {
+        display: block;
+      }
+    }
+    .admission {
+      &:before {
+        background-image: url("../../../assets/images/ticket-icon.svg");
+        width: 16px;
+        height: 16px;
+        left: -28px;
+      }
+    }
+    .save-icon {
+      background-color: transparent;
+      padding: 0;
+      position: absolute;
+      right: 9px;
+      bottom: 3px;
+    }
+  }
+}

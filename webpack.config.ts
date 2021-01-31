@@ -70,7 +70,7 @@ export default (_env: any, options: { mode: string }) => {
           ]
         },
         {
-          test: /\.(png|jpg|gif)$/,
+          test: /\.(png|jpg|gif|svg)$/,
           use: ['file-loader']
         }
       ]

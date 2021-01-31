@@ -13,6 +13,8 @@ import MentorshipPage from '../pages/Mentorship/Mentorship.page';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
+import EventsPage from '../pages/Events/Events.page';
+import SinglePageEvent from '../components/Events/EventSinglePage/EventSinglePage';
 import MentorSelection from '../pages/MentorSelection/MentorSelection.page';
 
 const AppRouter = () => {
@@ -60,6 +62,16 @@ const AppRouter = () => {
           <Route path="/" exact component={HomePage} />
           <Route path="/signup" exact component={SignupPage} />
           <Route path="/login" exact component={LoginPage} />
+          {/* <Route path="/events" exact component={EventsPage} /> */}
+          <Route
+            path="/events"
+            render={({ match: { url } }) => (
+              <>
+                <Route path={`${url}/`} component={EventsPage} exact />
+                <Route path={`${url}/:eventId`} component={SinglePageEvent} exact />
+              </>
+            )}
+          />
           <Route path="/mentorship" exact component={MentorshipPage} />
           <Route path='/mentors' exact component={MentorSelection} />
 

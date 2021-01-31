@@ -1,0 +1,99 @@
+@import "../../../styles/variables";
+
+section.form-section {
+  .form-section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .form-section-header-title {
+      font-family: $barlow;
+      font-weight: 600;
+      font-size: 4rem;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 2px solid white;
+    }
+    .form-section-description {
+      width: 50%;
+      margin-top: 3rem;
+      text-align: center;
+      @media screen and (max-width: $tablet) {
+        width: 100%;
+      }
+    }
+  }
+  .form-submit-error {
+    text-align: center;
+    margin: 40px 0;
+  }
+  .form-wrapper {
+    margin-top: 5.5rem;
+    // max-width: 1010px;
+    @media screen and (min-width: 1001px) {
+      display: grid;
+      grid-gap: 20px 60px;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+    }
+    @media screen and (max-width: 1000px) {
+      display: flex;
+      flex-direction: column;
+    }
+    .field-container {
+      width: 100%;
+      margin-bottom: 0;
+      @media screen and (max-width: 1000px) {
+        margin-bottom: 20px;
+        label {
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .form-name,
+    .form-email,
+    .form-phone {
+      @media screen and (min-width: 1001px) {
+        grid-column-start: 1;
+        align-self: start;
+      }
+      input {
+        height: 50px;
+        &::placeholder {
+          font-family: $oxygen;
+        }
+      }
+    }
+
+    .form-error {
+      ~ * {
+        border-color: $primary;
+        color: $primary;
+      }
+    }
+
+    .form-request {
+      @media screen and (min-width: 1001px) {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 3;
+        align-self: start;
+      }
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      textarea {
+        height: 100%;
+        font-size: 2rem;
+        padding: 15px 20px;
+      }
+    }
+    .form-submit-button {
+      grid-row: 4;
+      grid-column: 2;
+      margin: 0;
+      justify-self: end;
+      padding: 14px 60px;
+      font-size: 12px;
+    }
+  }
+}
