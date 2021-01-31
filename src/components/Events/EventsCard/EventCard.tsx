@@ -19,40 +19,10 @@ export interface EventCardProps {
 
 const EventCard: React.FunctionComponent<EventCardProps> = (props) => {
 
-  const [imgFullWidth, setImgFullWidth] = useState<Boolean>(false);
-
-  const cardImg = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    let timeoutId: any = null;
-
-
-    const calculateImgFullWidth = () => {
-      clearTimeout(timeoutId);
-
-      timeoutId = setTimeout(() => {
-        const imgLessThanParent = cardImg?.current.getBoundingClientRect().width < cardImg?.current.parentElement?.getBoundingClientRect().width
-
-        if (imgLessThanParent) {
-          setImgFullWidth(true);
-        } else {
-          setImgFullWidth(false)
-        }
-      }, 150)
-    }
-    calculateImgFullWidth();
-    window.addEventListener('resize', calculateImgFullWidth);
-
-    // Clean up event listeners on componenet unmount
-    return () => {
-      window.removeEventListener('resize', calculateImgFullWidth)
-    }
-  }, []);
-
   return (
     <article className="card-link">
       <figure className="image-wrapper">
-        <img src={props.image?.imageUrl} alt={props.image?.imageAlt} className={'image' + (imgFullWidth ? ' img-full-width' : '')} ref={cardImg} />
+        <img src={props.image?.imageUrl} alt={props.image?.imageAlt} className='image' />
       </figure>
       <div className="card-description">
         <h1 className="title text-is-red">{props.title}</h1>
