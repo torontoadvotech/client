@@ -4,7 +4,6 @@ import HeaderMenu from './HeaderMenu';
 import { User } from '../../containers/user.container';
 import { Link } from 'react-router-dom';
 import API from '../../lib/API';
-// import useOnClickOutside from '../../hooks/useOnClickOutside';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 
@@ -18,7 +17,6 @@ const Header = () => {
   // State for header animation on scroll
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
-  // const ref = useRef<HTMLDivElement>(null);
   const ref = useRef(null);
 
   const openMenu = () => {
