@@ -17,13 +17,17 @@ import EventsPage from '../pages/Events/Events.page';
 import SinglePageEvent from '../components/Events/EventSinglePage/EventSinglePage';
 import MentorSelection from '../pages/MentorSelection/MentorSelection.page';
 
+import InitialAccountSetupPage from '../pages/InitialAccountSetup/InitialAccountSetup.page';
+
 const AppRouter = () => {
   const { user, setUser } = User.useContainer();
+
+  // Testing Purposes before updating 'user' model
+  const onboardComplete = false;
 
   // For security purposes authorization tokens are only ever saved to memory and expire after 15 minutes
   // In order to keep the user logged in a less secure refresh token is stored as a http-only cookie
   // This token can be sent to the server in order to receive a new authorization token but cannot be used to access protected routes
-
 
   useEffect(() => {
     const refreshUser = async () => {
@@ -75,10 +79,15 @@ const AppRouter = () => {
           <Route path="/mentorship" exact component={MentorshipPage} />
           <Route path='/mentors' exact component={MentorSelection} />
 
+
+          {onboardComplete
+            ? <Redirect to="/profile" />
+            : <Route path="/initial-account-setup" component={InitialAccountSetupPage} />
+          }
+
           {/* NOTE: only put routes requiring a user below, else put above this check */}
           {!user && <Redirect to="/" />}
           <Route path="/profile" exact component={ProfilePage} />
-
         </Switch>
         <Footer />
       </div>

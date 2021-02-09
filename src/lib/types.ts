@@ -28,6 +28,16 @@ export interface UserProfileForm {
   role: 'mentor' | 'mentee';
   password: string;
   passwordConfirm: string;
+  // Updated below, make sure to updated above
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  gender: string;
+  education: string;
+  certifications: string;
+  languages: string;
+  organizations: string;
+  skills: string;
 }
 
 // Types for session model
