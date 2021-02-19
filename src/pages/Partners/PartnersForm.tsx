@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Modal from "../../components/Modal/Modal";
+import SuccessModal from "../../components/Modal/SuccessModal/SuccessModal";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -129,19 +129,7 @@ const PartnersForm = () => {
         </Formik>
       </div>
       {formSubmit && (
-        <Modal
-          title={"Congrats!"}
-          className='partners-form'
-          onClose={closeModal}
-        >
-          <>
-            <p>
-              Your request has been sent and is under review by our team. You
-              should receive a response within the next 48 hours!
-            </p>
-            <button className="button-primary" onClick={closeModal}>Okay</button>
-          </>
-        </Modal>
+        <SuccessModal onClose={closeModal} />
       )}
     </>
   );
