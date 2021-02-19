@@ -22,6 +22,17 @@ const PartnersForm = () => {
     email: "",
   };
 
+  function validateTelephoneNumber(tel: string) {
+    let error;
+    // Phone regex referenced here: https://github.com/dockwa/simple-react-validator. Open Source MIT License
+    const phoneRegex = /^(\+?\d{0,3})?\s?-?\s?(\(?\d{3}\)?)\s?-?\s?(\(?\d{4}\)?)\s?$/;
+
+    if (!phoneRegex.test(tel)) {
+      error = "Invalid phone number. 123-456-7890";
+    }
+    return error;
+  }
+
   const onSubmit = (values: PartnersType, { resetForm }) => {
     const { companyName } = values;
     setFormSubmit(true);
@@ -84,7 +95,7 @@ const PartnersForm = () => {
                   className='form-error'
                   name='phoneNumber'
                 />
-                <Field name='phoneNumber' placeholder='416-111-1111' />
+                <Field name='phoneNumber' validate={validateTelephoneNumber} placeholder='416-111-1111' />
               </div>
               <div className='field-container'>
                 <label htmlFor='industry'>Industry</label>
