@@ -1,4 +1,4 @@
-import { UserType } from './types';
+import { EventsFormTypes, UserType } from './types';
 
 class API {
   prefix = 'http://localhost:8000';
@@ -82,6 +82,12 @@ class API {
   // Get all mentors
   async getAllMentors(page: number, limit: number) {
     return this.request('get', `/mentors?page=${page}&limit=${limit}`);
+  }
+
+  // Events Form 
+  async EventsFormSubmit(body: EventsFormTypes) {
+
+    return true;
   }
 
   // API function used to make requests

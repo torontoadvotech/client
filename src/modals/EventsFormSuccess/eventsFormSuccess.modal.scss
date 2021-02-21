@@ -1,0 +1,70 @@
+@import "../../styles/variables.scss";
+
+.events-form-success-modal {
+  max-height: 90vh;
+  max-width: 90vw;
+  overflow: auto;
+
+  .modal-wrapper {
+    background-color: white !important;
+    padding: 55px !important;
+    * {
+      text-align: center;
+    }
+
+    header,
+    .modal-content {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .modal-close {
+      color: black;
+      position: relative;
+      &:before {
+        content: "CLOSE";
+        position: absolute;
+        left: -60px;
+      }
+    }
+    h2 {
+      color: $primary;
+      font-size: 9rem;
+      margin: 70px 0 55px;
+      text-transform: uppercase;
+      position: relative;
+      width: fit-content;
+      &:before {
+        left: -70px;
+      }
+      &:after {
+        right: -70px;
+      }
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        background-image: url("../../assets/images/celebration-icon.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        top: 20px;
+      }
+    }
+    .modal-content {
+      color: black;
+      font-size: 3.2rem;
+      text-transform: uppercase;
+      line-height: 53px;
+    }
+    .events-modal-okay {
+      display: block;
+      margin: 50px 0 30px;
+      border: 1px solid black;
+      background-color: $grey;
+      color: black;
+      padding: 10px 40px;
+    }
+  }
+}

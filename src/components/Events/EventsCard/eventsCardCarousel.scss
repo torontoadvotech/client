@@ -1,0 +1,54 @@
+@import "../../../styles/variables.scss";
+
+section.cards-section {
+  position: relative;
+  padding: 3rem 0 8rem;
+
+  .cards-container {
+    display: flex;
+    overflow: hidden;
+    .event-card {
+      flex: 0 0 auto;
+      @media screen and (min-width: 1001px) {
+        width: calc((100% / 3) - 20px);
+      }
+      @media screen and (min-width: 700px) and (max-width: 1000px) {
+        width: calc((100% / 2) - 20px);
+      }
+      @media screen and (max-width: $mobile) {
+        width: 100%;
+      }
+
+      &:not(:first-child) {
+        margin-left: 30px;
+      }
+    }
+  }
+  .events-all {
+    background-color: white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 14px 24px;
+    color: black;
+    font-size: 12px;
+  }
+  .event-scroller {
+    position: absolute;
+    right: 0;
+    top: 0;
+    button {
+      background-color: transparent;
+      img {
+        height: 12px;
+        width: auto;
+      }
+    }
+    .left-arrow {
+      margin-right: 28px;
+    }
+    .right-arrow {
+      margin-left: 28px;
+    }
+  }
+}
