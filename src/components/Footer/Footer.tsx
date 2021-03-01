@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
 					<FontAwesomeIcon icon={faTwitter} />
 				</a>
 			</div>
-			<button className="scroll-top"><FontAwesomeIcon icon={faChevronUp} /></button>
+			<button aria-label="Scroll Up" className="scroll-top"><FontAwesomeIcon icon={faChevronUp} /></button>
 		</div>
 	</footer>
   );

@@ -2,7 +2,6 @@
 
 footer {
   min-height: 100px;
-  // border-top: 1px solid $primary;
   margin: 0;
   color: #3c3c3c;
   background-color: #000;
@@ -42,9 +41,6 @@ footer {
     &:focus {
       transition: $default-transition;
       border-color: $primary;
-      // outline: 0;
-      outline: solid 1px $secondary;
-      outline-color: $secondary $secondary transparent $secondary;
     }
 
     @media screen and (max-width: 1000px) {
