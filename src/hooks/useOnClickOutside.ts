@@ -12,7 +12,7 @@ const useOnClickOutside = (ref: RefObject<Element> | null, callback: (e: MouseEv
     document.addEventListener('click', eventHandler);
 
     return () => document.removeEventListener('click', eventHandler);
-  }, [ref, callback]);
+  }, [ref]);
 };
 
 export default useOnClickOutside;
