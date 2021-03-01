@@ -32,18 +32,7 @@ const HeaderMenu = () => {
                 <a href="https://medium.com/torontowomenintech">Blog</a>
               </li>
               <li>
-                <a
-                  className="coming-soon"
-                  href="#"
-                  aria-label="About page is coming soon!"
-                >
-                  <span className="coming-soon-hide" aria-hidden>
                   <Link to="/about">About</Link>
-                  </span>
-                  <span className="coming-soon-show" aria-hidden>
-                    Coming Soon
-                  </span>
-                </a>
               </li>
             </ul>
           </div>
