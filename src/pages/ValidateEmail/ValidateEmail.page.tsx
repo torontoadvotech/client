@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import API from '../../lib/API';
-
+// styles
 import './validateEmail.scss';
 
-const ValidateEmail = ({ match }) => {
+interface RouterProps {
+  id: string;
+}
+
+interface ValidateEmailProps extends RouteComponentProps<RouterProps> {}
+
+const ValidateEmail: FunctionComponent<ValidateEmailProps> = ({ match }) => {
   // state
   const [isValidated, setIsValidated] = useState<boolean>(false);
 
@@ -26,13 +33,11 @@ const ValidateEmail = ({ match }) => {
 
   return (
     <main className='validate-email-page'>
-      <div>
-        <h1>
-          {isValidated
-            ? 'Thank you for verifying your email.'
-            : 'Something went wrong, please try again.'}
-        </h1>
-      </div>
+      <h1>
+        {isValidated
+          ? 'Thank you for verifying your email.'
+          : 'Something went wrong, please try again.'}
+      </h1>
     </main>
   );
 };
