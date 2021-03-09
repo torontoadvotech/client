@@ -1,5 +1,6 @@
   
 .prettierrc
+.DS_Store
 config.env
 node_modules
 devData
