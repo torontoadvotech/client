@@ -96,7 +96,6 @@ const AppRouter = () => {
             exact
             component={MentorProfilePage}
           />
-
           {/* NOTE: only put routes requiring a user below, else put above this check */}
           {!user && <Redirect to='/' />}
           <Route path='/profile' exact component={ProfilePage} />

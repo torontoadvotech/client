@@ -84,6 +84,11 @@ class API {
     return this.request('get', `/mentors?page=${page}&limit=${limit}`);
   }
 
+  // Get one mentor
+  async getOneMentor(mentorId: string) {
+    return this.request('get', `/mentors/${mentorId}`);
+  }
+
   // Events Form
   async EventsFormSubmit(body: EventsFormTypes) {
     return true;
