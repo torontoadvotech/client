@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const HeaderMenu = () => {
   return (
@@ -8,21 +9,10 @@ const HeaderMenu = () => {
           <div className="menu-items">
             <ul>
               <li>
-                <a href="index.html">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a
-                  className="coming-soon"
-                  href="#"
-                  aria-label="Events page is coming soon!"
-                >
-                  <span className="coming-soon-hide" aria-hidden>
-                    Events
-                  </span>
-                  <span className="coming-soon-show" aria-hidden>
-                    Coming Soon
-                  </span>
-                </a>
+                <Link to="/events">Events</Link>
               </li>
               <li>
                 <a
@@ -42,18 +32,7 @@ const HeaderMenu = () => {
                 <a href="https://medium.com/torontowomenintech">Blog</a>
               </li>
               <li>
-                <a
-                  className="coming-soon"
-                  href="#"
-                  aria-label="About page is coming soon!"
-                >
-                  <span className="coming-soon-hide" aria-hidden>
-                    About
-                  </span>
-                  <span className="coming-soon-show" aria-hidden>
-                    Coming Soon
-                  </span>
-                </a>
+                  <Link to="/about">About</Link>
               </li>
             </ul>
           </div>

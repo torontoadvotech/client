@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './header.scss';
 import HeaderMenu from './HeaderMenu';
 import { User } from '../../containers/user.container';
 import { Link } from 'react-router-dom';
 import API from '../../lib/API';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
+
+
 
 const Header = () => {
   const { user, setUser } = User.useContainer();
@@ -13,6 +16,18 @@ const Header = () => {
 
   // State for header animation on scroll
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  const ref = useRef(null);
+
+  const openMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
+  useOnClickOutside(ref, closeMenu);
 
   const handleLogout = async () => {
     try {
@@ -28,7 +43,7 @@ const Header = () => {
     }
   };
 
-    // header animation on scroll
+  // header animation on scroll
   const shrinkNavOnScroll = () => {
     const scrollDistance = document.documentElement.scrollTop;
 
@@ -73,19 +88,20 @@ const Header = () => {
                 </li>
               </ul>
             ) : (
-              <ul className="login-nav">
-                <li>
-                  <Link to="/login">Log in</Link>
-                </li>
-                <li>
-                  <Link to="/signup">Sign up</Link>
-                </li>
-              </ul>
-            )}
+                <ul className="login-nav">
+                  <li>
+                    <Link to="/login">Log in</Link>
+                  </li>
+                  <li>
+                    <Link to="/signup">Sign up</Link>
+                  </li>
+                </ul>
+              )}
 
             <button
               className="nav-right open-menu"
-              onClick={() => setIsOpen(!isOpen)}
+              ref={ref}
+              onClick={openMenu}
             >
               <span className="menu">Menu</span>
               <div className="hamburger">

@@ -1,0 +1,160 @@
+@import "./../../styles/variables.scss";
+
+main.partners-page {
+  @include maxScreen($desktop) {
+    max-width: 100%;
+  }
+  p {
+    letter-spacing: -0.1px;
+    line-height: 1.5;
+  }
+
+  section.intro-section {
+    max-width: 500px;
+    margin-bottom: 100px;
+  }
+
+  section.current-partners {
+    @include minScreen($tablet) {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    figure {
+      position: relative;
+
+      @include minScreen($tablet) {
+        width: 46%;
+      }
+
+      &:before {
+        position: absolute;
+        content: '';
+        background: url(../../assets/images/adidas-partners.png) no-repeat;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+
+        @media screen and (min-width: 750px) and (max-width: 1439px) {
+          background-size: 75%;
+        }
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .current-partners-text-content {
+      padding: 20px;
+      background: $grey-darker;
+
+      @include minScreen($tablet) {
+        width: calc(100% - 46%);
+      }
+      @include minScreen($mobile) {
+        padding: 34px 46px;
+      }
+
+      .text-slogan {
+        text-align: right;
+        font-size: 4.5rem;
+
+        @include minScreen($desktop) {
+          font-size: 4.8rem;
+        }
+
+        @include minScreen(1482px) {
+          font-size: 5.3rem;
+        }
+
+        span {
+          display: inline-block;
+        }
+      }
+      p {
+        margin-top: 18px;
+      }
+    }
+  }
+  section.partners-form {
+    margin-top: 75px;
+    background: $grey-darker;
+
+    @include minScreen($mobile) {
+      padding: 70px 36px;
+    }
+
+    .form-container__partners {
+      max-width: none;
+
+      h3 {
+        font-family: $barlow;
+        font-weight: 600;
+        font-size: 4rem;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: underline;
+        -webkit-text-underline-position: under;
+        -ms-text-underline-position: below;
+        text-underline-position: under;
+        line-height: 1.2;
+      }
+
+      p {
+        max-width: 500px;
+        text-align: center;
+        margin: 40px auto 57px;
+      }
+
+      form {
+        @include minScreen($desktop) {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .text-inputs,
+          .textarea {
+            width: 48%;
+          }
+          .textarea {
+            height: 364px;
+          }
+        }
+
+        .text-inputs,
+        .textarea {
+          @include maxScreen(1149px) {
+            width: 100%;
+          }
+
+          .field-container {
+            width: 100%;
+
+            input,
+            textarea {
+              font-family: $oxygen;
+              font-weight: 400;
+            }
+          }
+        }
+
+        .textarea {
+          text-align: right;
+          .field-container {
+            text-align: left;
+          }
+          textarea {
+            resize: none;
+          }
+        }
+
+        button {
+          width: 168px;
+          height: 48px;
+          padding: 10px;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
