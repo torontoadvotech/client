@@ -84,10 +84,14 @@ class API {
     return this.request('get', `/mentors?page=${page}&limit=${limit}`);
   }
 
-  // Events Form 
+  // Events Form
   async EventsFormSubmit(body: EventsFormTypes) {
-
     return true;
+  }
+
+  // Validate email
+  async validateEmail(id: string) {
+    return this.request('patch', `/users/validateEmail/${id}`);
   }
 
   // API function used to make requests
