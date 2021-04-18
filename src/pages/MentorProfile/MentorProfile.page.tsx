@@ -5,8 +5,12 @@ import { UserType } from '../../lib/types';
 
 import './mentorProfile.scss';
 
+interface ParamTypes {
+  mentorId: string;
+}
+
 const MentorProfilePage = () => {
-  const { mentorId } = useParams();
+  const { mentorId } = useParams<ParamTypes>();
   const [mentor, setMentor] = useState<UserType>();
 
   useEffect(() => {
@@ -21,23 +25,26 @@ const MentorProfilePage = () => {
     };
 
     loadMentor();
-  });
+  }, []);
 
   return (
     <main className='mentor-profile-page'>
       <h1>Mentor</h1>
       <div className='profile-summary--img-container'>
         <img
-          src={mentor?.photo}
+          src='https://picsum.photos/280/300'
           alt={`${mentor?.name}'s profile image`}
           className='profile-summary--img'
         />
       </div>
       <div className='profile-summary--details'>
-        <h1 className='mentor-name'>{mentor?.name}</h1>
+        <h2 className='mentor-name'>{mentor?.name}</h2>
         <span className='mentor-email'>{mentor?.email}</span>
-        <button className='book=meeting' onClick={() => {}}>
-          Book a call with {mentor?.name}
+        <button
+          className='button button-primary book-meeting'
+          onClick={() => {}}
+        >
+          Request a meeting
         </button>
       </div>
     </main>
