@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import API from "../../lib/API";
 import { UserProfileForm } from "../../lib/types";
 import { User } from "../../containers/user.container";
-import AccountProfileForm from "../../components/AccountProfileForm/AccountProfileForm";
+import DynamicFormBuilder from "../../components/DynamicFormBuilder/DynamicFormBuilder";
 interface Props {
   endEditProfile: () => void;
 }
@@ -77,12 +77,12 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
       </button>
 
       <h1>Edit Profile</h1>
-      <AccountProfileForm
+      {/* <DynamicFormBuilder
         initialValues={initialValues}
         onSubmit={onSubmit}
         user={user}
-      />
-      {/* <Formik
+      /> */}
+      <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
@@ -154,7 +154,7 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
             </Form>
           );
         }}
-      </Formik> */}
+      </Formik>
     </div>
   );
 }

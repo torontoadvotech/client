@@ -1,0 +1,125 @@
+@import "../../styles/variables";
+
+.form-field {
+  width: 100%;
+  input::placeholder {
+    font-family: $oxygen;
+  }
+  input[type="file"] {
+    background-color: pink;
+  }
+
+  .label-text {
+    font-family: $barlow;
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 4rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+  
+  .profile-summary--add-img {
+    width: 100px;
+    height: auto;
+  }
+
+  #photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    font-size: 0px;
+    color: transparent;
+    border: 0;
+    padding: 0;
+    &::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .custom-checkbox-group {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: nowrap;
+    position: relative;
+    label {
+      font-size: 1.6rem;
+    }
+    input[type="radio"],
+    input[type="checkbox"] {
+      opacity: 0;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      &:checked {
+        ~ .custom-select-box {
+          background-color: red;
+        }
+      }
+    }
+    .custom-select-box {
+      display: inline-block;
+      width: 16px;
+      height: 16px; 
+      border: 1px solid white;
+      margin-right: 20px;
+    }
+  }
+
+  .field-dropdown {
+    select {
+      width: 100%;
+      appearance: none;
+      height: 50px;
+      position: relative;
+      background-color: white;
+      color: black;
+      background-image: url('../../assets/images/down-arrow.svg');
+      background-repeat: no-repeat;
+      background-size: 20px 20px;
+      background-position: right 20px bottom 50%;
+      border-radius: 3px;
+    }
+    &.field-disabled {
+      opacity: 0.5;
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  width: 100%;
+  padding: 0 110px;
+  margin-top: 80px;
+  &.flex-j-space-between {
+    justify-content: space-between;
+  }
+  &.flex-j-center {
+    justify-content: center;
+  }
+  .previous-button,
+  .submit-button {
+    display: block;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 10px 40px;
+    border: 1px solid white;
+    width: 168px;
+  }
+  .previous-button {
+    margin: 20px 0;
+  }
+
+  .submit-button {
+
+  }
+}
+

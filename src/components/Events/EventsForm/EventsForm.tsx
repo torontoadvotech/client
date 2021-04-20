@@ -90,18 +90,18 @@ const EventForm: React.FC<EventFormProps> = ({
             {/* ErrorMessage should be before all other sibling elements to ensure CSS ~ selector applies */}
             <ErrorMessage component="span" className="form-error" name="name" />
             <label htmlFor="name">Name</label>
-            <Field name="name" type="text" placeholder="Jenna Hunter" />
+            <Field className="input-height-50" name="name" type="text" placeholder="Jenna Hunter" />
           </div>
           <div className="field-container form-email">
             <ErrorMessage component="span" className="form-error" name="email" />
             <label htmlFor="email">Email</label>
-            <Field name="email" type="email" placeholder="jenna.hunter@gmail.com" />
+            <Field className="input-height-50" name="email" type="email" placeholder="jenna.hunter@gmail.com" />
           </div>
 
           <div className="field-container form-phone">
             <ErrorMessage component="span" className="form-error" name="phoneNumber" />
             <label htmlFor="phone">Phone Number</label>
-            <Field name="phoneNumber" validate={validateTelephoneNumber} placeholder="416-111-1111" />
+            <Field className="input-height-50" name="phoneNumber" validate={validateTelephoneNumber} placeholder="416-111-1111" />
           </div>
           <div className="field-container form-request">
             <ErrorMessage component="span" className="form-error" name="request" />

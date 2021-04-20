@@ -1,0 +1,27 @@
+@import "../../../styles/variables.scss";
+
+.button-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-gap: 20px;
+  button {
+    background-color: white;
+    color: $grey-darkest;
+    margin: 0;
+
+    &.selected-button {
+      background-color: $primary;
+      color: white;
+    }
+  }
+
+  .not-listed {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  #genderInput {
+    display: none;
+  }
+}

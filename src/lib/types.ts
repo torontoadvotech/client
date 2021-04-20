@@ -31,7 +31,7 @@ export interface UserProfileForm {
   // Updated below, make sure to updated above
   firstName: string;
   lastName: string;
-  dateOfBirth: string;
+  date: string;
   gender: string;
   education: string;
   certifications: string;
@@ -58,4 +58,22 @@ export interface EventsFormTypes {
   email: string;
   phoneNumber: string;
   request: string;
+}
+
+export interface SetupProgressBarProps {
+  currentProgress: number;
+}
+
+type FirstNameTypes = "date" | "email" | "genderMultiSelect" | "textbox" | "profileImage" | "radioGroup" | "dropdown" | "multipleCheckbox";
+export interface FormControl {
+  type: FirstNameTypes,
+  // Fieldname must match Yup validator field name
+  fieldName: string;
+  label: string,
+  required: boolean,
+  // Placeholder only utilized for type of standardTextBox
+  placeholder?: string,
+  optionsArray?: string[],
+  // DependentOnField dictates field that has to be chosen to enable field
+  dependentOnField?: string
 }
