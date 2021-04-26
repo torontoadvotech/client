@@ -1,0 +1,44 @@
+@import '../../styles/variables.scss';
+
+.mentor-profile-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    font-weight: 600;
+    line-height: 4rem;
+    font-size: 2.4rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: $primary;
+    font-family: $barlow;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.6;
+    text-align: center;
+    color: $primary;
+    font-family: $barlow;
+  }
+
+  img {
+    object-fit: cover;
+    width: 200px;
+    height: 220px;
+  }
+
+  .profile-summary--details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: $grey-darker;
+    padding: 25px 75px;
+    button {
+      margin-top: 20px;
+    }
+  }
+}

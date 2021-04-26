@@ -1,16 +1,14 @@
-import React, { useState } from "react";
-import "./profile.scss";
-import ApplicationStatus from "./ApplicationStatus";
-import ProfileSummary from "./ProfileSummary";
-import EditProfile from "./EditProfile";
-import { User } from "../../containers/user.container";
-import { Redirect } from "react-router";
+import React, { useState } from 'react';
+import './userProfile.scss';
+import ApplicationStatus from './ApplicationStatus';
+import ProfileSummary from './ProfileSummary';
+import EditProfile from './EditProfile';
 
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
   return (
-    <main className="profile-page">
+    <main className='profile-page'>
       {!isEditing ? (
         <>
           <ProfileSummary
