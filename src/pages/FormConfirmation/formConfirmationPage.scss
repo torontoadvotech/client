@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.form-confirmation-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .confirmation-container {
+    width: 600px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem;
+    background-color: $grey-darkest;
+    * {
+      display: flex;
+    }
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      font-family: $barlow;
+      margin: 4rem 0;
+    }
+    h2 {
+      margin: 2rem;
+      font-size: 2.4rem;
+      font-family: $barlow;
+      font-weight: 400;
+    }
+    p {
+      margin: 2rem;
+      font-size: 1.8rem;
+      font-family: $barlow;
+      font-weight: 400;
+    }
+    a {
+      background-color: white;
+      margin: 4rem;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: $grey-darkest;
+      width: 290px;
+      justify-content: center;
+      padding: 14px 0;
+      text-transform: unset;
+    }
+  }
+}

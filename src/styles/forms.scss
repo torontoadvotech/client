@@ -73,6 +73,12 @@ form {
     font-size: 1.4rem;
     text-transform: uppercase;
   }
+
+  .general-form-error {
+    padding: 60px 0 0;
+    color: $primary;
+  }
+
   button {
     padding: 15px 40px;
     margin: 20px 0;

@@ -1,0 +1,139 @@
+@import "../../styles/variables";
+
+$mainContainerWidth: calc((100vw / 12) * 10 - 20px);
+
+.onboarding-setup {
+  #menteeForm {
+    width: 100%;
+  }
+  .form-field {
+    .field-container {
+      margin-bottom: 2rem;
+    }
+    .standard-text,
+    .date-field,
+    .gender-field,
+    .dropdown-field {
+      width: 365px;
+    }
+    .checkbox-section {
+      width: 570px;
+    }
+    .textarea-field {
+      label {
+        width: calc(100% + 40px);
+      }
+      textarea {
+        height: 155px;
+        padding-right: 20px;
+      }
+    }
+    .radio-field,
+    .textarea-field,
+    .hardSkills-field {
+      width: 550px;
+    }
+
+    input,
+    textarea {
+      font-family: $oxygen;
+    }
+    @include maxScreen($desktop) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @include maxScreen($tablet) {
+      .field-container {
+        width: 100%;
+      }
+      .date-field {
+        input {
+          text-align: center;
+        }
+        .date-input-date,
+        .date-input-month {
+          width: calc(#{$mainContainerWidth} * 0.25);
+        }
+        .date-input-year {
+          width: calc(#{$mainContainerWidth} * 0.4);
+        }
+        .date-input-month,
+        .date-input-year {
+          margin-left: calc(#{$mainContainerWidth} * 0.1);
+          &:before {
+            width: calc(#{$mainContainerWidth} * 0.1);
+            left: calc(#{$mainContainerWidth} * 0.1 * -1);
+          }
+        }
+      }
+    }
+  }
+
+  .wider-field {
+    .form-field {
+      .standard-text,
+      .date-field,
+      .gender-field,
+      .radio-field,
+      .textarea-field,
+      .hardSkills-field {
+        width: 530px;
+      }
+    }
+  }
+
+  h2 {
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  #profileImage {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 270px;
+    height: 240px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    label {
+      text-align: center;
+      text-transform: none;
+      font-family: $oxygen;
+      font-size: 1.6rem;
+    }
+    @include maxScreen($desktop) {
+      position: relative;
+      right: unset;
+      top: unset;
+      width: 365px;
+    }
+    @include maxScreen($tablet) {
+      width: 100%;
+    }
+  }
+
+  .button-container {
+    @include maxScreen($tablet) {
+      padding: 0;
+      .previous-button,
+      .submit-button {
+        max-width: calc(#{$mainContainerWidth} * 0.45);
+      }
+    }
+    .previous-button {
+      background-color: transparent;
+      line-height: normal;
+    }
+  }
+}

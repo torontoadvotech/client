@@ -18,6 +18,7 @@
     max-width: 1200px;
     @include maxScreen($desktop) {
       grid-column: col-start 2 / span 10;
+      max-width: 100%;
     }
   }
 }

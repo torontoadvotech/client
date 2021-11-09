@@ -4,6 +4,12 @@
 $progressBoxWidth: 85px;
 $progressBoxHeight: 85px;
 $progressContainerWidth--desktop: 644px;
+$progressContainerWidth--tablet: 65vw;
+$progressContainerWidth--mobile: 85vw;
+
+$progressBoxWidth-sm: 47px;
+$progressBoxHeight-sm: 47px;
+// $progressContainerWidth--desktop: 644px;
 
 .setup-progress-bar {
   display: flex;
@@ -13,18 +19,36 @@ $progressContainerWidth--desktop: 644px;
   justify-content: center;
   .progress-box-container {
     justify-content: space-between;
+    align-items: flex-start;
     max-width: $progressContainerWidth--desktop;
     width: 100%;
-
+    @include maxScreen($desktop) {
+      width: 65vw;
+    }
+    @include maxScreen($tablet) {
+      width: 100%;
+      max-width: 100%;
+    }
     .progress-step {
       justify-content: center;
       flex-direction: column;
       align-items: center;
-      width: $progressBoxWidth;
+      @include minScreen($desktop + 1) {
+        width: $progressBoxWidth;
+      }
+      @include maxScreen($desktop) {
+        width: $progressBoxWidth-sm;
+      }
       overflow: visible;
       .progress-box {
-        width: $progressBoxWidth;
-        height: $progressBoxHeight;
+        @include minScreen($desktop + 1) {
+          width: $progressBoxWidth;
+          height: $progressBoxHeight;
+        }
+        @include maxScreen($desktop) {
+          width: $progressBoxWidth-sm;
+          height: $progressBoxHeight-sm;
+        }
         background-color: #212121;
         display: flex;
         justify-content: center;
@@ -45,7 +69,15 @@ $progressContainerWidth--desktop: 644px;
           height: 3px;
           left: 100%;
           background-color: $primary;
-          width: calc((#{$progressContainerWidth--desktop} - (#{$progressBoxWidth} * 3)) / 2);
+          @include minScreen($desktop + 1) {
+            width: calc((#{$progressContainerWidth--desktop} - (#{$progressBoxWidth} * 3)) / 2);
+          }
+          @include maxScreen($desktop) {
+            width: calc((#{$progressContainerWidth--tablet} - (#{$progressBoxWidth-sm} * 3)) / 2);
+          }
+          @include maxScreen($tablet) {
+            width: calc((#{$progressContainerWidth--mobile} - (#{$progressBoxWidth-sm} * 3)) / 2);
+          }
         }
       }
     }
@@ -55,6 +87,12 @@ $progressContainerWidth--desktop: 644px;
       font-weight: bold;
       font-size: 2rem;
       white-space: nowrap;
+      @include maxScreen($tablet) {
+        white-space: initial;
+        font-size: 2rem;
+        text-align: center;
+        line-height: 1.2;
+      }
     }
   }
   @include FirstPositionProgress();

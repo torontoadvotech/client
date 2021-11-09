@@ -12,5 +12,8 @@
     text-transform: uppercase;
     width: 200px;
     margin-bottom: 6rem;
+    @include maxScreen(1000px) {
+      font-size: 4.8rem;
+    }
   }
 }

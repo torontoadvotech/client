@@ -15,6 +15,7 @@ export interface UserType {
   password: string;
   passwordConfirm: string;
   token: string;
+  initialOnboardFormCompleted: boolean
 }
 
 export interface UserProfileForm {
@@ -63,10 +64,15 @@ export interface EventsFormTypes {
 export interface SetupProgressBarProps {
   currentProgress: number;
 }
+export interface SetupProgressFormsProps {
+  currentProgress: number;
+  setCurrentProgressStep: (currentProgress: number) => void
+  setFormSubmitted: (formSubmitted: boolean) => void
+}
 
-type FirstNameTypes = "date" | "email" | "genderMultiSelect" | "textbox" | "profileImage" | "radioGroup" | "dropdown" | "multipleCheckbox";
+type FormControlTypes = "date" | "email" | "genderMultiSelect" | "textbox" | "textarea" | "profileImage" | "radioGroup" | "dropdown" | "multipleCheckbox";
 export interface FormControl {
-  type: FirstNameTypes,
+  type: FormControlTypes,
   // Fieldname must match Yup validator field name
   fieldName: string;
   label: string,
