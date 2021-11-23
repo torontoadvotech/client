@@ -11,7 +11,7 @@ const LoginPage = () => {
 
   // Redirect user to home after login
   if (loggedIn) {
-    if (user!['initialOnboardFormCompleted'] === false) {
+    if (!user!['initialOnboardFormCompleted']) {
       return <Redirect to="/initial-account-setup" />;
     }
     return <Redirect to="/" />;

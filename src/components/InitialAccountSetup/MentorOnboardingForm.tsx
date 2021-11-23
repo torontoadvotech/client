@@ -37,7 +37,6 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     resume: ""
   };
 
-
   // Validate user inputs before submission (will also be validated by the server)
   const validationSchemaPersonalDetails = Yup.object({
     profileImage: Yup.mixed(),
@@ -101,15 +100,13 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
 
             return (
               <Form>
-
-                <div id="menteeForm" className={(!isLastStep() ? "wider-field" : "wider-field")}>
+                <div id="menteeForm" className={(isLastStep() ? "wider-field" : "")}>
                   <DynamicFormBuilder
                     user={user}
                     formControlList={currentFormControlList}
                     formikProps={formikProps}
                   />
                 </div>
-
 
                 {formHasError &&
                   <div className="general-form-error">Form has error(s)</div>

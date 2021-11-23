@@ -11,7 +11,7 @@ import { personalDetailsFormControlList, lastPageformControlList } from '../../l
 
 const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (props) => {
 
-  const { user, setUser } = User.useContainer();
+  const { user } = User.useContainer();
   const [formHasError, setFormHasError] = useState(false);
 
   const currentProgressStep = props.currentProgress;
