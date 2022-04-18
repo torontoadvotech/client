@@ -7,21 +7,9 @@ require('./home.scss');
 const HomePage = () => {
   return (
     <main className="home-page">
-      <section className="intro-section">
-        <span className="text-slogan">
-          The future<span>has female</span>
-        </span>
-        <p className="copy">
-          We are a grassroots movement that aims to neutralize workplace
-          cultures in technology to address intersectional gender inequality.
-        </p>
-        <a href="mailto:info@torontoadvotech.com" className="button-secondary">
-          Learn More
-        </a>
-      </section>
       <section className="signup-section">
         <h2>
-          Be worksmart{' '}
+          worksmart{' '}
           <span className="text-color-primary">Join the movement</span>
         </h2>
         <MentorshipCards />
