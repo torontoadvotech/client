@@ -19,9 +19,9 @@ const Header = () => {
 
   const ref = useRef(null);
 
-  const openMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  // const openMenu = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
   const closeMenu = () => {
     setIsOpen(false);
@@ -67,12 +67,6 @@ const Header = () => {
             <div className="logo">
               <Link to="/">
                 <img src={AdvotechLogo} alt="" className="logo" />
-                {/* <span className="desktop-logo">
-                  <span className="red">toronto/</span>advocacy
-                </span>
-                <span className="mobile-logo">
-                  <span className="red">to/</span>a
-                </span> */}
               </Link>
             </div>
           </div>
@@ -99,7 +93,7 @@ const Header = () => {
                 </ul>
               )}
 
-            <button
+            {/* <button
               className="nav-right open-menu"
               ref={ref}
               onClick={openMenu}
@@ -108,7 +102,7 @@ const Header = () => {
               <div className="hamburger">
                 <div className="bars bars-inactive"></div>
               </div>
-            </button>
+            </button> */}
           </div>
         </nav>
         {isOpen && <HeaderMenu />}
