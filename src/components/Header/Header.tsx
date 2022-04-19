@@ -5,7 +5,7 @@ import { User } from '../../containers/user.container';
 import { Link } from 'react-router-dom';
 import API from '../../lib/API';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
-
+import AdvotechLogo from '../../assets/images/final.png';
 
 
 const Header = () => {
@@ -66,12 +66,13 @@ const Header = () => {
           <div className="nav-left">
             <div className="logo">
               <Link to="/">
-                <span className="desktop-logo">
+                <img src={AdvotechLogo} alt="" className="logo" />
+                {/* <span className="desktop-logo">
                   <span className="red">toronto/</span>advocacy
                 </span>
                 <span className="mobile-logo">
                   <span className="red">to/</span>a
-                </span>
+                </span> */}
               </Link>
             </div>
           </div>
