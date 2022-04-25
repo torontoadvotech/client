@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './header.scss';
-import HeaderMenu from './HeaderMenu';
+// import HeaderMenu from './HeaderMenu';
 import { User } from '../../containers/user.container';
 import { Link } from 'react-router-dom';
 import API from '../../lib/API';
-import useOnClickOutside from '../../hooks/useOnClickOutside';
+// import useOnClickOutside from '../../hooks/useOnClickOutside';
 import AdvotechLogo from '../../assets/images/final.png';
 
 
@@ -12,22 +12,22 @@ const Header = () => {
   const { user, setUser } = User.useContainer();
 
   // State for mobile menu open/close
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  // const [isOpen, setIsOpen] = useState<boolean>(false);
 
   // State for header animation on scroll
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
-  const ref = useRef(null);
+  // const ref = useRef(null);
 
   // const openMenu = () => {
   //   setIsOpen(!isOpen);
   // };
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  // const closeMenu = () => {
+  //   setIsOpen(false);
+  // };
 
-  useOnClickOutside(ref, closeMenu);
+  // useOnClickOutside(ref, closeMenu);
 
   const handleLogout = async () => {
     try {
@@ -87,9 +87,9 @@ const Header = () => {
                   <li>
                     <Link to="/login">Log in</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to="/signup">Sign up</Link>
-                  </li>
+                  </li> */}
                 </ul>
               )}
 
@@ -105,7 +105,7 @@ const Header = () => {
             </button> */}
           </div>
         </nav>
-        {isOpen && <HeaderMenu />}
+        {/* {isOpen && <HeaderMenu />} */}
       </div>
     </header>
   );
