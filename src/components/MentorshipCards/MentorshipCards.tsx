@@ -10,8 +10,8 @@ const MentorshipCards = () => {
       <figure>
         <img src={menteeImage} alt="" />
         <figcaption>
-          <h3>Apply as a mentee</h3>
-          <p>
+          <h3>Apply as a <span className="highlight">mentee</span></h3>
+          <p className="copy">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
             facilis dolorum voluptates esse sint alias?
           </p>
@@ -26,8 +26,8 @@ const MentorshipCards = () => {
       <figure>
         <img src={mentorImage} alt="" />
         <figcaption>
-          <h3>Apply as a mentor</h3>
-          <p>
+          <h3>Apply as a <span className="highlight">mentor</span></h3>
+          <p className="copy">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
             facilis dolorum voluptates esse sint alias?
           </p>

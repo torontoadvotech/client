@@ -8,12 +8,11 @@ const HomePage = () => {
   return (
     <main className="home-page">
       <section className="intro-section">
-        <span className="text-slogan">
-          The future<span>has female</span>
-        </span>
+        <h1 className="text-slogan">
+          What is Worksmart?
+        </h1>
         <p className="copy">
-          We are a grassroots movement that aims to neutralize workplace
-          cultures in technology to address intersectional gender inequality.
+          <span className="worksmart-spacing">WORKSMART</span> is an online mentorship platform connecting youth to mentors in technology by using an intersectional lens.
         </p>
         <a href="mailto:info@torontoadvotech.com" className="button-secondary">
           Learn More
@@ -21,7 +20,7 @@ const HomePage = () => {
       </section>
       <section className="signup-section">
         <h2>
-          Be worksmart{' '}
+          work smart{' '}
           <span className="text-color-primary">Join the movement</span>
         </h2>
         <MentorshipCards />
@@ -31,14 +30,14 @@ const HomePage = () => {
           <h2>
             Become a <span className="text-color-primary">partner</span>
           </h2>
-          <p>
+          <p className="copy">
             Passionate about shifting social paradigms? Show your support for a
             gender forward STEM field, and apply to be an official partner of
-            our cause!
+            our cause.
           </p>
           <a
             href="mailto:info@torontoadvotech.com"
-            className="button-secondary"
+            className="button button-secondary cta"
           >
             Learn More
           </a>
