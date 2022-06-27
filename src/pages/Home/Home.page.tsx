@@ -1,26 +1,26 @@
-import React from 'react';
-import partnerImage from '../../assets/images/become-partner.jpg';
-import MentorshipCards from '../../components/MentorshipCards/MentorshipCards';
+import React from "react";
+import partnerImage from "../../assets/images/become-partner.jpg";
+import MentorshipCards from "../../components/MentorshipCards/MentorshipCards";
 
-require('./home.scss');
+require("./home.scss");
 
 const HomePage = () => {
   return (
     <main className="home-page">
       <section className="intro-section">
-        <h1 className="text-slogan">
-          What is Worksmart?
-        </h1>
+        <h1 className="text-slogan">What is Worksmart?</h1>
         <p className="copy">
-          <span className="worksmart-spacing">WORKSMART</span> is an online mentorship platform connecting youth to mentors in technology by using an intersectional lens.
+          <span className="worksmart-spacing">WORKSMART</span> is an online
+          mentorship platform connecting youth to mentors in technology by using
+          an intersectional lens.
         </p>
-        <a href="mailto:info@torontoadvotech.com" className="button-secondary">
+        <a href="mailto:people@advocacyintech.com" className="button-secondary">
           Learn More
         </a>
       </section>
       <section className="signup-section">
         <h2>
-          work smart{' '}
+          work smart{" "}
           <span className="text-color-primary">Join the movement</span>
         </h2>
         <MentorshipCards />
@@ -36,7 +36,7 @@ const HomePage = () => {
             our cause.
           </p>
           <a
-            href="mailto:info@torontoadvotech.com"
+            href="mailto:people@advocacyintech.com"
             className="button button-secondary cta"
           >
             Learn More

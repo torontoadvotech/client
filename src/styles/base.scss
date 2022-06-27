@@ -46,6 +46,7 @@ img {
   -webkit-transition: all 0.7s ease-in-out;
   transition: all 0.7s ease-in-out;
   background-size: 300% 100%;
+  margin-bottom: 16px;
 }
 
 .button-primary:hover {
@@ -66,6 +67,11 @@ img {
   transition: all 0.4s ease-in-out;
 }
 
+.button-primary:focus {
+  outline: 1px solid #fff;
+  transition: none;
+}
+
 .button-secondary {
   display: inline-block;
   font-size: 1.5rem;
@@ -81,7 +87,7 @@ img {
 }
 
 .button-secondary:hover {
-  border: none;
+  border: 1px solid transparent;
   background-image: linear-gradient(
     310deg,
     #e9002d,
@@ -96,6 +102,12 @@ img {
   background-position: 100% 300%;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
+}
+
+.button-secondary:focus {
+  outline: 1px solid #e9002d;
+  border: 1px solid #e9002d;
+  transition: none;
 }
 
 @keyframes primary-fill {
@@ -115,21 +127,21 @@ img {
 }
 
 // Slogan
-.text-slogan {
-  font-size: 7.5rem;
-  text-transform: uppercase;
-  font-family: "Inconsolata", sans-serif;
-  letter-spacing: 15px;
-  line-height: 1.22;
-  word-spacing: -15px;
-  span {
-    display: block;
-    color: $primary;
-  }
-  @media (max-width: 750px) {
-    font-size: 5rem;
-  }
-}
+// .text-slogan {
+//   font-size: 7.5rem;
+//   text-transform: uppercase;
+//   font-family: "Inconsolata", sans-serif;
+//   letter-spacing: 15px;
+//   line-height: 1.22;
+//   word-spacing: -15px;
+//   span {
+//     display: block;
+//     color: $primary;
+//   }
+//   @media (max-width: 750px) {
+//     font-size: 5rem;
+//   }
+// }
 
 // Color styles
 .text-color-primary {
