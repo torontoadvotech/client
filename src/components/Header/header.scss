@@ -175,7 +175,13 @@
       display: block;
       font-size: 1.6rem;
     }
-
+    a {
+      text-transform: uppercase;
+      transition: 0.25s;
+      &:hover {
+        color: $primary;
+    }
+    }
     button {
       padding: 0;
       color: #fff;

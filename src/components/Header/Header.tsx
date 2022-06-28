@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import './header.scss';
+import React, { useState, useEffect } from "react";
+import "./header.scss";
 // import HeaderMenu from './HeaderMenu';
-import { User } from '../../containers/user.container';
-import { Link } from 'react-router-dom';
-import API from '../../lib/API';
+import { User } from "../../containers/user.container";
+import { Link } from "react-router-dom";
+import API from "../../lib/API";
 // import useOnClickOutside from '../../hooks/useOnClickOutside';
-import AdvotechLogo from '../../assets/images/final.png';
-
+import AdvotechLogo from "../../assets/images/final.png";
 
 const Header = () => {
   const { user, setUser } = User.useContainer();
@@ -56,17 +55,21 @@ const Header = () => {
 
   // add scroll event listener on window, on load only
   useEffect(() => {
-    window.addEventListener('scroll', () => shrinkNavOnScroll());
-  }, [])
+    window.addEventListener("scroll", () => shrinkNavOnScroll());
+  }, []);
 
   return (
-    <header className={`page-header ${isScrolled ? 'scrolled-header' : ''}`}>
+    <header className={`page-header ${isScrolled ? "scrolled-header" : ""}`}>
       <div className="wrapper">
         <nav>
           <div className="nav-left">
             <div className="logo">
               <Link to="/">
-                <img src={AdvotechLogo} alt="" className="logo" />
+                <img
+                  src={AdvotechLogo}
+                  alt="Advocacy in technology logo"
+                  className="logo"
+                />
               </Link>
             </div>
           </div>
@@ -83,15 +86,15 @@ const Header = () => {
                 </li>
               </ul>
             ) : (
-                <ul className="login-nav">
-                  <li>
-                    <Link to="/login">Log in</Link>
-                  </li>
-                  {/* <li>
+              <ul className="login-nav">
+                <li>
+                  <Link to="/login">Log in</Link>
+                </li>
+                {/* <li>
                     <Link to="/signup">Sign up</Link>
                   </li> */}
-                </ul>
-              )}
+              </ul>
+            )}
 
             {/* <button
               className="nav-right open-menu"
