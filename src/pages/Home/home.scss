@@ -35,6 +35,10 @@ main.home-page {
         text-align: center;
         line-height: 60px;
       }
+      @include maxScreen($mini-mobile) {
+        font-size: 3rem;
+        line-height: 45px;
+      }
     }
     p.copy {
       margin-bottom: 40px;
@@ -67,6 +71,10 @@ main.home-page {
         text-align: center;
         line-height: 60px;
       }
+      @include maxScreen($mini-mobile) {
+        font-size: 3rem;
+        line-height: 45px;
+      }
     }
   }
   .partner-section {
@@ -83,6 +91,10 @@ main.home-page {
         font-size: 4rem;
         text-align: center;
         line-height: 60px;
+      }
+      @include maxScreen($mini-mobile) {
+        font-size: 3rem;
+        line-height: 45px;
       }
       
     }
