@@ -9,21 +9,22 @@
     flex-direction: column;
     align-items: center;
     h1 {
-      font-family: $barlow;
+      font-family: $inconsolata;
       font-style: normal;
       font-weight: bold;
-      font-size: 7.5rem;
-      line-height: 7.5rem;
+      font-size: 5.5rem;
+      line-height: 6rem;
       text-align: center;
       text-transform: uppercase;
       margin-bottom: 7rem;
+      letter-spacing: 0.5rem;
     }
     .role-select-button {
       width: 350px;
       h2 {
         color: $primary;
         font-size: 4rem;
-        font-family: $barlow;
+        font-family: $oxygen;
         font-weight: 600;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -33,6 +34,8 @@
         line-height: 2.4rem;
         text-align: center;
         letter-spacing: -0.1px;
+        margin-top: 1.6rem;
+        text-transform: capitalize;
       }
       &:first-of-type {
         margin-bottom: 6rem;

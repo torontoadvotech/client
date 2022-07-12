@@ -48,12 +48,12 @@ export default function SignUpForm({ goBack, role }: Props): ReactElement {
 
   return (
     <div className="form-container form-container__signup">
-      <button className="back" onClick={goBack}>
+      {/* <button className="back" onClick={goBack}>
         Back
-      </button>
-      <span className="text-slogan">
+      </button> */}
+      {/* <span className="text-slogan">
         The future<span>has female</span>
-      </span>
+      </span> */}
       <h1>{role} Sign up</h1>
       <Formik
         initialValues={initialValues}
