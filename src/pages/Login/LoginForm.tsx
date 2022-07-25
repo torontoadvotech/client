@@ -61,7 +61,7 @@ export default function LoginForm({ onLogIn }: Props): ReactElement {
       {/* <span className="text-slogan">
         The future<span>has female</span>
       </span> */}
-      <h1>Log in</h1>
+      <h3>Log in</h3>
       {error && <span className="login-error">Incorrect login details</span>}
       <div className="button-row">
         <button className="button-primary" type="button">Log in with LinkedIn</button>

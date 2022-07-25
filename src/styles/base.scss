@@ -14,7 +14,8 @@ html {
 
 body {
   background: #000;
-  font-family: $oxygen;
+  // font-family: $oxygen;
+  font-family: $inconsolata;
   color: $grey;
   font-size: 1.6rem;
 }
@@ -41,7 +42,8 @@ button {
   appearance: none;
   border: none;
   font-size: 1.6rem;
-  font-family: $oxygen;
+  // font-family: $oxygen;
+  font-family: $inconsolata;
   cursor: pointer;
   transition: $default-transition;
   color: #fff;
