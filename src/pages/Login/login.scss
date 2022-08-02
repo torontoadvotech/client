@@ -13,12 +13,12 @@
   }
   h3 {
     font-family: $inconsolata !important;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 2.8rem;
     text-transform: uppercase;
     letter-spacing: 8px;
     line-height: 40px;
-    word-spacing: 0px;
+    word-spacing: -8px;
     margin: 10px 0;
   }
   form {
@@ -35,9 +35,10 @@
     }
     label {
       font-family: $inconsolata !important;
+      font-size: 1.6rem;
       letter-spacing: 5px;
       margin-bottom: 1rem;
-      word-spacing: 0px;
+      word-spacing: -6px;
     }
   }
 }

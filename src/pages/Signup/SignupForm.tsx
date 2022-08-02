@@ -85,7 +85,7 @@ export default function SignUpForm({ goBack, role }: Props): ReactElement {
             <Field name="password" type="password" />
           </div>
           <div className="field-container">
-            <label htmlFor="passwordConfirm">Password Confirm</label>
+            <label htmlFor="passwordConfirm">Confirm Password</label>
             <ErrorMessage
               component="span"
               className="form-error"
