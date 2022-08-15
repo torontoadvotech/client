@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;600;700&family=Oxygen+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
 @import './reset.scss';
 @import './variables.scss';
 @import './layout.scss';
@@ -14,7 +15,9 @@ html {
 
 body {
   background: #000;
-  font-family: $oxygen;
+  // font-family: $oxygen;
+  font-family: $inconsolata;
+  font-weight: 400;
   color: $grey;
   font-size: 1.6rem;
 }
@@ -41,7 +44,8 @@ button {
   appearance: none;
   border: none;
   font-size: 1.6rem;
-  font-family: $oxygen;
+  // font-family: $oxygen;
+  font-family: $inconsolata;
   cursor: pointer;
   transition: $default-transition;
   color: #fff;

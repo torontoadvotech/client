@@ -92,12 +92,12 @@ const Header = () => {
                   <li>
                     <Link to="/login">Log in</Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to="/signup">Sign up</Link>
-                  </li>
+                  </li> */}
                 </ul>
               )}
-
+{/* 
             <button
               className="nav-right open-menu"
               ref={ref}
@@ -107,7 +107,7 @@ const Header = () => {
               <div className="hamburger">
                 <div className="bars bars-inactive"></div>
               </div>
-            </button>
+            </button> */}
           </div>
         </nav>
         {isOpen && <HeaderMenu />}

@@ -8,22 +8,36 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    h1 {
-      font-family: $barlow;
+    h2 {
+      font-family: $inconsolata;
       font-style: normal;
-      font-weight: bold;
-      font-size: 7.5rem;
-      line-height: 7.5rem;
+      font-weight: 600;
+      font-size: 5.5rem;
+      line-height: 7rem;
       text-align: center;
       text-transform: uppercase;
       margin-bottom: 7rem;
+      letter-spacing: 15px;
+      word-spacing: -15px;
+    }
+    h3 {
+      font-family: $inconsolata;
+      font-weight: 600;
+      color:#E9002D;
+      font-style: normal;
+      font-size: 2.8rem;
+      line-height: 4rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.8rem;
+      word-spacing: -8px;
     }
     .role-select-button {
       width: 350px;
       h2 {
         color: $primary;
         font-size: 4rem;
-        font-family: $barlow;
+        font-family: $inconsolata;
         font-weight: 600;
         letter-spacing: 1px;
         text-transform: uppercase;
@@ -33,6 +47,8 @@
         line-height: 2.4rem;
         text-align: center;
         letter-spacing: -0.1px;
+        margin-top: 1.6rem;
+        text-transform: capitalize;
       }
       &:first-of-type {
         margin-bottom: 6rem;
