@@ -1,0 +1,74 @@
+@mixin FirstPositionProgress {
+  .progress-box-container.current-progress-1 {
+    .progress-step {
+      &:nth-child(1) {
+        .progress-step-border {
+          height: calc(100% + 6px);
+          border-top: 3px solid $primary;
+        }
+      }
+      &:nth-child(2) {
+        .progress-step-border {
+          border-top: none;
+          bottom: -3px;
+        }
+      }
+      &:nth-child(3) {
+        .progress-step-border {
+          border-bottom: none;
+          top: -3px;
+        }
+      }
+    }
+  }
+}
+
+@mixin SecondPositionProgress {
+  .progress-box-container.current-progress-2 {
+    .progress-step {
+      &:nth-child(1) {
+        .progress-step-border {
+          border-top: none;
+          bottom: -3px;
+        }
+      }
+      &:nth-child(2) {
+        .progress-step-border {
+          height: calc(100% + 6px);
+          border-top: 3px solid $primary;
+        }
+      }
+      &:nth-child(3) {
+        .progress-step-border {
+          border-bottom: none;
+          top: -3px;
+        }
+      }
+    }
+  }
+}
+
+@mixin ThirdPositionProgress {
+  .progress-box-container.current-progress-3 {
+    .progress-step {
+      &:nth-child(1) {
+        .progress-step-border {
+          border-top: none;
+          bottom: -3px;
+        }
+      }
+      &:nth-child(2) {
+        .progress-step-border {
+          border-bottom: none;
+          top: -3px;
+        }
+      }
+      &:nth-child(3) {
+        .progress-step-border {
+          height: calc(100% + 6px);
+          border-top: 3px solid $primary;
+        }
+      }
+    }
+  }
+}

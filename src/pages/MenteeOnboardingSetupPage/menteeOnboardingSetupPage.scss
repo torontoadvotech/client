@@ -1,0 +1,19 @@
+@import "../../styles/variables.scss";
+
+.initial-account-setup-page {
+  background-color: black;
+  max-width: 805px;
+  width: 805px;
+  margin: 0 auto;
+  h1 {
+    font-family: $barlow;
+    font-size: 7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 200px;
+    margin-bottom: 6rem;
+    @include maxScreen(1000px) {
+      font-size: 4.8rem;
+    }
+  }
+}

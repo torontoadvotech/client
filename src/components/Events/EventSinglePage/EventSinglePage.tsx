@@ -10,8 +10,6 @@ const SinglePageEvent = () => {
   const [redirect, setRedirect] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log('current id', currentId, singlePageEvent.eventId, currentId !== singlePageEvent.eventId);
-
     if ((Object.keys(singlePageEvent).length === 0 && singlePageEvent.constructor === Object) || (currentId !== singlePageEvent.eventId)) {
       setRedirect(true);
     }

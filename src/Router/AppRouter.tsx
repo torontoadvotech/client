@@ -8,18 +8,17 @@ import API from '../lib/API';
 import HomePage from '../pages/Home/Home.page';
 import SignupPage from '../pages/Signup/Signup.page';
 import LoginPage from '../pages/Login/Login.page';
-import PartnersPage from '../pages/Partners/Partners.page';
-import ProfilePage from '../pages/UserProfile/UserProfile.page';
+import ProfilePage from '../pages/Profile/Profile.page';
 import MentorshipPage from '../pages/Mentorship/Mentorship.page';
-import ValidateEmailPage from '../pages/ValidateEmail/ValidateEmail.page';
 
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 import EventsPage from '../pages/Events/Events.page';
 import SinglePageEvent from '../components/Events/EventSinglePage/EventSinglePage';
 import MentorSelection from '../pages/MentorSelection/MentorSelection.page';
-import MentorSelectionPage from '../pages/MentorSelection/MentorSelection.page';
-import MentorProfilePage from '../pages/MentorProfile/MentorProfile.page';
+
+import MenteeOnboardingSetupPage from '../pages/MenteeOnboardingSetupPage/MenteeOnboardingSetupPage';
+import FormConfirmationPage from '../pages/FormConfirmation/FormConfirmationPage';
 
 const AppRouter = () => {
   const { user, setUser } = User.useContainer();
@@ -31,8 +30,6 @@ const AppRouter = () => {
   useEffect(() => {
     const refreshUser = async () => {
       const res = await API.refreshToken();
-
-      console.log(res);
 
       // Save token and user data into memory
       if (res.data) {
@@ -61,44 +58,30 @@ const AppRouter = () => {
       <div className='layout-wrapper'>
         <Header />
         <Switch>
-          <Route path='/' exact component={HomePage} />
-          <Route path='/signup' exact component={SignupPage} />
-          <Route path='/login' exact component={LoginPage} />
-          <Route path='/partners' exact component={PartnersPage} />
+
+          <Route path="/" exact component={HomePage} />
+          <Route path="/signup" exact component={SignupPage} />
+          <Route path="/login" exact component={LoginPage} />
           {/* <Route path="/events" exact component={EventsPage} /> */}
           <Route
-            path='/events'
+            path="/events"
             render={({ match: { url } }) => (
               <>
                 <Route path={`${url}/`} component={EventsPage} exact />
-                <Route
-                  path={`${url}/:eventId`}
-                  component={SinglePageEvent}
-                  exact
-                />
+                <Route path={`${url}/:eventId`} component={SinglePageEvent} exact />
               </>
             )}
           />
-          <Route path='/mentorship' exact component={MentorshipPage} />
+          <Route path="/mentorship" exact component={MentorshipPage} />
           <Route path='/mentors' exact component={MentorSelection} />
-          <Route
-            path='/validateEmail/:id'
-            exact
-            component={ValidateEmailPage}
-          />
-          <Route path='/' exact component={HomePage} />
-          <Route path='/signup' exact component={SignupPage} />
-          <Route path='/login' exact component={LoginPage} />
-          <Route path='/mentorship' exact component={MentorshipPage} />
-          <Route path='/mentors' exact component={MentorSelectionPage} />
-          <Route
-            path='/mentors/:mentorId'
-            exact
-            component={MentorProfilePage}
-          />
+
+          <Route path="/form-confirmation" exact component={FormConfirmationPage} />
+
+          <Route path="/initial-account-setup" component={MenteeOnboardingSetupPage} />
+
           {/* NOTE: only put routes requiring a user below, else put above this check */}
-          {!user && <Redirect to='/' />}
-          <Route path='/profile' exact component={ProfilePage} />
+          {!user && <Redirect to="/" />}
+          <Route path="/profile" exact component={ProfilePage} />
         </Switch>
         <Footer />
       </div>

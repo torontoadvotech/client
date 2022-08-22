@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import API from "../../lib/API";
 import { UserProfileForm } from "../../lib/types";
 import { User } from "../../containers/user.container";
-
 interface Props {
   endEditProfile: () => void;
 }

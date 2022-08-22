@@ -28,6 +28,7 @@
     margin: 20px 0;
   }
 }
+
 form {
   display: flex;
   flex-direction: column;
@@ -53,7 +54,8 @@ form {
     text-transform: uppercase;
   }
   input,
-  textarea {
+  textarea,
+  select {
     background: transparent;
     border: 2px solid $grey;
     color: $grey;
@@ -71,8 +73,18 @@ form {
     font-size: 1.4rem;
     text-transform: uppercase;
   }
+
+  .general-form-error {
+    padding: 60px 0 0;
+    color: $primary;
+  }
+
   button {
     padding: 15px 40px;
     margin: 20px 0;
+  }
+
+  input.input-height-50 {
+    height: 50px;
   }
 }
