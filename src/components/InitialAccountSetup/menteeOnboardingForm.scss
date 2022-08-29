@@ -36,7 +36,8 @@ $mainContainerWidth: calc((100vw / 12) * 10 - 20px);
 
     input,
     textarea {
-      font-family: $oxygen;
+      // font-family: $oxygen;
+      font-family: $inconsolata;
     }
     @include maxScreen($desktop) {
       display: flex;
@@ -109,7 +110,8 @@ $mainContainerWidth: calc((100vw / 12) * 10 - 20px);
     label {
       text-align: center;
       text-transform: none;
-      font-family: $oxygen;
+      // font-family: $oxygen;
+      font-family: $inconsolata;
       font-size: 1.6rem;
     }
     @include maxScreen($desktop) {

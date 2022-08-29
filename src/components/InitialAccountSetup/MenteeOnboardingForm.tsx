@@ -93,7 +93,7 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
 
   return (
     <section className="onboarding-setup">
-      <h2>This helps us better match you with mentors</h2>
+      {/* <h2>This helps us better match you with mentors</h2> */}
       {
         <Formik
           initialValues={initialValues}

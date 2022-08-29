@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import RoleSelect from "./RoleSelect";
 import SignUpForm from "./SignupForm";
 import "./signup.scss";
+import MenteeOnboardingSetupPage from '../MenteeOnboardingSetupPage/MenteeOnboardingSetupPage';
 
 const SignupPage = () => {
   const [role, setRole] = useState<"mentor" | "mentee" | null>(null);
@@ -24,7 +25,9 @@ const SignupPage = () => {
           }}
         />
       ) : (
-        <SignUpForm goBack={() => setRole(null)} role={role} />
+        // <SignUpForm goBack={() => setRole(null)} role={role} />
+        <MenteeOnboardingSetupPage/>
+        // <MenteeOnboardingSetupPage goBack={() => setRole(null)} role={role} />
       )}
     </main>
   );

@@ -5,15 +5,18 @@ import './setupProgressBar.scss';
 const MenteeProgressBarObject = [
   {
     progressNumber: 1,
-    progressName: 'Account Setup',
+    progressName: 'Account',
+    progressDescription: 'Submit an account request form to get started with us.',
   },
   {
     progressNumber: 2,
-    progressName: 'Personal Details',
+    progressName: 'Profile',
+    progressDescription: 'Keep going! This helps us better match you with mentors.',
   },
   {
     progressNumber: 3,
-    progressName: 'Form',
+    progressName: 'More',
+    progressDescription: 'Almost there! This helps us better match you with mentors.',
   }
 ]
 
@@ -23,9 +26,11 @@ const SetupProgressBar: React.FunctionComponent<SetupProgressBarProps> = (props)
 
   return (
     <div className="setup-progress-bar">
+      <p className="progress-text">{MenteeProgressBarObject[0].progressDescription}</p>
       <ol className={`progress-box-container current-progress-${currentProgress}`}>
         {MenteeProgressBarObject.map((menteeProgress, i) =>
           <li className="progress-step" key={i}>
+
             <div className={`progress-box ${currentProgress === menteeProgress.progressNumber ? 'highlight-progress' : ""}`}>{menteeProgress.progressNumber}
               <div className="progress-step-border"></div>
               {(i !== MenteeProgressBarObject.length - 1) && <div className="progress-step-connector"></div>}

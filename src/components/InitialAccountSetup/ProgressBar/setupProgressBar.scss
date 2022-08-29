@@ -16,7 +16,14 @@ $progressBoxHeight-sm: 47px;
   * {
     display: flex;
   }
+  .progress-text{
+    margin-bottom: 3rem;
+  }
+  line-height: 2.8rem;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 6rem;
   .progress-box-container {
     justify-content: space-between;
     align-items: flex-start;
@@ -82,11 +89,13 @@ $progressBoxHeight-sm: 47px;
       }
     }
     .progress-description {
-      line-height: 40px;
+      line-height: 2.8rem;
       text-transform: uppercase;
       font-weight: bold;
-      font-size: 2rem;
+      font-size: 1.6rem;
+      font-weight: 400;
       white-space: nowrap;
+      letter-spacing: 5px;
       @include maxScreen($tablet) {
         white-space: initial;
         font-size: 2rem;
