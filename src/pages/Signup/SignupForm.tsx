@@ -48,13 +48,13 @@ export default function SignUpForm({ goBack, role }: Props): ReactElement {
 
   return (
     <div className="form-container form-container__signup">
-      <button className="back" onClick={goBack}>
+      {/* <button className="back" onClick={goBack}>
         Back
-      </button>
-      <span className="text-slogan">
+      </button> */}
+      {/* <span className="text-slogan">
         The future<span>has female</span>
-      </span>
-      <h1>{role} Sign up</h1>
+      </span> */}
+      <h3>{role} Sign up</h3>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -85,7 +85,7 @@ export default function SignUpForm({ goBack, role }: Props): ReactElement {
             <Field name="password" type="password" />
           </div>
           <div className="field-container">
-            <label htmlFor="passwordConfirm">Password Confirm</label>
+            <label htmlFor="passwordConfirm">Confirm Password</label>
             <ErrorMessage
               component="span"
               className="form-error"

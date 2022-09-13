@@ -3,9 +3,118 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: $inconsolata !important;
 }
+
+.form-container {
+  align-items: center;
+  @include maxScreen($mobile) {
+    padding: 0px; 
+  }
+  h3 {
+    font-family: $inconsolata !important;
+    font-weight: 600;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    line-height: 40px;
+    word-spacing: -8px;
+    margin: 10px 0;
+  }
+  form {
+    width: 100%;
+    input {
+      border: 3px solid #f6f6f6;
+      min-height: 5rem;
+      font-family: $inconsolata !important;
+     }
+    .field-container {
+      @include maxScreen($mobile) {
+        width: 100%;
+      }
+    }
+    label {
+      font-family: $inconsolata !important;
+      font-size: 1.6rem;
+      letter-spacing: 5px;
+      margin-bottom: 1rem;
+      word-spacing: -6px;
+    }
+  }
+}
+
+.button-row {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0px;
+
+  button:first-of-type {
+    width: 60%;
+  }
+
+  button:nth-of-type(2) {
+    width: 15%;
+  }
+  button:nth-of-type(3) {
+    width: 15%;
+  }
+  @include maxScreen($mobile) {
+    width: 100%;
+  }
+}
+
 .login-error {
   text-align: center;
   color: $primary;
   font-size: 1.2rem;
+}
+
+.signup-row {
+  text-align: center;
+  margin-top: 3rem;
+    a {
+      text-transform: none;
+    }
+}
+
+.field-container {
+  margin-top: 3rem;
+}
+
+.separator {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  @include maxScreen($mobile) {
+    width: 100%;
+  }
+}
+
+.separator:before {
+  content: '';
+  height: 1px;
+  display: block;
+  width: 40%;
+  background: white;
+  margin-right: 2rem;
+}
+
+.separator:after {
+  content: '';
+  height: 1px;
+  display: block;
+  width: 40%;
+  background: white;
+  margin-left: 2rem;
+}
+
+button[type=submit] {
+  width: 22rem;
+  margin-top: 3rem;
+  @include maxScreen($mobile) {
+    width: 100%;
+  }
 }
