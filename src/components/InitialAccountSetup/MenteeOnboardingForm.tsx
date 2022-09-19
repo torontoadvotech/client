@@ -9,6 +9,8 @@ import { User } from '../../containers/user.container';
 import { SetupProgressFormsProps } from '../../lib/types';
 import { personalDetailsFormControlList, lastPageformControlList } from '../../lib/dynamic-form-info/mentee-onboarding-signup-form';
 
+import SignUpForm from "../../pages/Signup/SignupForm";
+
 const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (props) => {
 
   const { user } = User.useContainer();
@@ -80,7 +82,7 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
 
   const setAllFieldsUntouched = (formikProps: FormikHelpers<any>) => {
     const currentFormControlList = isLastStep() ? lastPageformControlList : personalDetailsFormControlList;
-
+    console.log(currentFormControlList, "currentFormControlList");
     for (const field in currentFormControlList) {
       formikProps.setTouched({ [field["fieldName"]]: false });
     }
@@ -90,6 +92,8 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     console.log(JSON.stringify(values));
     props.setFormSubmitted(true);
   }
+  console.log(currentProgressStep, "currentProgressStep");
+
 
   return (
     <section className="onboarding-setup">
@@ -136,6 +140,7 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
                   }
                   <button type="submit" className="button-primary submit-button"
                     onClick={() => {
+                      console.log("click");
                       const hasError = Object.entries(formikProps.errors).length !== 0;
                       return hasError && setFormHasError(true);
                     }}

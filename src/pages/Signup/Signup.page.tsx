@@ -14,6 +14,7 @@ const SignupPage = () => {
       setRole(location.state.role);
     }
   }, []);
+  console.log(role);
 
   return (
     <main className="signup">
@@ -26,8 +27,8 @@ const SignupPage = () => {
         />
       ) : (
         // <SignUpForm goBack={() => setRole(null)} role={role} />
-        <MenteeOnboardingSetupPage/>
-        // <MenteeOnboardingSetupPage goBack={() => setRole(null)} role={role} />
+        // <MenteeOnboardingSetupPage/>
+        <MenteeOnboardingSetupPage goBack={() => setRole(null)} role={role} />
       )}
     </main>
   );

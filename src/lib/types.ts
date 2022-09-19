@@ -12,10 +12,14 @@ export interface UserType {
     description: string;
   };
   role: 'mentor' | 'mentee';
+  setupRole: 'mentor' | 'mentee';
   password: string;
   passwordConfirm: string;
   token: string;
   initialOnboardFormCompleted: boolean
+}
+export interface RoleType {
+  role: 'mentor' | 'mentee';
 }
 
 export interface UserProfileForm {
