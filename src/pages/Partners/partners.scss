@@ -56,22 +56,22 @@ main.partners-page {
         padding: 34px 46px;
       }
 
-      .text-slogan {
-        text-align: right;
-        font-size: 4.5rem;
+      // .text-slogan {
+      //   text-align: right;
+      //   font-size: 4.5rem;
 
-        @include minScreen($desktop) {
-          font-size: 4.8rem;
-        }
+      //   @include minScreen($desktop) {
+      //     font-size: 4.8rem;
+      //   }
 
-        @include minScreen(1482px) {
-          font-size: 5.3rem;
-        }
+      //   @include minScreen(1482px) {
+      //     font-size: 5.3rem;
+      //   }
 
-        span {
-          display: inline-block;
-        }
-      }
+      //   span {
+      //     display: inline-block;
+      //   }
+      // }
       p {
         margin-top: 18px;
       }
