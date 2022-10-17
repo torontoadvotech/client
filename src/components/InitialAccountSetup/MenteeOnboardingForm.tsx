@@ -63,6 +63,13 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     skills: Yup.string(),
   });
 
+  const validationSchemaFirstPage = Yup.object({
+    fullName: Yup.string().required("Required"),
+    email: Yup.string().required("Required"),
+    password: Yup.string().required("Required"),
+    confirmPassword: Yup.string().required("Required"),
+  });
+
   const validationSchemaForm = Yup.object({
     portfolio: Yup.string().required("Required"),
     educationLevel: Yup.string().required("Required"),
@@ -77,11 +84,11 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
   });
 
   const isLastStep = () => {
-    return currentProgressStep === 2;
+    return currentProgressStep === 3;
   }
 
   const isFirstStep = () => {
-    return currentProgressStep === 0;
+    return currentProgressStep === 1;
   }
 
   console.log(currentProgressStep, "progress curr");
@@ -107,16 +114,25 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     console.log(JSON.stringify(values));
     props.setFormSubmitted(true);
   }
-  console.log(currentProgressStep, "currentProgressStep");
 
 
+  let validationSchema;
+
+  if (isFirstStep()){
+    validationSchema = validationSchemaFirstPage;
+  } else if (isLastStep()) {
+    validationSchema = validationSchemaForm;
+  } else {
+    validationSchema = validationSchemaPersonalDetails;
+  }
   return (
     <section className="onboarding-setup">
       {/* <h2>This helps us better match you with mentors</h2> */}
       {
+
         <Formik
           initialValues={initialValues}
-          validationSchema={!isLastStep() ? validationSchemaPersonalDetails : validationSchemaForm}
+          validationSchema={validationSchema}
 
           onSubmit={(values, formikProps) => {
             setFormHasError(false);

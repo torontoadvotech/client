@@ -7,7 +7,8 @@ import { Form, Formik, FormikHelpers } from 'formik';
 import DynamicFormBuilder from "../DynamicFormBuilder/DynamicFormBuilder";
 import { User } from '../../containers/user.container';
 import { SetupProgressFormsProps } from '../../lib/types';
-import { mentorFirstFormControlList, mentorLastPageformControlList } from '../../lib/dynamic-form-info/mentee-onboarding-signup-form';
+// import { firstPageFormControlList, personalDetailsFormControlList, lastPageformControlList } from '../../lib/dynamic-form-info/mentee-onboarding-signup-form';
+import {  firstPageFormControlList, mentorFirstFormControlList, mentorLastPageformControlList } from '../../lib/dynamic-form-info/mentee-onboarding-signup-form';
 
 const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (props) => {
 
@@ -51,6 +52,13 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     organizations: Yup.string(),
   });
 
+  const validationSchemaFirstPage = Yup.object({
+    fullName: Yup.string().required("Required"),
+    email: Yup.string().required("Required"),
+    password: Yup.string().required("Required"),
+    confirmPassword: Yup.string().required("Required"),
+  });
+
   const validationSchemaForm = Yup.object({
     gender: Yup.string(),
     menteePreferences: Yup.string(),
@@ -59,7 +67,11 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
   });
 
   const isLastStep = () => {
-    return currentProgressStep === 2;
+    return currentProgressStep === 3;
+  }
+
+  const isFirstStep = () => {
+    return currentProgressStep === 1;
   }
 
   const setAllFieldsUntouched = (formikProps: FormikHelpers<any>) => {
@@ -75,13 +87,23 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     props.setFormSubmitted(true);
   }
 
+  let validationSchema;
+
+  if (isFirstStep()){
+    validationSchema = validationSchemaFirstPage;
+  } else if (isLastStep()) {
+    validationSchema = validationSchemaForm;
+  } else {
+    validationSchema = validationSchemaPersonalDetails;
+  }
+
   return (
     <section className="onboarding-setup">
       {/* <h2>This helps us better match you with mentors</h2> */}
       {
         <Formik
           initialValues={initialValues}
-          validationSchema={!isLastStep() ? validationSchemaPersonalDetails : validationSchemaForm}
+          validationSchema={validationSchema}
 
           onSubmit={(values, formikProps) => {
             setFormHasError(false);
@@ -96,11 +118,19 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
           }}
         >
           {(formikProps) => {
-            const currentFormControlList = isLastStep() ? mentorLastPageformControlList : mentorFirstFormControlList;
+            // const currentFormControlList = isLastStep() ? mentorLastPageformControlList : mentorFirstFormControlList;
+            let currentFormControlList;
 
+            if (isFirstStep()){
+              currentFormControlList = firstPageFormControlList;
+            } else if (isLastStep()) {
+               currentFormControlList = mentorLastPageformControlList;
+            } else {
+              currentFormControlList = mentorFirstFormControlList;
+            }
             return (
               <Form>
-                <div id="menteeForm" className={(isLastStep() ? "wider-field" : "")}>
+                <div id="menteeForm" className={(isLastStep() || isFirstStep()) ? "wider-field" : ""}>
                   <DynamicFormBuilder
                     user={user}
                     formControlList={currentFormControlList}
