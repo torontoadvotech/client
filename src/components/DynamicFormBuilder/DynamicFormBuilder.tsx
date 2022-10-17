@@ -16,10 +16,12 @@ interface AccountProfileInitialValues {
 }
 
 const DynamicFormBuilder: React.FC<AccountProfileInitialValues> = (props) => {
+  console.log(props.formikProps);
   const { formikProps } = props;
   return (
     <Fragment>
       {[...props.formControlList].map((formControl, i) => {
+        console.log(formControl);
         return <div className="form-field " key={i}>
           {formControl.type === "profileImage" &&
             <div className="field-container profile-image" id="profileImage">

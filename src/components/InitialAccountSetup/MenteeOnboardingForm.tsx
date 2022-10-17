@@ -7,7 +7,7 @@ import { Form, Formik, FormikHelpers } from 'formik';
 import DynamicFormBuilder from "../DynamicFormBuilder/DynamicFormBuilder";
 import { User } from '../../containers/user.container';
 import { SetupProgressFormsProps } from '../../lib/types';
-import { personalDetailsFormControlList, lastPageformControlList } from '../../lib/dynamic-form-info/mentee-onboarding-signup-form';
+import { firstPageFormControlList, personalDetailsFormControlList, lastPageformControlList } from '../../lib/dynamic-form-info/mentee-onboarding-signup-form';
 
 import SignUpForm from "../../pages/Signup/SignupForm";
 
@@ -80,8 +80,23 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     return currentProgressStep === 2;
   }
 
+  const isFirstStep = () => {
+    return currentProgressStep === 0;
+  }
+
+  console.log(currentProgressStep, "progress curr");
+
   const setAllFieldsUntouched = (formikProps: FormikHelpers<any>) => {
-    const currentFormControlList = isLastStep() ? lastPageformControlList : personalDetailsFormControlList;
+    let currentFormControlList;
+
+    if (isFirstStep()){
+      currentFormControlList = firstPageFormControlList;
+    } else if (isLastStep()) {
+       currentFormControlList = lastPageformControlList;
+    } else {
+      currentFormControlList = personalDetailsFormControlList;
+    }
+    // const currentFormControlList = isLastStep() ? lastPageformControlList : personalDetailsFormControlList;
     console.log(currentFormControlList, "currentFormControlList");
     for (const field in currentFormControlList) {
       formikProps.setTouched({ [field["fieldName"]]: false });
@@ -116,8 +131,20 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
           }}
         >
           {(formikProps) => {
-            const currentFormControlList = isLastStep() ? lastPageformControlList : personalDetailsFormControlList;
+            let currentFormControlList;
+            console.log(isFirstStep(), "is first");
 
+            if (isFirstStep()){
+              currentFormControlList = firstPageFormControlList;
+            } else if (isLastStep()) {
+               currentFormControlList = lastPageformControlList;
+            } else {
+              currentFormControlList = personalDetailsFormControlList;
+            }
+            // const currentFormControlList = isLastStep() ? lastPageformControlList : personalDetailsFormControlList;
+            console.log(formikProps, "formikProps");
+            console.log(currentFormControlList, "currentFormControlList");
+            
             return (
               <Form>
 

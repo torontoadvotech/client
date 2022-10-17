@@ -71,6 +71,34 @@ export const personalDetailsFormControlList: FormControl[] = [
   }
 ]
 
+export const firstPageFormControlList: FormControl[] = [
+  {
+    type: "textbox",
+    fieldName: "fullName",
+    label: "Full Name",
+    placeholder: '',
+    required: true
+  },
+  {
+    type: "textbox",
+    fieldName: "email",
+    label: "Email",
+    required: true,
+  },
+  {
+    type: "textbox",
+    fieldName: "password",
+    label: "Password",
+    required: true,
+  },
+  {
+    type: "textbox",
+    fieldName: "confirmPassword",
+    label: "Confirm Password",
+    required: true,
+  },
+]
+
 export const lastPageformControlList: FormControl[] = [
   {
     type: "textbox",
@@ -86,13 +114,7 @@ export const lastPageformControlList: FormControl[] = [
     placeholder: 'Bachelors in Finance',
     required: true
   },
-  {
-    type: "radioGroup",
-    fieldName: "mentorMatch",
-    label: "Would you prefer to be matched with a mentor with same gender identity?",
-    required: false,
-    optionsArray: ['Yes', 'No', 'Not sure']
-  },
+
   {
     type: "radioGroup",
     fieldName: "meetInPerson",
@@ -228,5 +250,4 @@ export const mentorLastPageformControlList: FormControl[] = [
     label: "Tell our mentees about yourself?",
     required: false,
   },
-
 ];
