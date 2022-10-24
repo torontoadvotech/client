@@ -46,7 +46,7 @@ export const personalDetailsFormControlList: FormControl[] = [
     label: "Education*",
     fieldName: "education",
     required: true,
-    placeholder: "Bachelor's"
+    placeholder: "Software Engineering, Industrial Design, etc."
   },
   {
     type: "textbox",
@@ -117,13 +117,12 @@ export const lastPageformControlList: FormControl[] = [
     required: true
   },
   {
-    type: "textbox",
+    type: "dropdown",
     fieldName: "educationLevel",
     label: "Highest Level of Education Completed*",
-    placeholder: `Bachelor's in Finance`,
-    required: true
+    required: true,
+    optionsArray: ["High School Diploma", "Bachelor's", "Master's", "PhD"]
   },
-
   {
     type: "radioGroup",
     fieldName: "meetInPerson",
@@ -159,12 +158,14 @@ export const lastPageformControlList: FormControl[] = [
     fieldName: "softSkills",
     label: "What soft skills do you want to learn?",
     required: false,
+    placeholder: "Teamwork, Communication, Conflict Resolution, etc.",
   },
   {
     type: "textbox",
     fieldName: "hardSkills",
     label: "What hard skills do you want to learn?",
     required: false,
+    placeholder: "AWS, Python, Sketch, Figma, etc.",
   },
   {
     type: "textarea",
@@ -262,7 +263,7 @@ export const mentorLastPageformControlList: FormControl[] = [
   {
     type: "textbox",
     fieldName: "aboutYourself",
-    label: "Tell our mentees about yourself?",
+    label: "Tell our mentees about yourself",
     required: false,
   },
 ];

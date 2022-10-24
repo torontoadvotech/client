@@ -56,7 +56,7 @@ function MenteeOnboardingSetupPage({ goBack, role }: Props): ReactElement {
     <main className="initial-account-setup-page">
       {/* <h3>ACCOUNT</h3> */}
         <h3>{MenteeProgressBarObject[currentProgressStep-1].progressName.toUpperCase()}</h3>
-      <SetupProgressBar currentProgress={currentProgressStep} />
+      <SetupProgressBar currentProgress={currentProgressStep-1} />
       {/* <MenteeOnboardingForm currentProgress={currentProgressStep} setCurrentProgressStep={setCurrentProgressStep} setFormSubmitted={setFormSubmitted} /> */}
       {/* {user!.role === "mentee"
         ?
