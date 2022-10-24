@@ -24,6 +24,9 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
   }, [currentProgressStep])
 
   const initialValues = {
+    userName: "",
+    email: "",
+    password: "",
     profileImage: "",
     firstName: "",
     lastName: "",
@@ -36,18 +39,25 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     skills: "",
     portfolio: "",
     educationLevel: "",
-    mentorMatch: "",
     meetInPerson: "",
     fieldOfInterest: "",
     discipline: "",
     position: "",
+    softSkills: "",
     hardSkills: "",
     passions: "",
     mentorshipLearnings: ""
   };
 
-
   // Validate user inputs before submission (will also be validated by the server)
+  const validationSchemaFirstPage = Yup.object({
+    userName: Yup.string().required("Required"),
+    email: Yup.string().required("Required"),
+    password: Yup.string().required("Required"),
+    // confirmPassword: Yup.string().required("Required"),
+  });
+
+
   const validationSchemaPersonalDetails = Yup.object({
     profileImage: Yup.mixed(),
     firstName: Yup.string().required("Required"),
@@ -56,32 +66,29 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
       .matches(/^([0-2][0-9]|(3)[0-1])(\-)(((0)[0-9])|((1)[0-2]))(\-)\d{4}$/, 'Must be a valid date')
       .required("Required"),
     gender: Yup.string(),
+    organizations: Yup.string(),
     education: Yup.string().required("Required"),
     certifications: Yup.string(),
-    languages: Yup.string(),
-    organizations: Yup.string(),
     skills: Yup.string(),
+    languages: Yup.string(),
   });
 
-  const validationSchemaFirstPage = Yup.object({
-    fullName: Yup.string().required("Required"),
-    email: Yup.string().required("Required"),
-    password: Yup.string().required("Required"),
-    confirmPassword: Yup.string().required("Required"),
-  });
+
+
 
   const validationSchemaForm = Yup.object({
     portfolio: Yup.string().required("Required"),
     educationLevel: Yup.string().required("Required"),
-    mentorMatch: Yup.string(),
     meetInPerson: Yup.string(),
     fieldOfInterest: Yup.string().required("Required"),
     discipline: Yup.string(),
     position: Yup.string(),
+    softSkills: Yup.string(),
     hardSkills: Yup.string(),
     passions: Yup.string(),
     mentorshipLearnings: Yup.string(),
   });
+
 
   const isLastStep = () => {
     return currentProgressStep === 3;

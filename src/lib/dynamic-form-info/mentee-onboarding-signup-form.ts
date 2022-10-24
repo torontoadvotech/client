@@ -36,7 +36,14 @@ export const personalDetailsFormControlList: FormControl[] = [
   },
   {
     type: "textbox",
-    label: "Education course*",
+    label: "Place of Work",
+    fieldName: "organizations",
+    required: false,
+    placeholder: "Google Inc."
+  },
+  {
+    type: "textbox",
+    label: "Education*",
     fieldName: "education",
     required: true,
     placeholder: "Bachelor's"
@@ -50,53 +57,55 @@ export const personalDetailsFormControlList: FormControl[] = [
   },
   {
     type: "textbox",
+    label: "Skills",
+    fieldName: "skills",
+    required: false,
+    placeholder: "JavaScript, Python, etc."
+  },
+  {
+    type: "textbox",
     label: "Languages",
     fieldName: "languages",
     required: false,
     placeholder: "English"
   },
-  {
-    type: "textbox",
-    label: "Organizations",
-    fieldName: "organizations",
-    required: false,
-    placeholder: ""
-  },
-  {
-    type: "textbox",
-    label: "Skills",
-    fieldName: "skills",
-    required: false,
-    placeholder: ""
-  }
 ]
 
 export const firstPageFormControlList: FormControl[] = [
+  // {
+  //   type: "textbox",
+  //   fieldName: "fullName",
+  //   label: "Full Name",
+  //   placeholder: '',
+  //   required: true
+  // },
   {
     type: "textbox",
-    fieldName: "fullName",
-    label: "Full Name",
-    placeholder: '',
+    fieldName: "userName",
+    label: "Username",
+    placeholder: 'Jenna.to',
     required: true
   },
   {
     type: "textbox",
     fieldName: "email",
-    label: "Email",
+    label: "Enter Email",
+    placeholder: "Jenna.hunter@gmail.com",
     required: true,
   },
   {
     type: "textbox",
     fieldName: "password",
-    label: "Password",
+    label: "Create Password",
+    placeholder: "**********",
     required: true,
   },
-  {
-    type: "textbox",
-    fieldName: "confirmPassword",
-    label: "Confirm Password",
-    required: true,
-  },
+  // {
+  //   type: "textbox",
+  //   fieldName: "confirmPassword",
+  //   label: "Confirm Password",
+  //   required: true,
+  // },
 ]
 
 export const lastPageformControlList: FormControl[] = [
@@ -110,8 +119,8 @@ export const lastPageformControlList: FormControl[] = [
   {
     type: "textbox",
     fieldName: "educationLevel",
-    label: "Highest Level of Educations Completed*",
-    placeholder: 'Bachelors in Finance',
+    label: "Highest Level of Education Completed*",
+    placeholder: `Bachelor's in Finance`,
     required: true
   },
 
@@ -144,6 +153,12 @@ export const lastPageformControlList: FormControl[] = [
     required: false,
     optionsArray: ['Senior UX Designer', 'Junior UI Designer', 'Senior Product Designer', 'Assisting Designer'],
     dependentOnField: "discipline"
+  },
+  {
+    type: "textbox",
+    fieldName: "softSkills",
+    label: "What soft skills do you want to learn?",
+    required: false,
   },
   {
     type: "textbox",
