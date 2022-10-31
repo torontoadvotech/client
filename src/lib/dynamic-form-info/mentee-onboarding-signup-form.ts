@@ -5,7 +5,7 @@ export const personalDetailsFormControlList: FormControl[] = [
     type: "profileImage",
     fieldName: "profileImage",
     label: "",
-    placeholder: '',
+    placeholder: "",
     required: false
   },
   {
@@ -211,7 +211,14 @@ export const mentorFirstFormControlList: FormControl[] = [
   },
   {
     type: "textbox",
-    label: "Education course*",
+    label: "Place of Work*",
+    fieldName: "organizations",
+    required: true,
+    placeholder: "Google Inc."
+  },
+  {
+    type: "textbox",
+    label: "Education*",
     fieldName: "education",
     required: true,
     placeholder: "Bachelor's"
@@ -230,40 +237,54 @@ export const mentorFirstFormControlList: FormControl[] = [
     required: false,
     placeholder: "English"
   },
-  {
-    type: "textbox",
-    label: "Organizations",
-    fieldName: "organizations",
-    required: false,
-    placeholder: ""
-  }
 ];
 
 export const mentorLastPageformControlList: FormControl[] = [
   {
     type: "genderMultiSelect",
     fieldName: "gender",
-    label: "How Best Do You Identify*",
+    label: "How Best Do You Identify?",
     required: false,
-  },
-  {
-    type: "dropdown",
-    fieldName: "menteePreferences",
-    label: "Do you have any preferences who to mentor?",
-    required: false,
-    optionsArray: ['Preference 1', 'Preference 2']
-  },
-  {
-    type: "dropdown",
-    fieldName: "mentoringMethod",
-    label: "What is your preferred mentoring method?",
-    required: false,
-    optionsArray: ['Method 1', 'Method 2'],
   },
   {
     type: "textbox",
+    fieldName: "hardSkills",
+    label: "What are the hard skills you can teach?",
+    required: false,
+    placeholder: ""
+  },
+  {
+    type: "textbox",
+    fieldName: "softSkills",
+    label: "What are the soft skills you can teach?",
+    required: false,
+    placeholder: ""
+  },
+  // {
+  //   type: "dropdown",
+  //   fieldName: "menteePreferences",
+  //   label: "Do you have any preferences who to mentor?",
+  //   required: false,
+  //   optionsArray: ['Preference 1', 'Preference 2']
+  // },
+  {
+    type: "textbox",
+    fieldName: "mentoringMethod",
+    label: "What is your preferred mentoring style?",
+    required: false,
+    placeholder: ""
+  },
+  {
+    type: "textarea",
     fieldName: "aboutYourself",
     label: "Tell our mentees about yourself",
+    required: false,
+    placeholder: ""
+  },
+  {
+    type: "resume",
+    fieldName: "resume",
+    label: "Attach Your Resume:",
     required: false,
   },
 ];

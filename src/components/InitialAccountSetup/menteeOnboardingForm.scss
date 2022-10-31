@@ -4,7 +4,8 @@ $mainContainerWidth: calc((100vw / 12) * 10 - 20px);
 
 .onboarding-setup {
   #menteeForm {
-    width: 100%;
+    // width: 100%;
+    width: 80%;
   }
   .form-field {
     .field-container {
@@ -14,6 +15,11 @@ $mainContainerWidth: calc((100vw / 12) * 10 - 20px);
     .date-field,
     .gender-field,
     .dropdown-field {
+      // width: 365px;
+      width: 100%;
+    }
+
+    .lastName-field, .firstName-field {
       width: 365px;
     }
     .checkbox-section {
@@ -79,7 +85,8 @@ $mainContainerWidth: calc((100vw / 12) * 10 - 20px);
       .radio-field,
       .textarea-field,
       .hardSkills-field {
-        width: 530px;
+        // width: 530px;
+        width: 100%;
       }
     }
   }
@@ -92,7 +99,8 @@ $mainContainerWidth: calc((100vw / 12) * 10 - 20px);
 
   form {
     display: flex;
-    align-items: flex-start;
+    // align-items: flex-start;
+    align-items: center;
     position: relative;
   }
 

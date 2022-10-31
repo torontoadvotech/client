@@ -74,7 +74,7 @@ export interface SetupProgressFormsProps {
   setFormSubmitted: (formSubmitted: boolean) => void
 }
 
-type FormControlTypes = "date" | "email" | "genderMultiSelect" | "textbox" | "textarea" | "profileImage" | "radioGroup" | "dropdown" | "multipleCheckbox";
+type FormControlTypes = "date" | "email" | "genderMultiSelect" | "textbox" | "textarea" | "profileImage" | "radioGroup" | "dropdown" | "multipleCheckbox" | "resume";
 export interface FormControl {
   type: FormControlTypes,
   // Fieldname must match Yup validator field name

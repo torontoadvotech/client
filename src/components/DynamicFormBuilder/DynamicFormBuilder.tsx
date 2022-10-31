@@ -21,7 +21,6 @@ const DynamicFormBuilder: React.FC<AccountProfileInitialValues> = (props) => {
   return (
     <Fragment>
       {[...props.formControlList].map((formControl, i) => {
-        console.log(formControl);
         return <div className="form-field " key={i}>
           {formControl.type === "profileImage" &&
             <div className="field-container profile-image" id="profileImage">
@@ -150,6 +149,22 @@ const DynamicFormBuilder: React.FC<AccountProfileInitialValues> = (props) => {
               }
               <CustomMultipleCheckbox formControl={formControl} />
             </div>
+          }
+
+          {/* RESUME UPLOAD */}
+          {formControl.type === "resume" &&
+            <label htmlFor={formControl.fieldName}>{formControl.label}<input
+               id={formControl.fieldName}
+               name={formControl.fieldName}
+               type="file"
+               accept="image/*"
+               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                 if (event.currentTarget.files) {
+                   formikProps.setFieldValue("photo", event.currentTarget.files[0]);
+                 }
+               }}
+               className="form-control"
+             /></label>
           }
 
         </div>

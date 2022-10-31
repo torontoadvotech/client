@@ -23,16 +23,21 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
   }, [currentProgressStep])
 
   const initialValues = {
+    userName: "",
+    email: "",
+    password: "",
     profileImage: "",
     date: "",
     firstName: "",
     lastName: "",
+    organizations: "",
     education: "",
     certifications: "",
     languages: "",
-    organizations: "",
     gender: "",
-    menteePreferences: "",
+    // menteePreferences: "",
+    hardSkills: "",
+    softSkills: "",
     mentoringMethod: "",
     aboutYourself: "",
     resume: ""
@@ -46,25 +51,35 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     date: Yup.string()
       .matches(/^([0-2][0-9]|(3)[0-1])(\-)(((0)[0-9])|((1)[0-2]))(\-)\d{4}$/, 'Must be a valid date')
       .required("Required"),
+    organizations: Yup.string().required("Required"),
     education: Yup.string().required("Required"),
     certifications: Yup.string(),
     languages: Yup.string(),
-    organizations: Yup.string(),
   });
 
+  // const validationSchemaFirstPage = Yup.object({
+  //   fullName: Yup.string().required("Required"),
+  //   email: Yup.string().required("Required"),
+  //   password: Yup.string().required("Required"),
+  //   confirmPassword: Yup.string().required("Required"),
+  // });
+
   const validationSchemaFirstPage = Yup.object({
-    fullName: Yup.string().required("Required"),
+    userName: Yup.string().required("Required"),
     email: Yup.string().required("Required"),
     password: Yup.string().required("Required"),
-    confirmPassword: Yup.string().required("Required"),
-  });
+  })
 
   const validationSchemaForm = Yup.object({
     gender: Yup.string(),
-    menteePreferences: Yup.string(),
+    // menteePreferences: Yup.string(),
+    hardSkills: Yup.string(),
+    softSkills: Yup.string(),
     mentoringMethod: Yup.string(),
     aboutYourself: Yup.string(),
+    resume: Yup.mixed(),
   });
+
 
   const isLastStep = () => {
     return currentProgressStep === 3;
