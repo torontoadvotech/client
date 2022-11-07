@@ -9,7 +9,7 @@ const FormConfirmation = () => {
         <h2>Your application has been submitted</h2>
         <p>We will get back to you in 3 days</p>
 
-        <a href="/">Check out our Slack Channel</a>
+        <a href="/">Go To Profile &#62</a>
       </div>
     </main>
   )

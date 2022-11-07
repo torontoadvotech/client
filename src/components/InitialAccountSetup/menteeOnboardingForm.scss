@@ -6,6 +6,9 @@ $mainContainerWidth: calc((100vw / 12) * 10 - 20px);
   #menteeForm {
     // width: 100%;
     width: 80%;
+    @media screen and (max-width: $mobile) {
+      width: 100%;
+    }
   }
   .form-field {
     .field-container {
@@ -147,3 +150,50 @@ $mainContainerWidth: calc((100vw / 12) * 10 - 20px);
     }
   }
 }
+
+.third-party-signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .separator {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    &:before {
+      content: '';
+      height: 1px;
+      display: block;
+      width: 40%;
+      background: white;
+      margin-right: 2rem;
+    }
+    &:after {
+      content: '';
+      height: 1px;
+      display: block;
+      width: 40%;
+      background: white;
+      margin-left: 2rem;
+    }
+  }
+  .button-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+      button:first-of-type {
+        width: 60%;
+      }
+    // margin: 3rem 0px;
+      button:nth-of-type(2) {
+        width: 15%;
+      }
+      button:nth-of-type(3) {
+        width: 15%;
+      }
+  }
+}
+
+
+

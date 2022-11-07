@@ -38,17 +38,15 @@ function MenteeOnboardingSetupPage({ goBack, role }: Props): ReactElement {
   // const { role } = Role.useContainer();
   const [currentProgressStep, setCurrentProgressStep] = useState(1);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  console.log(user);
-  console.log(currentProgressStep);
-  console.log(role);
 
   // if (!user) {
   //   return <Redirect to="/" />;
   // }
 
   if (formSubmitted) {
-    const userToken = user!.token;
-    setInitialOnboardFlag(userToken);
+    console.log(user);
+    // const userToken = user!.token;
+    // setInitialOnboardFlag(userToken);
     return <FormConfirmation></FormConfirmation>
   }
 
