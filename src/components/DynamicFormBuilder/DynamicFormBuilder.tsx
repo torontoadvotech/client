@@ -16,7 +16,6 @@ interface AccountProfileInitialValues {
 }
 
 const DynamicFormBuilder: React.FC<AccountProfileInitialValues> = (props) => {
-  console.log(props.formikProps);
   const { formikProps } = props;
   return (
     <Fragment>

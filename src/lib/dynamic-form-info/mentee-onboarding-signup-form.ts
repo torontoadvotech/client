@@ -31,7 +31,7 @@ export const personalDetailsFormControlList: FormControl[] = [
   {
     type: "genderMultiSelect",
     fieldName: "gender",
-    label: "How Best Do You Identify*",
+    label: "How Do You Best Identify?",
     required: false,
   },
   {
@@ -170,13 +170,13 @@ export const lastPageformControlList: FormControl[] = [
   {
     type: "textarea",
     fieldName: "passions",
-    label: "What are you passionate about?*",
-    required: true,
+    label: "What are you passionate about?",
+    required: false,
   },
   {
     type: "textarea",
     fieldName: "mentorshipLearnings",
-    label: "What do you hope to get out of this mentorship?*",
+    label: "What do you hope to get out of this mentorship?",
     required: false,
   },
 ];
@@ -221,7 +221,7 @@ export const mentorFirstFormControlList: FormControl[] = [
     label: "Education*",
     fieldName: "education",
     required: true,
-    placeholder: "Bachelor's"
+    placeholder: "Software Engineering, Industrial Design, etc."
   },
   {
     type: "textbox",
@@ -243,7 +243,7 @@ export const mentorLastPageformControlList: FormControl[] = [
   {
     type: "genderMultiSelect",
     fieldName: "gender",
-    label: "How Best Do You Identify?",
+    label: "How Do You Best Identify?",
     required: false,
   },
   {
@@ -251,14 +251,14 @@ export const mentorLastPageformControlList: FormControl[] = [
     fieldName: "hardSkills",
     label: "What are the hard skills you can teach?",
     required: false,
-    placeholder: ""
+    placeholder: "AWS, Python, Sketch, Figma, etc."
   },
   {
     type: "textbox",
     fieldName: "softSkills",
     label: "What are the soft skills you can teach?",
     required: false,
-    placeholder: ""
+    placeholder: "Teamwork, Communication, Conflict Resolution, etc."
   },
   // {
   //   type: "dropdown",

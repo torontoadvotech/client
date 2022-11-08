@@ -5,11 +5,11 @@ const FormConfirmation = () => {
   return (
     <main className="form-confirmation-page">
       <div className="confirmation-container">
-        <h1 className="text-color-primary">Thank You!</h1>
-        <h2>Your application has been submitted</h2>
+        <h3 className="text-color-primary">Thank You</h3>
+        <h3>Your application has been submitted</h3>
         <p>We will get back to you in 3 days</p>
 
-        <a href="/">Go To Profile &#62</a>
+        <a href="/">Go To Profile &gt;</a>
       </div>
     </main>
   )

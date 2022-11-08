@@ -23,7 +23,7 @@ export default function RoleSelect({ onRoleSelect }: Props): ReactElement {
 
   return (
     <div className="role-select">
-      <h1>Choose your path</h1>
+      <h2 className="choose-path">Choose your path</h2>
       <button
         className="role-select-button button-secondary"
         value="mentor"

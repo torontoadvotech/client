@@ -23,7 +23,6 @@ const MenteeProgressBarObject = [
 const SetupProgressBar: React.FunctionComponent<SetupProgressBarProps> = (props) => {
 
   const currentProgress = props.currentProgress + 1;
-  console.log(currentProgress, "progress");
 
   return (
     <div className="setup-progress-bar">

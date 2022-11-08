@@ -8,12 +8,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    h1 {
-      font-family: $barlow;
+    .choose-path {
       font-style: normal;
-      font-weight: bold;
-      font-size: 7.5rem;
-      line-height: 7.5rem;
+      font-weight: 600;
+      font-size: 5.2rem;
+      line-height: 7rem;
+      letter-spacing: 15px;
       text-align: center;
       text-transform: uppercase;
       margin-bottom: 7rem;

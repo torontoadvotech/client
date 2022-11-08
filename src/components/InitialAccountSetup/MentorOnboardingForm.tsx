@@ -35,7 +35,6 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     certifications: "",
     languages: "",
     gender: "",
-    // menteePreferences: "",
     hardSkills: "",
     softSkills: "",
     mentoringMethod: "",
@@ -72,7 +71,6 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
 
   const validationSchemaForm = Yup.object({
     gender: Yup.string(),
-    // menteePreferences: Yup.string(),
     hardSkills: Yup.string(),
     softSkills: Yup.string(),
     mentoringMethod: Yup.string(),
@@ -98,7 +96,6 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
   }
 
   const submitForm = (values) => {
-    console.log(JSON.stringify(values));
     props.setFormSubmitted(true);
   }
 
