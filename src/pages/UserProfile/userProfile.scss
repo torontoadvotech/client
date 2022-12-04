@@ -8,6 +8,7 @@ main.profile-page {
   .profile-summary {
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 55px;
   }
   h2 {
     font-weight: 600;
@@ -20,6 +21,7 @@ main.profile-page {
   }
   .user-info {
     display: flex;
+    margin-bottom: 55px;
   }
   .profile-summary--img-container {
     flex: 0 1 145px;
@@ -58,12 +60,14 @@ main.profile-page {
   }
   .profile-status {
     margin-top: 55px;
+    width: 100%;
   }
   .status-container {
     text-align: center;
     background-color: #212121;
     align-items: center;
     padding: 24px 40px;
+    width: 100%;
 
     h3 {
       font-weight: 600;
@@ -80,13 +84,30 @@ main.profile-page {
       font-size: 16px;
       line-height: 28px;
       opacity: 0.7;
+      font-family: 'Inconsolata';
     }
   }
 
   .button-container {
      background-color: black;
-     padding: 22px 100px;
-     height: 90px;
+     text-align: center;
+     padding-top: 22px;
+     padding-bottom: 22px;
+     height: 100px;
+     width: 100%;
+    
+    button {
+      width: 65%;
+      height: 44px;
+      background-color: #FFFFFF;
+      outline: none;
+      border: none;
+      font-family: 'Oxygen Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+    }
   }
 
   .application-container {
