@@ -104,6 +104,7 @@ export const firstPageFormControlList: FormControl[] = [
     type: "textbox",
     fieldName: "confirmPassword",
     label: "Confirm Password*",
+    placeholder: "**********",
     required: true,
   },
 ]
