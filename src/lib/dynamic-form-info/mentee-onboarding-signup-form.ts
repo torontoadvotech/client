@@ -82,30 +82,30 @@ export const firstPageFormControlList: FormControl[] = [
   {
     type: "textbox",
     fieldName: "userName",
-    label: "Username",
+    label: "Username*",
     placeholder: 'Jenna.to',
     required: true
   },
   {
     type: "textbox",
     fieldName: "email",
-    label: "Enter Email",
+    label: "Enter Email*",
     placeholder: "Jenna.hunter@gmail.com",
     required: true,
   },
   {
     type: "textbox",
     fieldName: "password",
-    label: "Create Password",
+    label: "Create Password*",
     placeholder: "**********",
     required: true,
   },
-  // {
-  //   type: "textbox",
-  //   fieldName: "confirmPassword",
-  //   label: "Confirm Password",
-  //   required: true,
-  // },
+  {
+    type: "textbox",
+    fieldName: "confirmPassword",
+    label: "Confirm Password*",
+    required: true,
+  },
 ]
 
 export const lastPageformControlList: FormControl[] = [
@@ -286,5 +286,12 @@ export const mentorLastPageformControlList: FormControl[] = [
     fieldName: "resume",
     label: "Attach Your Resume:",
     required: false,
+  },
+  {
+    type: "textbox",
+    fieldName: "linkedinProfile",
+    label: "LinkedIn Profile",
+    required: false,
+    placeholder: "https://www.linkedin.com/in/your-url/",
   },
 ];

@@ -14,7 +14,6 @@ const SignupPage = () => {
       setRole(location.state.role);
     }
   }, []);
-  console.log(role);
 
   return (
     <main className="signup">

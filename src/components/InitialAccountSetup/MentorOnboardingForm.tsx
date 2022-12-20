@@ -26,6 +26,7 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     userName: "",
     email: "",
     password: "",
+    confirmPassword: "",
     profileImage: "",
     date: "",
     firstName: "",
@@ -39,7 +40,8 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     softSkills: "",
     mentoringMethod: "",
     aboutYourself: "",
-    resume: ""
+    resume: "",
+    linkedinProfile: "",
   };
 
   // Validate user inputs before submission (will also be validated by the server)
@@ -67,6 +69,7 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     userName: Yup.string().required("Required"),
     email: Yup.string().required("Required"),
     password: Yup.string().required("Required"),
+    confirmPassword: Yup.string().required("Required"),
   })
 
   const validationSchemaForm = Yup.object({
@@ -76,6 +79,7 @@ const MentorOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     mentoringMethod: Yup.string(),
     aboutYourself: Yup.string(),
     resume: Yup.mixed(),
+    linkedinProfile: Yup.string(),
   });
 
 

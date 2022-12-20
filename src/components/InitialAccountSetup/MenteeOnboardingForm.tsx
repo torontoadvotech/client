@@ -54,7 +54,7 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     userName: Yup.string().required("Required"),
     email: Yup.string().required("Required"),
     password: Yup.string().required("Required"),
-    // confirmPassword: Yup.string().required("Required"),
+    confirmPassword: Yup.string().required("Required"),
   });
 
 
@@ -190,7 +190,6 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
                   }
                   <button type="submit" className="button-primary submit-button"
                     onClick={() => {
-                      console.log("click");
                       const hasError = Object.entries(formikProps.errors).length !== 0;
                       return hasError && setFormHasError(true);
                     }}

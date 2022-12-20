@@ -47,7 +47,7 @@ function MenteeOnboardingSetupPage({ goBack, role }: Props): ReactElement {
     console.log(user);
     // const userToken = user!.token;
     // setInitialOnboardFlag(userToken);
-    return <FormConfirmation></FormConfirmation>
+    return <FormConfirmation role={role}></FormConfirmation>
   }
 
   return (

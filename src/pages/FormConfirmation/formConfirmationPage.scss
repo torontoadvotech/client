@@ -7,7 +7,7 @@
   font-family: $inconsolata;
   .confirmation-container {
     width: 600px;
-    height: 500px;
+    // height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,8 +41,13 @@
       color: $grey-darkest;
       width: 290px;
       justify-content: center;
-      padding: 14px 0;
+      padding: 20px 0;
       text-transform: unset;
+      transition: 0.25s;
+      &:hover, &:focus {
+        background-color: $grey-darkest;
+        color: $grey;
+      }
     }
   }
 }
