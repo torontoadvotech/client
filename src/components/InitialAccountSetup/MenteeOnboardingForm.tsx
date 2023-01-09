@@ -27,6 +27,7 @@ const MenteeOnboardingForm: React.FunctionComponent<SetupProgressFormsProps> = (
     userName: "",
     email: "",
     password: "",
+    confirmPassword: "",
     profileImage: "",
     firstName: "",
     lastName: "",

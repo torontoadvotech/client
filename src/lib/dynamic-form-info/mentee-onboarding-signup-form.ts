@@ -291,7 +291,7 @@ export const mentorLastPageformControlList: FormControl[] = [
   {
     type: "textbox",
     fieldName: "linkedinProfile",
-    label: "LinkedIn Profile",
+    label: "LinkedIn",
     required: false,
     placeholder: "https://www.linkedin.com/in/your-url/",
   },

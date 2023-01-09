@@ -65,7 +65,7 @@ const DynamicFormBuilder: React.FC<AccountProfileInitialValues> = (props) => {
               }
               <Field className="input-height-50" name={formControl.fieldName} type="text" id={formControl.fieldName} placeholder={formControl.placeholder} />
                {/* LINKEDIN STANDARD TEXT BOX */}
-              {formControl.fieldName === "linkedinProfile" && <p className="resume-hint">**Sharing your resume or work profile supports your credibility as an applicant for our platform.</p>}
+              {formControl.fieldName === "linkedinProfile" && <p className="resume-hint">*Sharing your resume or work profile supports your credibility as an applicant to the platform.</p>}
             </div>
           }
           {/* TEXT AREA */}
