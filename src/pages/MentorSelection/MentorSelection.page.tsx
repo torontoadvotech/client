@@ -27,6 +27,8 @@ const MentorSelection = () => {
     getMentors(page, limit);
   }, [page]);
 
+  console.log(mentors, 'mentors');
+
   return (
     <main className='mentor-selection-page'>
       <div className='mentor-container'>

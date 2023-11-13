@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { User } from "../../containers/user.container";
+import { Link } from "react-router-dom";
+import "./userProfile.scss";
 
 interface Props {
   startEditProfile: () => void;
+  accepted: boolean;
 }
 
-const ProfileSummary = ({ startEditProfile }: Props) => {
+const ProfileSummary = ({ startEditProfile, accepted }: Props) => {
   const { user } = User.useContainer();
+  console.log(user, 'user');
   const [returningUser, setReturningUser] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
   // would call setReturningUser with true after user has been on this page,
   // maybe when they navigate away from page?
 
-  const accepted = false;
-  // I don't know where we're getting the user's application status
-  // so I just mocked it for now
+  useEffect(() => {
+    //TODO - setting role manually
+    // user.role = 'mentee';
+    user.role = 'mentor';
+    console.log(user, 'user');
+    setIsLoaded(true);
+  }, []);
 
   const renderHeader = (acceptedStatus: boolean) => {
     let header;
@@ -32,6 +41,8 @@ const ProfileSummary = ({ startEditProfile }: Props) => {
   };
 
   const renderStatus = (acceptedStatus: boolean) => {
+    if( !isLoaded ) return null;
+
     return (
       <div>
         <div className="status-container">
@@ -43,10 +54,11 @@ const ProfileSummary = ({ startEditProfile }: Props) => {
         </div>
         <div className="button-container">
           {!acceptedStatus ? null : (
-            <button className="cta-button">
-              Connect with a {user?.role === "mentee" ? "mentor" : "mentee"}{" "}
-              {">"}
-            </button>
+            user?.role === "mentee" ? <Link className="cta-button" to="/mentors">Connect with a Mentor</Link> : <Link className="cta-button" to="/mentor-availability">Set Your Availability</Link>
+            
+            // <button className="cta-button">
+            //   {user?.role === "mentee" ? "Connect with a Mentor >" : "Set Your Availability"}            
+            // </button>
             // this button does not go anywhere yet
           )}
         </div>
@@ -69,7 +81,7 @@ const ProfileSummary = ({ startEditProfile }: Props) => {
           <h1 className="user-name">{user?.name}</h1>
           <span className="user-email">{user?.email}</span>
           <button className="edit-profile" onClick={startEditProfile}>
-            Edit account
+            Edit Profile
           </button>
         </div>
       </div>

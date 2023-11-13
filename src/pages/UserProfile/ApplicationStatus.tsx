@@ -6,15 +6,15 @@ import { Session } from "../../lib/types";
 import SessionCard from "../../components/SessionCard/SessionCard";
 import ViewSessionInfoModal from "../../modals/viewSessionInfo/viewSessionInfo.modal";
 
-const ApplicationStatus = () => {
+interface Props {
+  accepted: boolean;
+}
+
+const ApplicationStatus = ({ accepted }: Props) => {
   const { user } = User.useContainer();
   const [sessions, setSessions] = useState<Session[]>();
   const [activeSession, setActiveSession] = useState<Session | null>(null);
   const [showSessionModal, setShowSessionModal] = useState<boolean>(false);
-
-  const accepted = false;
-  // I don't know where we're getting the user's application status
-  // so I just mocked it for now
 
   useEffect(() => {
     const loadSessions = async () => {
@@ -24,6 +24,7 @@ const ApplicationStatus = () => {
       try {
         if (user) {
           res = await API.getMySessions(user.token);
+          console.log(res, "res");
         }
 
         setSessions(res.data.sessions);
@@ -75,7 +76,7 @@ const ApplicationStatus = () => {
       {/* sessions should only appear if user has accepted status */}
       {!accepted ? null : (
         <div>
-          <h2>Sessions</h2>
+          <h2 className="sessions">Sessions</h2>
           {/* Accepted Applications Section */}
           <h3 className="application-container--heading">Accepted Sessions</h3>
           <div className="application-container application-container--accepted">
@@ -85,10 +86,10 @@ const ApplicationStatus = () => {
                   key={uuidv4()}
                   session={session}
                   role={user!.role}
-                  onClick={() => {
+                 /* onClick={() => {
                     setShowSessionModal(true);
                     setActiveSession({ ...session });
-                  }}
+                  }}*/
                 />
               ))
             ) : (
@@ -119,8 +120,9 @@ const ApplicationStatus = () => {
             )}
           </div>
           {/* Rejected Applications Section */}
-          <h3 className="application-container--heading">Rejected Sessions</h3>
+          <h3 className="application-container--heading">{user?.role === "mentor" ? "Cancelled Sessions" : "Rejected Sessions"}</h3>
           <div className="application-container application-container--rejected">
+            {rejectedSessions && rejectedSessions.length > 0 && user?.role === "mentee" ? <p>Mentors are available at other times and encourage mentees to request scheduling for other days.</p> : null}
             {rejectedSessions && rejectedSessions.length > 0 ? (
               rejectedSessions.map((session) => (
                 <SessionCard

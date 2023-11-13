@@ -1,0 +1,117 @@
+@import '../../styles/variables.scss';
+
+#modal.success-modal {
+  p:first-of-type{
+    font-weight: 600;
+      line-height: 40px;
+      font-family: 'Inconsolata';
+      flex: 0 0 100%;
+      margin-top: 40px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      font-size: 2.5rem;
+  }
+
+  .modal-wrapper {
+    background-color: white;
+    text-align: center;
+    padding: 70px 10px;
+
+    @include minScreen($tablet) {
+      padding-top: 136px;
+      padding-bottom: 116px;
+    }
+
+    h2 {
+      font-family: $inconsolata;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: red;
+      letter-spacing: 8px;
+      line-height: 1;
+      font-size: 3.6rem;
+
+      @include minScreen(620px) {
+        font-size: 4.8rem;
+      }
+
+      @include minScreen($tablet) {
+        font-size: 4.8rem;
+      }
+
+      @include minScreen($desktop) {
+        font-size: 5.2rem;
+        line-height: 7rem;
+      }
+
+      &:before,
+      &:after {
+        content: "";
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: 30px;
+
+        @include minScreen($tablet) {
+          background-size: 40px;
+          width: 40px;
+          height: 40px;
+        }
+      }
+
+      &:before {
+        background-image: url(../../assets/images/celebration-icon-left.png);
+        margin-right: 10px;
+      }
+      &:after {
+        background-image: url(../../assets/images/celebration-icon-right.png);
+        margin-left: 10px;
+      }
+    }
+
+    .modal-close {
+      color: black;
+      &::before {
+        content: "Close";
+        text-transform: uppercase;
+        margin-right: 15px;
+        font-size: 14px;
+      }
+    }
+
+    .modal-content {
+      padding: 0 40px;
+    }
+
+    p {
+      color: black;
+      font-family: $inconsolata;
+      text-transform: uppercase;
+      line-height: 1.66;
+      font-size: 2rem;
+
+      @include minScreen($tablet) {
+        font-size: 3.2rem;
+      }
+    }
+
+    button {
+      background: $grey;
+      border: 1px solid black;
+      font-size: 1.2rem;
+      color: black;
+      letter-spacing: -0.5px;
+      width: 168px;
+      height: 40px;
+      padding: 0;
+      margin-top: 30px;
+
+      @include minScreen($tablet) {
+        margin-top: 50px;
+      }
+    }
+  }
+}
+

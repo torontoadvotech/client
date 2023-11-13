@@ -12,8 +12,10 @@ const MentorCard: React.FC<Props> = ({ user }) => {
   // Each session has data for the mentor and mentee
   // Get user data for the complementary role
 
+  console.log(user, 'user');
+  // to={`/mentors/${user._id}`}
   return (
-    <Link to={`/mentors/${user._id}`}>
+    <Link  to={{ pathname: `/mentors/${user._id}`, state: { user } }}>
       <div className='mentor-card'>
         <div className='mentor-card--img-container'>
           <img

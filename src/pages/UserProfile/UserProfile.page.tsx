@@ -6,6 +6,8 @@ import EditProfile from "./EditProfile";
 
 const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
+  const accepted = true;
+
 
   return (
     <main className="profile-page">
@@ -15,8 +17,9 @@ const ProfilePage = () => {
             startEditProfile={() => {
               setIsEditing(true);
             }}
+            accepted={accepted}
           />
-          <ApplicationStatus />
+          <ApplicationStatus accepted={accepted} />
         </>
       ) : (
         <EditProfile

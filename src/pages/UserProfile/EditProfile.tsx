@@ -124,7 +124,7 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
                 />
                 <Field name="pronouns" type="text" />
               </div>
-              <div className="field-container">
+              {/* <div className="field-container">
                 <label htmlFor="email">Email</label>
                 <ErrorMessage
                   component="span"
@@ -132,15 +132,15 @@ export default function EditProfile({ endEditProfile }: Props): ReactElement {
                   name="email"
                 />
                 <Field name="email" type="email" />
-              </div>
+              </div> */}
               <div className="field-container">
-                <label htmlFor="Bio">Bio</label>
+                <label htmlFor="bio">Bio</label>
                 <ErrorMessage
                   component="span"
                   className="form-error"
-                  name="Bio"
+                  name="bio"
                 />
-                <Field name="Bio" component="textarea" />
+                <Field name="bio" component="textarea" />
               </div>
 
               <button type="submit" className="button-primary">
