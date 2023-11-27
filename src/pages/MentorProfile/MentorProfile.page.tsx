@@ -38,7 +38,7 @@ const INITIAL_EVENTS: EventInput[] = [
   {
     id: createEventId(),
     title: 'Date available',
-    start: '2023-06-22'  + 'T12:00:00',
+    start: '2023-11-22'  + 'T12:00:00',
     display: 'background',
     allDay: true,
     extendedProps: {
@@ -55,7 +55,7 @@ const INITIAL_EVENTS: EventInput[] = [
   {
     id: createEventId(),
     title: 'Date available',
-    start: '2023-06-24' + 'T12:00:00',
+    start: '2023-11-24' + 'T12:00:00',
     allDay: true,
     display: 'background',
   },
@@ -88,8 +88,10 @@ const MentorProfilePage = () => {
   useEffect(() => {
     const loadMentor = async () => {
       try {
-        const res = await API.getOneMentor(mentorId);
-        console.log(res, 'loadMentor');
+        let res = await API.getOneMentor(mentorId);
+        // console.log(res, 'loadMentor');
+        // const mockRes = {};
+        // res = mockRes;
         if (res.data) {
           setMentor(res.data.data);
         }
@@ -108,7 +110,6 @@ const MentorProfilePage = () => {
   const firstName = state.user?.name.split(" ")[0]
 
   const bookMeeting = (mentor:UserType) => {
-    console.log(1);
     setIsBooking(true);
   }
 
@@ -227,8 +228,8 @@ const MentorProfilePage = () => {
 
         {isTimeslotSelected ? <div className="time-slots">
           <h2 className="timeslot-heading">Selected Dates</h2>
-          <div className="selected-slot"><p>Thursday, 22 June, 2023 at 9:00am EST</p><div className="modal-close" onClick={onClose}><FontAwesomeIcon icon={faTimes} /></div></div>
-          <div className="selected-slot"><p>Friday, 23 June, 2023 at 9:00am EST</p>
+          <div className="selected-slot"><p>Wednesday, 22 November, 2023 at 9:00am EST</p><div className="modal-close" onClick={onClose}><FontAwesomeIcon icon={faTimes} /></div></div>
+          <div className="selected-slot"><p>Friday, 24 November, 2023 at 9:00am EST</p>
           <div className="modal-close" onClick={onClose}><FontAwesomeIcon icon={faTimes} /></div>
         </div>
           <div className="book-session">

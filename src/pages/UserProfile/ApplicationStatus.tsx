@@ -24,10 +24,391 @@ const ApplicationStatus = ({ accepted }: Props) => {
       try {
         if (user) {
           res = await API.getMySessions(user.token);
-          console.log(res, "res");
+          console.log(res, "getMySessions");
+          res = {
+            "status": "success",
+            "data": {
+                "sessions": [
+                    {
+                        "requestedAt": "2020-05-08T03:10:10.132Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5eb4d5a54061c3042c2bbc5f",
+                        "date": "2020-03-25T03:41:54.989Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-05-08T03:10:10.132Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": false,
+                        "_id": "5eb4d5ee4061c3042c2bbc60",
+                        "date": "2020-05-08T03:45:44.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791fe",
+                            "name": "Diana Prince",
+                            "email": "dprince@gmail.com",
+                            "photo": "photo8.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-05-08T03:10:10.132Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5eb4d6284061c3042c2bbc61",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f8",
+                            "name": "Jessica Jones",
+                            "email": "jjones@gmail.com",
+                            "photo": "photo2.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": true,
+                        "cancelled": false,
+                        "_id": "5fadc852fd89a80aabe2be35",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5fadc854fd89a80aabe2be36",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5fadc855fd89a80aabe2be37",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5fadc856fd89a80aabe2be38",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": true,
+                        "cancelled": false,
+                        "_id": "5fadc857fd89a80aabe2be39",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": true,
+                        "cancelled": false,
+                        "_id": "5fadc859fd89a80aabe2be3a",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5fadcdabfd89a80aabe2be3b",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5fadcdf2fd89a80aabe2be3c",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5fadce46fd89a80aabe2be3d",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5fadce69fd89a80aabe2be3e",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5fadce6afd89a80aabe2be3f",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5fadce6bfd89a80aabe2be40",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": true,
+                        "cancelled": false,
+                        "_id": "5fadce6cfd89a80aabe2be41",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    },
+                    {
+                        "requestedAt": "2020-11-12T22:52:36.126Z",
+                        "confirmed": false,
+                        "rejected": false,
+                        "cancelled": true,
+                        "_id": "5fadd86dfd89a80aabe2be42",
+                        "date": "2020-05-08T03:42:24.673Z",
+                        "mentor": {
+                            "_id": "5e85365528f22e04b76791f7",
+                            "name": "Thor Odinson",
+                            "email": "thor@asgard.com",
+                            "photo": "photo1.jpg"
+                        },
+                        "mentee": {
+                            "_id": "5e85365528f22e04b7679203",
+                            "name": "Steve Rogers",
+                            "email": "srogers@gmail.com",
+                            "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                            "pronouns": "He / Him"
+                        },
+                        "__v": 0
+                    }
+                ]
+            }
+        };
         }
 
-        setSessions(res.data.sessions);
+        setSessions(res?.data.sessions);
       } catch (error) {
         console.error(error);
       }
