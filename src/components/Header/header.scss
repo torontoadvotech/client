@@ -25,6 +25,8 @@
   color: #fff;
   text-transform: uppercase;
   transition: 0.25s;
+  border: none;
+  font-family: $inconsolata;
 
   &:hover {
     color: #e9002d;
