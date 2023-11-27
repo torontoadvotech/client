@@ -70,8 +70,9 @@ export default function LoginForm({ onLogIn }: Props): ReactElement {
             }
         }
     };
+    res = mockRes;
       // If login fails show an error
-      if (res.error) {
+      if (res?.error) {
         // return setError(true);
         //TODO: uncomment line above and remove line below
         res = mockRes;
