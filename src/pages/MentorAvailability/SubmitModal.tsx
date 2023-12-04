@@ -12,7 +12,7 @@ const SubmitModal = ({ onClose }: Props) => {
   return (
     <Modal title="Great" className='success-modal' onClose={onClose}>
       <>
-        <p>Your availability has been set</p>
+        <p>Your availability has been set.</p>
         <p>You can view and edit your availability on your profile.</p>
       </>
     </Modal>
