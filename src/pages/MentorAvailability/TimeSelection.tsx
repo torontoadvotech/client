@@ -108,7 +108,6 @@ const TimeSelection = ({ selectedDate }: Props) => {
         console.log('closeModal');
         setIsSubmitted(false);
         history.push("/profile");
-
     }
 
     const handleStartTimeChange = (e:any, id:number) => {

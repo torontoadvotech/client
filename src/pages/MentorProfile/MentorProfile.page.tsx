@@ -228,7 +228,7 @@ const MentorProfilePage = () => {
 
         {isTimeslotSelected ? <div className="time-slots">
           <h2 className="timeslot-heading">Selected Dates</h2>
-          <div className="selected-slot"><p>Wednesday, 29 November, 2023 at 9:00am EST</p><div className="modal-close" onClick={onClose}><FontAwesomeIcon icon={faTimes} /></div></div>
+          <div className="selected-slot"><p>Wednesday, 29 November, 2023 at 9:00am EST</p><div className="modal-close" role="button" onClick={onClose}><FontAwesomeIcon icon={faTimes} /></div></div>
           <div className="selected-slot"><p>Friday, 31 December, 2023 at 9:00am EST</p>
           <div className="modal-close" onClick={onClose}><FontAwesomeIcon icon={faTimes} /></div>
         </div>
