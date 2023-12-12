@@ -74,6 +74,9 @@
 
     .modal-close {
       color: black;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
       &::before {
         content: "Close";
         text-transform: uppercase;
