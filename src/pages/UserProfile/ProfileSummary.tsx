@@ -18,8 +18,8 @@ const ProfileSummary = ({ startEditProfile, accepted }: Props) => {
 
   useEffect(() => {
     //TODO - setting role manually
-    // user.role = 'mentee';
-    user.role = 'mentor';
+    user.role = 'mentee';
+    // user.role = 'mentor';
     console.log(user, 'user');
     setIsLoaded(true);
   }, []);

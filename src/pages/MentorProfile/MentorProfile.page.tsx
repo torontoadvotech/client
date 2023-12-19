@@ -19,6 +19,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import './mentorProfile.scss';
 import Modal from '../../components/Modal/Modal';
+import SendInvitationsModal from './SendInvitationsModal';
+import { useHistory } from 'react-router-dom';
 
 let eventGuid = 0
 let todayStr = new Date().toISOString().replace(/T.*$/, '') // YYYY-MM-DD of today
@@ -38,11 +40,11 @@ const INITIAL_EVENTS: EventInput[] = [
   {
     id: createEventId(),
     title: 'Date available',
-    start: '2023-11-29'  + 'T12:00:00',
+    start: '2023-12-25'  + 'T12:00:00',
     display: 'background',
     allDay: true,
     extendedProps: {
-      timeSlots: ['9:00am EST', '12:00pm EST', '3:00pm EST']
+      timeSlots: [['9:00am EST', '12:00pm EST'], ['12:00pm EST', '3:00pm EST'], ['3:00pm EST', '5:00pm EST']]
     },
   },
   // {
@@ -55,9 +57,12 @@ const INITIAL_EVENTS: EventInput[] = [
   {
     id: createEventId(),
     title: 'Date available',
-    start: '2023-12-01' + 'T12:00:00',
-    allDay: true,
+    start: '2023-12-30' + 'T12:00:00',
     display: 'background',
+    allDay: true,
+    extendedProps: {
+      timeSlots: [['9:00am EST', '12:00pm EST'], ['3:00pm EST', '5:00pm EST']]
+    },
   },
 
 ]
@@ -71,25 +76,23 @@ interface stateType {
   user: UserType
 }
 
-interface DisplayedEventsType {
-  mentorId: string;
-}
-
 
 
 const MentorProfilePage = () => {
+  const history = useHistory();
   // const { user = 'defaultValue' } = location.state || {}
   const { mentorId } = useParams<ParamTypes>();
   const [mentor, setMentor] = useState<UserType>();
   const [isBooking, setIsBooking] = useState<boolean>(false);
-  const [displayedEvents, setDisplayedEvents] = useState<any>([]);
-  const [isTimeslotSelected, setIsTimeslotSelected] = useState<boolean>(false);
+  const [selectedDay, setSelectedDay] = useState<any>(null);
+  const [selectedTimeslots, setSelectedTimeslots] = useState<any>([]);
+  const [areInvitationsSent, setAreInvitationsSent] = useState<boolean>(false);
 
   useEffect(() => {
     const loadMentor = async () => {
       try {
         let res = await API.getOneMentor(mentorId);
-        // console.log(res, 'loadMentor');
+        console.log(res, 'loadMentor');
         // const mockRes = {};
         // res = mockRes;
         if (res.data) {
@@ -106,16 +109,17 @@ const MentorProfilePage = () => {
 
   const { state } = useLocation<stateType>();
 
-  console.log("STATE", state);
+  // console.log("STATE", state);
   const firstName = state.user?.name.split(" ")[0]
 
   const bookMeeting = (mentor:UserType) => {
     setIsBooking(true);
   }
 
-
-
-
+  const closeModal = () => {
+    setAreInvitationsSent(false);
+    history.push("/profile");
+  }
 
 
   const handleDateSelect = (selectInfo: DateSelectArg) => {
@@ -135,17 +139,31 @@ const MentorProfilePage = () => {
     }
   }
 
-  const selectSlot = () => {
-    console.log('selectSlot');
-    setIsTimeslotSelected(!isTimeslotSelected);
+  const selectSlot = (selectedDay:any, timeslot:any) => {
+    const newId = `${selectedDay.id}${timeslot[0].split(' ')[0]}`;
+    const processedTimeslot = { ...selectedDay, selectedTimeslot: timeslot, id: newId};
+    if (selectedTimeslots.length === 0){
+      setSelectedTimeslots([processedTimeslot]);
+    } else {
+      const newSelectedSlots:any[] = [...selectedTimeslots];
+      const found = selectedTimeslots.find((selectedTimeslot:any) => {
+        return selectedTimeslot.id === newId;
+      });
+
+      if (!found) {
+        newSelectedSlots.push(processedTimeslot);
+        if (newSelectedSlots.length > 3) {
+          alert("You cannot book more than 3 sessions. Please consider removing some sessions.")
+        } else {
+          setSelectedTimeslots(newSelectedSlots);
+        }
+      }
+    }
   }
 
   const handleEventClick = (clickInfo: EventClickArg) => {
-    console.log(clickInfo.event.start, clickInfo.event.title);
     const event = { id: clickInfo.event.id, start: clickInfo.event.start, title: clickInfo.event.title, timeSlots: clickInfo.event.extendedProps.timeSlots  };
-    setDisplayedEvents([...displayedEvents, event]);
-    console.log(displayedEvents)
-
+    setSelectedDay(event);
   }
 
   function renderEventContent(eventContent: EventContentArg) {
@@ -167,11 +185,20 @@ const MentorProfilePage = () => {
     }]
     }
 
-    const onClose = ()=> {
-      console.log('onClose', mentor);
+    const removeTimeslot = (slotToRemove:any)=> {
+      const newSelectedSlots = selectedTimeslots.filter((timeslot:any)=>{
+        if (slotToRemove.id !== timeslot.id) {
+          return timeslot;
+        }
+      })
+      setSelectedTimeslots(newSelectedSlots);
     }
 
    const t1 = 0;
+
+   const handleSendInvitations = () => {
+    setAreInvitationsSent(true);
+   }
 
   //  <h2 className="timeslot-heading">Time</h2><p>Select all that apply.</p>
 
@@ -208,36 +235,37 @@ const MentorProfilePage = () => {
         eventClick={handleEventClick}
         eventContent={renderEventContent}
       />
-       {displayedEvents.length ? <div className="time-slots"><div className="displayed-events-container">
-        <div className="event-box" role="button" tabIndex={t1} onClick={()=>selectSlot()}> 
-          <p>9:00am EST</p>
-          <p>to</p>
-          <p>11:00am EST</p>
-        </div>
-        <div className="event-box" role="button" tabIndex={t1}>
-          <p>12:00pm EST</p>
-          <p>to</p>
-          <p>2:00pm EST</p>
-        </div>
-        <div className="event-box" role="button" tabIndex={t1}>
-          <p>3:00pm EST</p>
-          <p>to</p>
-          <p>5:00pm EST</p>
-        </div>
+        {selectedDay ? <div className="time-slots"><div className="displayed-events-container">
+        {selectedDay.timeSlots.map((timeslot:any)=> {
+            return (<div className="event-box" role="button" tabIndex={t1} onClick={()=>selectSlot(selectedDay, timeslot)}> 
+            <p>{timeslot[0]}</p>
+            <p>to</p>
+            <p>{timeslot[1]}</p>
+          </div>);
+        })}
         </div></div> : null}
 
-        {isTimeslotSelected ? <div className="time-slots">
-          <h2 className="timeslot-heading">Selected Dates</h2>
-          <div className="selected-slot"><p>Wednesday, 29 November, 2023 at 9:00am EST</p><div className="modal-close" role="button" onClick={onClose}><FontAwesomeIcon icon={faTimes} /></div></div>
-          <div className="selected-slot"><p>Friday, 31 December, 2023 at 9:00am EST</p>
-          <div className="modal-close" onClick={onClose}><FontAwesomeIcon icon={faTimes} /></div>
-        </div>
+        {selectedTimeslots.length > 0 ? <div className="time-slots">
+        <h2 className="timeslot-heading">Selected Dates</h2>
+          {selectedTimeslots?.map((timeslot:any)=> {
+            const convertedDate = new Intl.DateTimeFormat('en-GB', {
+              dateStyle: 'full',
+              timeZone: 'America/Toronto',
+            }).format(timeslot.start);
+            return (<div className="selected-slot">
+              <p>{convertedDate} at {timeslot.selectedTimeslot[0]}</p>
+              <div className="modal-close" onClick={()=> removeTimeslot(timeslot)}>
+                <FontAwesomeIcon icon={faTimes} />
+              </div>
+            </div>)
+        })}
+
           <div className="book-session">
             <p>You are booking 2-hour mentorship session(s) with {state.user?.name}</p>
             <p></p>
             {/* <h2>Book a 2-hour <br/>mentorship session</h2> */}
             {/* <p className="mentor-name-btn"><span className="span-cirle"></span>{state.user?.name}</p> */}
-            <button className="button button-primary book-meeting send-invitation">Send Invitation(s)</button>
+            <button className="button button-primary book-meeting send-invitation" onClick={handleSendInvitations}>Send Invitation(s)</button>
           </div>
         </div> : null}
       </div>: 
@@ -337,7 +365,9 @@ const MentorProfilePage = () => {
       </div>
       </React.Fragment>
       }
+      {areInvitationsSent && <SendInvitationsModal onClose={closeModal} invitations={selectedTimeslots} />}
       </main>
+      
     
   );
 };
