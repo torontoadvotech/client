@@ -16,7 +16,7 @@ const SendInvitationsModal = ({ onClose, invitations }: Props) => {
     <Modal title="Congratulations" className='success-modal' onClose={onClose}>
       <>
         <p>Meeting One Invitation(s) Sent</p>
-        <p>{invitations?.map((timeslot:any)=> {
+        {invitations?.map((timeslot:any)=> {
             const convertedDate = new Intl.DateTimeFormat('en-GB', {
               dateStyle: 'full',
               timeZone: 'America/Toronto',
@@ -24,7 +24,7 @@ const SendInvitationsModal = ({ onClose, invitations }: Props) => {
             return (<div className="selected-slot">
               <p>{convertedDate} at {timeslot.selectedTimeslot[0]}</p>
             </div>)
-        })}</p>
+        })}
       </>
     </Modal>
   );
