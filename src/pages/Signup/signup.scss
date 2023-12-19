@@ -34,6 +34,9 @@
     }
     .role-select-button {
       width: 350px;
+      &:hover h3 {
+        color: white;
+      }
       h2 {
         color: $primary;
         font-size: 4rem;

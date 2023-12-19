@@ -5,40 +5,301 @@
   flex-direction: column;
   align-items: center;
   h1 {
+    width: 70%;
     font-weight: 600;
+    font-size: 2.8rem;
     line-height: 4rem;
-    font-size: 2.4rem;
-    text-align: center;
+    text-align: left;
     text-transform: uppercase;
-    color: $primary;
-    font-family: $barlow;
-    margin-bottom: 20px;
+    letter-spacing: 8px;
+    color: #fff;
+    font-family: $inconsolata;
+    margin-bottom: 50px;
+  }
+
+  .profile-summary {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
   }
 
   h2 {
-    font-weight: 400;
-    font-size: 1.8rem;
-    line-height: 1.6;
+    font-family: $inconsolata;
+    font-weight: 600;
+    font-size: 2.8rem;
+    line-height: 4rem;
     text-align: center;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
     color: $primary;
-    font-family: $barlow;
+    text-transform: uppercase;
+  }
+
+  .mentor-profile-bio, .mentor-profile-skills {
+    width: 70%;
+    margin-top: 20px;
+    h2.secondary-heading {
+      color: #fff;
+      width: 100%;
+      text-align: left;
+    }
+    p {
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+    }
+    li {
+      display: inline-block;
+      margin-right: 10px;
+      border: 1px solid #fff;
+      width: auto;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .mentor-profile-calendar {
+    width: 70%;
+    margin-top: 40px;
+    h2.calendar-heading {
+      color: $primary;
+    }
+    .calendar-top-row {
+      text-align: center;
+    }
+    .calendar-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      p {
+        // padding: 10px;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      p.tag {
+        background-color: $primary;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .mentor-profile-calendar.schedule {
+    border: 1px solid white;
+    padding: 61px 16px 35px;
+  }
+.calendar-schedule h1 {
+  color: $primary;
+  margin-bottom: 11px;
+  font-size: 52px;
+  line-height: 70px;
+  letter-spacing: 15px;
+  span {
+    color: white;
+  }
+}
+
+
+  .mentor-profile-calendar.schedule {
+    p.tag {
+      background-color: $grey-darker;
+      border: 1px solid white;
+      border-radius: 50%;
+    }
+  }
+
+  .calendar-schedule h2 {
+    padding-top: 60px;
+    padding-bottom: 30px;
+    color: white;
+    text-align: left;
   }
 
   img {
     object-fit: cover;
-    width: 200px;
-    height: 220px;
+    width: 150px;
+    height: 170px;
   }
 
   .profile-summary--details {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+    align-items: left;
     background-color: $grey-darker;
-    padding: 25px 75px;
-    button {
-      margin-top: 20px;
+    padding: 0px 75px 25px 75px;
+    .mentor-email {
+      margin-bottom: 30px;
+    }
+
+    .button.button-primary.book-meeting {
+      background-color: #fff;
+      color: $grey-darkest;
+      border: none;
+      // margin-top: 20px !important;
+    }
+  
+    .button.button-primary.book-meeting:hover {
+      background-color: #fff !important;
+      background-image: none;
+      color: $grey-darkest !important;
+      cursor: pointer;
     }
   }
+}
+
+.select-text {
+  margin-bottom: 25px;
+}
+
+ #fc-dom-1 {
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+  margin-bottom: 20px;
+  margin-top: 60px;
+}
+
+// #fc-dom-1 {
+//   color: white;
+//   margin: 0px;
+//   padding-top: 0px;
+//   padding-bottom: 0px;
+//   font-size: 16px;
+//   text-transform: none;
+//   font-weight: 400;
+//   letter-spacing: normal;
+// }
+
+.fc .fc-daygrid-day-number {
+  font-weight: bold;
+  padding-right: 8px;
+  padding-top: 8px;
+}
+
+
+.fc-bg-event {
+  background: #000 !important;
+  opacity: 1 !important;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.fc-bg-event i {
+  padding-left: 6px;
+  padding-right: 6px;
+  text-align: center;
+  line-height: 2rem;
+}
+
+.fc-day-today {
+  background-color: red !important;
+  // border: 1px solid red !important;
+}
+
+.fc-daygrid-day-frame {
+  // background: grey !important;
+  opacity: 0.9 !important;
+}
+
+.timeslot-heading {
+  padding-bottom: 0px !important;
+}
+
+.displayed-events-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-top: 60px;
+  // .event-box:not(:last-of-type){
+  //   margin-right: 40px;
+
+  // }
+}
+
+.event-box {
+  width: 32%;
+  // width: 25%;
+  border: 2px solid white;
+  padding: 10px;  
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    padding: 5px;
+  }
+  &:focus, &:focus-visible{
+    border: 2px solid red !important;
+    outline: none;
+  }
+}
+
+
+.button.button-primary.book-meeting {
+  background-color: #fff;
+  color: $grey-darkest;
+  border: none;
+  // margin-top: 20px !important;
+}
+
+.button.button-primary.book-meeting:hover {
+  background-color: #fff !important;
+  background-image: none;
+  color: $grey-darkest !important;
+  cursor: pointer;
+}
+
+.book-session { 
+  margin-top: 60px;
+  text-align: center;
+  align-items: center;
+  padding: 40px;  
+  // background-color: grey;
+  width: 100%;
+  h2 {
+    text-align: center !important;
+  }
+  p:first-of-type {
+    margin-bottom: 20px;
+  }
+}
+
+.send-invitation {
+  margin-top: 40px;
+}
+
+.selected-slot {
+  display: flex;
+  margin-bottom: 18px;
+  // justify-content: space-between;
+  .modal-close {
+    margin-left: 12px;
+  }
+}
+
+
+.mentor-name-btn {
+  margin: 0 auto;
+  border: 1px solid #fff;
+  padding: 18px 20px;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.span-cirle {
+  display: block;
+  background-color: #002DE9;
+  border-radius: 50%;
+  margin-right: 12px;
+  width: 18px;
+  height: 18px;
 }

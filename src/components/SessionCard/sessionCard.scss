@@ -9,10 +9,28 @@
   }
   .session-card--details {
     padding: 15px;
+    // padding: 0 15px;
     h4 {
       color: $primary;
       font-size: 18px;
       margin-bottom: 10px;
     }
+    .confirm-btns {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+      p {
+        cursor: pointer;
+        text-transform: uppercase;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none !important;
+        }
+      }
+    }
+  }
+
+  .rejected-line {
+    margin-top: 12px;
   }
 }

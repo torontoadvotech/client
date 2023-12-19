@@ -40,10 +40,42 @@ export default function LoginForm({ onLogIn }: Props): ReactElement {
 
     // Log the user in
     try {
-      const res = await API.login({ email, password });
+      // const res = await API.login({ email, password });
+      //TODO: remove line below and uncommen line above
+      let res = await API.login({ email, password });
+      console.log(res, "login");
+      //TODO: remove line below
+      const mockRes = {
+        "status": "success",
+        "token": "mocktoken",
+        "data": {
+            "user": {
+                "location": "[object Object]",
+                "role": "mentee",
+                "mentors": [],
+                "mentees": [],
+                "_id": "5e85365528f22e04b7679203",
+                "name": "Steve Rogers",
+                "email": "srogers@gmail.com",
+                "photo": "https://torontoadvotech.blob.core.windows.net/5e85365528f22e04b7679203/profile-picture-1595999551616-5e85365528f22e04b7679203.jpeg",
+                "bio": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac velit nec neque pulvinar blandit malesuada eget libero. Nullam vitae euismod tortor. Vestibulum ullamcorper ex vitae nulla facilisis, et feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac velit nec neque pulvinar blandit malesuada eget libero. Nullam vitae euismod tortor. Vestibulum ullamcorper ex vitae nulla facilisis, et feugiat.",
+                "__v": 0,
+                "passwordResetExpires": "2020-04-26T03:13:41.562Z",
+                "passwordResetToken": "c0a64f6938bc3e53d3a7cd453e497350f163b61f7330722189bc188953264d20",
+                "refreshToken": "3b07427302aae6b69ddfa6b83936e1c38a2a63969c612e582cf93705e890c573",
+                "refreshTokenExpires": "2023-12-01T15:31:48.977Z",
+                "pronouns": "He / Him",
+                "onboardingFormCompleted": false,
+                "initialOnboardFormCompleted": true
+            }
+        }
+    };
+    res = mockRes;
       // If login fails show an error
-      if (res.error) {
-        return setError(true);
+      if (res?.error) {
+        // return setError(true);
+        //TODO: uncomment line above and remove line below
+        res = mockRes;
       }
 
       // Save the user data in the container for future use

@@ -20,6 +20,7 @@ import SinglePageEvent from '../components/Events/EventSinglePage/EventSinglePag
 import MentorSelection from '../pages/MentorSelection/MentorSelection.page';
 import MentorSelectionPage from '../pages/MentorSelection/MentorSelection.page';
 import MentorProfilePage from '../pages/MentorProfile/MentorProfile.page';
+import MentorAvailability from '../pages/MentorAvailability/MentorAvailability.page';
 
 const AppRouter = () => {
   const { user, setUser } = User.useContainer();
@@ -81,6 +82,7 @@ const AppRouter = () => {
           />
           <Route path='/mentorship' exact component={MentorshipPage} />
           <Route path='/mentors' exact component={MentorSelection} />
+          <Route path='/mentor-availability' exact component={MentorAvailability} />
           <Route
             path='/validateEmail/:id'
             exact

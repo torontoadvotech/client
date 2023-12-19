@@ -29,7 +29,7 @@ const Modal: React.FunctionComponent<Props> = (props) => {
     <div className="modal-wrapper">
       <header>
         <h2>{props.title}</h2>
-        <div className="modal-close" onClick={props.onClose}>
+        <div className="modal-close" onClick={props.onClose} role="button">
           <FontAwesomeIcon icon={faTimes} />
         </div>
       </header>

@@ -32,9 +32,12 @@ const Header = () => {
     try {
       // Send logout request which will remove the current token
       const res = await API.logout();
+      console.log(res, "logout");
+      //TODO: remove line below
+      setUser(null);
 
       // remove user data from state
-      if (res.status === "success") {
+      if (res?.status === "success") {
         setUser(null);
       }
     } catch (error) {
