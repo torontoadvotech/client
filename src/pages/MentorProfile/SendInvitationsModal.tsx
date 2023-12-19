@@ -21,7 +21,7 @@ const SendInvitationsModal = ({ onClose, invitations }: Props) => {
               dateStyle: 'full',
               timeZone: 'America/Toronto',
             }).format(timeslot.start);
-            return (<div className="selected-slot">
+            return (<div className="invitation-slot">
               <p>{convertedDate} at {timeslot.selectedTimeslot[0]}</p>
             </div>)
         })}
